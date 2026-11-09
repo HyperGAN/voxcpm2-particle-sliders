@@ -1,0 +1,643 @@
+{
+  "schema": "voxcpm2-sanitized-source-v1",
+  "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+  "source_repository": "local voxcpm2-particle-sliders; no original history copied",
+  "intended_destination": "https://github.com/HyperGAN/voxcpm2-particle-sliders",
+  "approved_source_paths": [
+    ".gitignore",
+    "HYPERGAN-HNDL-BINDING-GAP.md",
+    "HYPERGAN-HNDL.md",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "batch/README.md",
+    "batch/nova-v1/auctioneer.manifest.template.json",
+    "batch/nova-v1/batch-plan.json",
+    "batch/nova-v1/flat_announcer.manifest.template.json",
+    "batch/nova-v1/medieval_town_herald.manifest.template.json",
+    "batch/nova-v1/reference-registry.template.json",
+    "batch/nova-v1/sleepy.manifest.template.json",
+    "pyproject.toml",
+    "scripts/compare_exports.py",
+    "source.lock.json",
+    "src/voxcpm2_particle_sliders/__init__.py",
+    "src/voxcpm2_particle_sliders/adapter.py",
+    "src/voxcpm2_particle_sliders/artifacts.py",
+    "src/voxcpm2_particle_sliders/audio_integrity.py",
+    "src/voxcpm2_particle_sliders/backend.py",
+    "src/voxcpm2_particle_sliders/batch.py",
+    "src/voxcpm2_particle_sliders/cli.py",
+    "src/voxcpm2_particle_sliders/distill.py",
+    "src/voxcpm2_particle_sliders/evaluation.py",
+    "src/voxcpm2_particle_sliders/hndl_binding.py",
+    "src/voxcpm2_particle_sliders/hndl_profile.json",
+    "src/voxcpm2_particle_sliders/pilot.py",
+    "src/voxcpm2_particle_sliders/runtime.py",
+    "src/voxcpm2_particle_sliders/training.py",
+    "src/voxcpm2_particle_sliders/wave_critic.hndl",
+    "tests/conftest.py",
+    "tests/test_batch_preparation.py",
+    "tests/test_contracts.py",
+    "tests/test_hypergan_hndl.py",
+    "tests/test_native.py",
+    "tests/test_pilot_budget.py",
+    "tests/test_review_hardening.py",
+    "src/voxcpm2_particle_sliders/singleton_binding.py",
+    "src/voxcpm2_particle_sliders/singleton_profile.json",
+    "src/voxcpm2_particle_sliders/wave_critic_singleton.hndl",
+    "tests/test_singleton_profile.py"
+  ],
+  "source_files": [
+    {
+      "path": ".gitignore",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "10712a7aa3d1cfc7b82f21e63693adf6f2fb4fec",
+      "source_sha256": "60440b207a5b6d8dc896f847a452f930e1240992d83bc00a83e8817a544fbfaf",
+      "source_bytes": 101,
+      "exported_sha256": "07cefc14ddc7ae20bf2916ba9879c2a97f1d09bd537bfac757e53c1b20bc0b34",
+      "exported_bytes": 356,
+      "transformations": [
+        "Append source-export privacy/artifact ignore rules."
+      ]
+    },
+    {
+      "path": "HYPERGAN-HNDL-BINDING-GAP.md",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "85feee1cb850ee3c1b979f21ddd1401166b8a880",
+      "source_sha256": "c9ef218e2dcf0aee64f87a1fbd4b6c5d96664cfe3547ee8139b65f5f8a9d5d56",
+      "source_bytes": 4417,
+      "exported_sha256": "4adffbc69ee3e86eda822713bcfe8ff364cac7a9ce48be4c6420367603df8e43",
+      "exported_bytes": 4602,
+      "transformations": [
+        "Adopt exact optional modern core a794 installed source closure and its refusal checks; preserve historical default and native qualification holds.",
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds."
+      ]
+    },
+    {
+      "path": "HYPERGAN-HNDL.md",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "3bc9972006c2c96576c7fa6cd00c58d196167585",
+      "source_sha256": "eee9bc553c0b4e5a3c6a154a42ee316b7c11873d1526bd568d4567d5847f4dc0",
+      "source_bytes": 4724,
+      "exported_sha256": "77018c037a59b228253f0ddcfe23798bdd71f8b18a587892ec05e2a37b25e41f",
+      "exported_bytes": 5830,
+      "transformations": [
+        "Adopt exact optional modern core a794 installed source closure and its refusal checks; preserve historical default and native qualification holds.",
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds."
+      ]
+    },
+    {
+      "path": "LICENSE",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "abd7fd66f359b65b3f65c9b495f24a5120e9b98e",
+      "source_sha256": "4f10acc209addacfad28293315c74c4cd648f771ee1263a748f1781d1e0265e4",
+      "source_bytes": 11298,
+      "exported_sha256": "4f10acc209addacfad28293315c74c4cd648f771ee1263a748f1781d1e0265e4",
+      "exported_bytes": 11298,
+      "transformations": []
+    },
+    {
+      "path": "NOTICE",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "0d6a2e2446f42e7c6631ed249d55da705a11cd64",
+      "source_sha256": "8a436fe0749ce8e448525c6b3e609b71b7178792a01002e0ca392cc77298a74d",
+      "source_bytes": 434,
+      "exported_sha256": "8a436fe0749ce8e448525c6b3e609b71b7178792a01002e0ca392cc77298a74d",
+      "exported_bytes": 434,
+      "transformations": []
+    },
+    {
+      "path": "README.md",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "167f19edfacf691517dca041c1176ab9641deb76",
+      "source_sha256": "43793d2161868ed7d744dd2117ed4922cff07c7a474506e09249a72331aa9c3e",
+      "source_bytes": 11969,
+      "exported_sha256": "44528533787994771dfdd7de1bea094b5c2d98e65d041fa129fba7bcb6c1be8c",
+      "exported_bytes": 17332,
+      "transformations": [
+        "Identify fresh source export and remove links to deliberately omitted historical receipts.",
+        "Clarify that prior Claude feedback covered excerpts; final complete actual-source review remains pending.",
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds.",
+        "Document controlled teacher semantics, unchanged GAN/admission, fixed-length screening and 64-patch duration limit.",
+        "Document fresh pilot,8192MiB default/current capacity check, diagnostic-only incomplete qualification, actual native precision and inert UCD, conservative control leakage and neutral-control refusal.",
+        "Document fresh singleton candidate as optimizer compatibility only; original profile, admission and cadence limitations remain.",
+        "Document explicit cohort markers and opt-in historical unlabeled compatibility; singleton never rebinds.",
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained.",
+        "Prominent experimental source/qualification notice and publication documentation link."
+      ],
+      "reviewed_export_sha256": "ea65d6b9b7500a12b5f4de81e531f9061591a72f7df98282de0c4db32a994208",
+      "reviewed_export_bytes": 16583
+    },
+    {
+      "path": "batch/README.md",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "badb5bad059bcd6ac906282c2ecc963bfc674534",
+      "source_sha256": "b8fcf255baea4566601ada0e25da46106bff633eff952b40458010bd9442659b",
+      "source_bytes": 4631,
+      "exported_sha256": "f780f55bf7494cce523d00087b683684a3b5a59e499a15e91ba7e2de860d13da",
+      "exported_bytes": 5108,
+      "transformations": [
+        "Describe evaluation/blinding files as future generator outputs, excluded from export.",
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds."
+      ]
+    },
+    {
+      "path": "batch/nova-v1/auctioneer.manifest.template.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "8aa36e349aa880ff28743c8ad3ca1361cf7ca36b",
+      "source_sha256": "2a51e613aac0d18240e5d381b36590463b108fa3a5749f537915223f30471954",
+      "source_bytes": 2823,
+      "exported_sha256": "2a51e613aac0d18240e5d381b36590463b108fa3a5749f537915223f30471954",
+      "exported_bytes": 2823,
+      "transformations": []
+    },
+    {
+      "path": "batch/nova-v1/batch-plan.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "54d79f85d4bcffca5f70e440fdaee5214e039022",
+      "source_sha256": "a16aafecc6cb76d5529f1ad421c796570de29bde78a6573daf8170d36d138dbf",
+      "source_bytes": 6172,
+      "exported_sha256": "2f2db0d9b3aaabb417b8fcb21806132a0eef119f70888fd8ce397456e2c51a8d",
+      "exported_bytes": 6172,
+      "transformations": [
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds.",
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained."
+      ],
+      "reviewed_export_sha256": "84f2351015adf299ec300a5ba294c4ad3ea8f8f2976541cf4a3ec6f1f1265faf",
+      "reviewed_export_bytes": 6172
+    },
+    {
+      "path": "batch/nova-v1/flat_announcer.manifest.template.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "295dfc36d5d5f79662f8df2b4fbb19de1fd2ed56",
+      "source_sha256": "d73c401e4936c695386701faa8ec7cdeed93fc7d91a835f99ee07b70deaf3da0",
+      "source_bytes": 2891,
+      "exported_sha256": "d73c401e4936c695386701faa8ec7cdeed93fc7d91a835f99ee07b70deaf3da0",
+      "exported_bytes": 2891,
+      "transformations": []
+    },
+    {
+      "path": "batch/nova-v1/medieval_town_herald.manifest.template.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "bb689fd88a52865af1c88b37b3c4976a0c623da4",
+      "source_sha256": "5c17b5ab4eca4379933f629c4508539f5803fa955546d0594393ba2bb34d97d9",
+      "source_bytes": 2993,
+      "exported_sha256": "5c17b5ab4eca4379933f629c4508539f5803fa955546d0594393ba2bb34d97d9",
+      "exported_bytes": 2993,
+      "transformations": []
+    },
+    {
+      "path": "batch/nova-v1/reference-registry.template.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "0377dc3afd8b9149453edc10d54bc594a4c68dca",
+      "source_sha256": "d673b79144bbea766dc6399b379e94ef40f64d028411b2817008fe6955d3be60",
+      "source_bytes": 3335,
+      "exported_sha256": "d673b79144bbea766dc6399b379e94ef40f64d028411b2817008fe6955d3be60",
+      "exported_bytes": 3335,
+      "transformations": []
+    },
+    {
+      "path": "batch/nova-v1/sleepy.manifest.template.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "0fffc239883058f44711b3a2d234328423b7d411",
+      "source_sha256": "91e0022dbcbb8f9ccacbaa123ff25ebb7cae38303709febd1c9fb19a0935f10d",
+      "source_bytes": 2755,
+      "exported_sha256": "91e0022dbcbb8f9ccacbaa123ff25ebb7cae38303709febd1c9fb19a0935f10d",
+      "exported_bytes": 2755,
+      "transformations": []
+    },
+    {
+      "path": "pyproject.toml",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "f6c94eff0ff6df50177e44f4e5964806113f00ce",
+      "source_sha256": "b97130bfc0b8509bb1c9b7e482ed653bd62b172cbc5502449a8a230226c4fc86",
+      "source_bytes": 1085,
+      "exported_sha256": "ccc339c93d53f32bb76628bf1fac05447ab864c566bee0bd5c659d347ba2e0f1",
+      "exported_bytes": 1116,
+      "transformations": [
+        "Package the separately named singleton JSON manifest without changing historical dependency pins.",
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained."
+      ],
+      "reviewed_export_sha256": "7d722195ebecf2ef0831b3207f8107e41128588282351567c1709368b12e55ff",
+      "reviewed_export_bytes": 1111
+    },
+    {
+      "path": "scripts/compare_exports.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "6a87e56fd3d5b6c73001536195bf2c662c3bc8d3",
+      "source_sha256": "83d613c0e8130579887422561fa40ddf1c4f2df49d2ac707161028a50e8fe31b",
+      "source_bytes": 5175,
+      "exported_sha256": "d3a3bacf89f820634c14627e9b8ffbeff05627d9359c977022f998a1d262b7a1",
+      "exported_bytes": 5255,
+      "transformations": [
+        "Hold the same approved GPU1 lease across native and stock comparison execution."
+      ]
+    },
+    {
+      "path": "source.lock.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "673a7d8444f2b01311795c627f0712222deb5e74",
+      "source_sha256": "f91fea7eb8b521f87a6b4877c49803103d9cecb8e833baf79032ae263fce42bd",
+      "source_bytes": 1786,
+      "exported_sha256": "79e21814032ab76b453ec626991ab57041d63a8006b2e3fa72153065c99f516a",
+      "exported_bytes": 1854,
+      "transformations": [
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained."
+      ],
+      "reviewed_export_sha256": "f91fea7eb8b521f87a6b4877c49803103d9cecb8e833baf79032ae263fce42bd",
+      "reviewed_export_bytes": 1786
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/__init__.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "722fb7dbc2a980b23176001da907d87fc0587569",
+      "source_sha256": "8d4c1a53ee3c29a8427de3d8bf35713bc15a16c77ab87be2bdabff3542071634",
+      "source_bytes": 104,
+      "exported_sha256": "8d4c1a53ee3c29a8427de3d8bf35713bc15a16c77ab87be2bdabff3542071634",
+      "exported_bytes": 104,
+      "transformations": []
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/adapter.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "c9ab67503911754861b8d3db7f5706660bf11de2",
+      "source_sha256": "16a97939a9311808d9754bf1fe45099aadad233cec2a609f79d10431a0fb7c0c",
+      "source_bytes": 6437,
+      "exported_sha256": "3729a9b0498974880a23a07f0a6aba02702d03bdf42389e2687b609bbcb88a18",
+      "exported_bytes": 7130,
+      "transformations": [
+        "Require lease before CUDA attachment and restore borrowed flags/modes after complete successful cleanup.",
+        "Preserve primary constructor exception and attach cleanup failure as a note while restoring borrowed state.",
+        "Recognize separately identified singleton candidate using the same verified shared particle projection; original profile metadata retained."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/artifacts.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "5f2404c6eae135ecb89ac334c3437c747df92cb2",
+      "source_sha256": "1fca198e19385fa7b4cd20224610a134fef7549180804515abafd0f35f8fcf9f",
+      "source_bytes": 2870,
+      "exported_sha256": "b25203b5e4e46d8ee5f004a29792a60c6c107e3992dccb16a9b941b3e40e1291",
+      "exported_bytes": 7522,
+      "transformations": [
+        "Verify all 34 official pinned VoxCPM Python sources before declaring code revision; normalize missing/malformed native metadata failures."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/audio_integrity.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "84852fd32738962d5a14b6dc3eb614162f037a14",
+      "source_sha256": "fedd86ed47ca646709363d67084aac14092caf5962daa25f308cd8b498c20ef4",
+      "source_bytes": 6280,
+      "exported_sha256": "3bb0226239fa334b4cd787c518d763f83953eed841cbbfd02c8ecce6739337cf",
+      "exported_bytes": 6560,
+      "transformations": [
+        "Screen normalized positive integer PCM saturation at its actual subtype rail."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/backend.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "d4cb55830a28e448c1192d2c7a7f7f8f5a26f073",
+      "source_sha256": "2ef50f930475fb9105783e513709b803343a0f69f58c27af5571b21322402c8d",
+      "source_bytes": 10164,
+      "exported_sha256": "803e04844c9481e3af95d3abc52810fa3df15ee1f55db244bcf128d8e9f5e658",
+      "exported_bytes": 11446,
+      "transformations": [
+        "Require GPU1 lease for direct CUDA sampler helpers; decode using actual VAE decoder dtype; add labeled buffer-independent diagnostic VJP, preserving full feedback gradients."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/batch.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "cc7e2e1e748ed3a2023d1e0bb1a078a78f9121b9",
+      "source_sha256": "d13c92d035b15461541dcb4bf94f78581236b838da1c3742e926c6a46060a393",
+      "source_bytes": 11884,
+      "exported_sha256": "28d9a00493d04491c1217ff6305c5ece129195edfa4bc4fe1216c13f1ec961d8",
+      "exported_bytes": 12455,
+      "transformations": [
+        "Replace enumerable IDs/order with per-batch random private salt and domain-separated HMAC; private maps use exclusive mode0600 writes; no existing mappings read.",
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained."
+      ],
+      "reviewed_export_sha256": "31b9686dc7fcdd670fbe86af671beb78cde8acd8d51b4d38eb4b0224131a5886",
+      "reviewed_export_bytes": 12455
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/cli.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "959452316e6d8c44f16901495993af674d5e7352",
+      "source_sha256": "2deaf122b1e23698783e5129143227a70b2191b9a7ee3cbce4146f59d05fb4e3",
+      "source_bytes": 13196,
+      "exported_sha256": "fa62114420b4f837b7a000b8f5d957e36d6c0baa00636654549398a050802c17",
+      "exported_bytes": 14683,
+      "transformations": [
+        "Hold GPU1 lease throughout CUDA commands; record independent post-update VJP evidence rather than optimizer-owned gradient buffers.",
+        "Canonicalize CUDA UUID in real qualification receipt, matching the existing lease identity helper.",
+        "Refuse pilot resume and native warm starts; default8192MiB headroom; check qualification before exports and write successful receipt last.",
+        "Refuse pilot resume/native warm starts again at direct _execute entry, before model, CUDA or output access.",
+        "Expose explicit singleton candidate choice and identity in preflight; unchanged wide-waveform refusal precedes loading.",
+        "Save tagged training/export packets and restore via pre-mutation cohort guard; expose explicit historical packet option."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/distill.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "2ed28077931a387e08e284211c52a7845f012503",
+      "source_sha256": "bd99b69e135b21b986679a104a80a3102d5b5145c38df6e6c3e8040f57f370bc",
+      "source_bytes": 10131,
+      "exported_sha256": "bd99b69e135b21b986679a104a80a3102d5b5145c38df6e6c3e8040f57f370bc",
+      "exported_bytes": 10131,
+      "transformations": []
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/evaluation.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "25b07cfafe144c17bb1f625538268b12d7727f4d",
+      "source_sha256": "ee0f14b28640628cbd4d128b9c62956dcf788d4288c3b14f66732a5947f4f85c",
+      "source_bytes": 3796,
+      "exported_sha256": "ee0f14b28640628cbd4d128b9c62956dcf788d4288c3b14f66732a5947f4f85c",
+      "exported_bytes": 3796,
+      "transformations": []
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/hndl_binding.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "ecedb98049e9f2302ce6a792c546999e6756db57",
+      "source_sha256": "076da5e8ac96df6caab5e9293e76897689b62a8d2a75af171a7414441a84b25e",
+      "source_bytes": 4271,
+      "exported_sha256": "2fd397039daa8dcf77a61324ded4e4a99ea63a60d3e07c279755aefad723f79e",
+      "exported_bytes": 5329,
+      "transformations": [
+        "Adopt exact optional modern core a794 installed source closure and its refusal checks; preserve historical default and native qualification holds."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/hndl_profile.json",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "9b50c60fc3dd4d39038f697105be103742bae508",
+      "source_sha256": "d20bc8d3bf99c476de6f21060301eef1e5e3b3b8621830a103d159e69fb3fa54",
+      "source_bytes": 904,
+      "exported_sha256": "fcdc361a528d20b87056c8d0eabd70a7d1afca8ed2dcd540826ab1d5576e324b",
+      "exported_bytes": 5690,
+      "transformations": [
+        "Adopt exact optional modern core a794 installed source closure and its refusal checks; preserve historical default and native qualification holds."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/pilot.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "2a0c9dfe3e10620a2a33b545e4aaba9c6e01642f",
+      "source_sha256": "df0f97ed3e795d11aa1994f32ee133237ec797d17cbcd6d74ea4c4837dd6de8d",
+      "source_bytes": 5043,
+      "exported_sha256": "6ab8221f9120754e8fa03dbcadd5d18dec51cd589971efc149737e9e7806bdf5",
+      "exported_bytes": 7674,
+      "transformations": [
+        "Require step-zero fresh pilot game before matching qualification.",
+        "Tag qualification/game state with full profile identity; check explicit and embedded identities before restore; strip host marker before unchanged shared loader; gate unlabeled legacy/original compatibility explicitly."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/runtime.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "7d2db26987f03c288dabac9f6f51589160d0f13c",
+      "source_sha256": "7a2b66d8bbab01428a7eed606b561abce7558145df00ea324b314b08199e1753",
+      "source_bytes": 7502,
+      "exported_sha256": "ac795cdc30652af01d07fa9926300278c9250f12c6a72520d0b36f7c5037f876",
+      "exported_bytes": 14732,
+      "transformations": [
+        "Enforce one physical-GPU1 UUID lease across CUDA loading/execution; preserve GPU0 reservation and fail-closed occupancy checks.",
+        "Normalize exact Torch CUuuid bytes as well as string/UUID values; preserve identity/occupancy checks; CPU regression tested.",
+        "Add explicit measured stock-ASR/speaker-only GPU0 sharing context with16GiB free headroom and fixed model/shape limits; existing Vox/GAN GPU1 guard is unchanged; CPU contract tests.",
+        "Add explicit controlled-teacher text with identical frozen-reference byte requirement; legacy row semantics unchanged.",
+        "Refuse parenthesized neutral training controls before prefix building; document intentionally conservative train/dev duplicate signature.",
+        "Verify selected modern profile before model loading, including new candidate source closure.",
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained."
+      ],
+      "reviewed_export_sha256": "872267567a01e6d5e55cb140a6257dfdaee613a2e1c80aade06ae60e2a2578af",
+      "reviewed_export_bytes": 14494
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/training.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "057d7f8533262a3be2950bf05eab4f6e3f7110e0",
+      "source_sha256": "19f35fe61467eda41ed20efcb55f57ab8b2fb01d87b767903114eaeb79a4c90a",
+      "source_bytes": 2321,
+      "exported_sha256": "64019ca2d070f479132b5499c73b35233376b55fe36442cb5e10f2152db6f037",
+      "exported_bytes": 2630,
+      "transformations": [
+        "Select fresh singleton critic only for its new profile, after unchanged public waveform-domain validation; no loss/recipe override."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/wave_critic.hndl",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "7dbe565eef5a5dd5c5c286c2b02f4d0a892bdaf8",
+      "source_sha256": "5cc3cf5da1b2e8b7dd15fa9e9c088793df1a5e9bb6c2eae78ac15f60af6c7b8e",
+      "source_bytes": 501,
+      "exported_sha256": "5cc3cf5da1b2e8b7dd15fa9e9c088793df1a5e9bb6c2eae78ac15f60af6c7b8e",
+      "exported_bytes": 501,
+      "transformations": []
+    },
+    {
+      "path": "tests/conftest.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "2a910477753852f869709af24269f81aa9581ef0",
+      "source_sha256": "743b4ef7fbce549c63ab02228e31e9c9c025516ae4e862cb4a894792be2a3769",
+      "source_bytes": 2001,
+      "exported_sha256": "743b4ef7fbce549c63ab02228e31e9c9c025516ae4e862cb4a894792be2a3769",
+      "exported_bytes": 2001,
+      "transformations": []
+    },
+    {
+      "path": "tests/test_batch_preparation.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "3bda37d6206d1956e3072f5f80c798f1264f34b6",
+      "source_sha256": "76cb5ee61c4522053f277a48dd6df7c0766c547a2aa0b1a61e1bd3d1160da9dd",
+      "source_bytes": 4472,
+      "exported_sha256": "dea6389f635cad7f70cf02a27209640528a187b3a038408f42ec7a5cc4cc509d",
+      "exported_bytes": 5915,
+      "transformations": [
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds."
+      ]
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "346c47e760135344bf3d94529419b140f6919112",
+      "source_sha256": "e7d51cf8f50dbfd3b5ae86a7a80aff250c937a546f658b6959e3666455f531b4",
+      "source_bytes": 2916,
+      "exported_sha256": "ee8b1ff89c8f7f23776fb24e03dcd2f9dfb9e938781a77fd52b0cb1658b22851",
+      "exported_bytes": 14256,
+      "transformations": [
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds.",
+        "Add CPU controlled-teacher manifest/path validation and actual tiny native forward/backward tests; not pretrained evidence.",
+        "Test primary/cleanup exception identity and state restoration, changed-control leakage refusal and early neutral-control refusal."
+      ]
+    },
+    {
+      "path": "tests/test_hypergan_hndl.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "b7d132c31fbf124f89d604f1fd762f63f95eab1f",
+      "source_sha256": "0b9e9c959d8078cdaa8bf7e5525112aa92b3f650321e83f3930c32c2ca8c546e",
+      "source_bytes": 11641,
+      "exported_sha256": "b6a6f2b0d08f19f2723df443da132a90f204cdeb8cd78911b4a1a7bd35edd92c",
+      "exported_bytes": 14670,
+      "transformations": [
+        "Adopt exact optional modern core a794 installed source closure and its refusal checks; preserve historical default and native qualification holds.",
+        "Verify actual FP32 HNDL leaves/critic and score loss invariance to inert UCD weight; no native game construction."
+      ]
+    },
+    {
+      "path": "tests/test_native.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "c124faa874ad54fdad29b4bd62ee5d3dcab2cf06",
+      "source_sha256": "752af6132bb456f2a8518c30f14e6e98b954a6ace408b55d11d2b156cbe058c2",
+      "source_bytes": 6933,
+      "exported_sha256": "752af6132bb456f2a8518c30f14e6e98b954a6ace408b55d11d2b156cbe058c2",
+      "exported_bytes": 6933,
+      "transformations": []
+    },
+    {
+      "path": "tests/test_pilot_budget.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "cd044757b6daad5430428688c803271d22c90ded",
+      "source_sha256": "cd605aea866708f32706e4cdaa007d0193b081ea296c249eb724c69f506b499e",
+      "source_bytes": 4960,
+      "exported_sha256": "4ce2508da0daf3a74f433992d87a384ea80f5616c24603592b572a0204e6a36f",
+      "exported_bytes": 21823,
+      "transformations": [
+        "Claude return-review regression tests or documentation/template corrections; preserve historical dependency pins and qualification holds.",
+        "Normalize exact Torch CUuuid bytes as well as string/UUID values; preserve identity/occupancy checks; CPU regression tested.",
+        "Add explicit measured stock-ASR/speaker-only GPU0 sharing context with16GiB free headroom and fixed model/shape limits; existing Vox/GAN GPU1 guard is unchanged; CPU contract tests.",
+        "Test fresh pilot gates, budget boundaries,8192MiB default, current capacity rejection, failed update propagation and diagnostic-only incomplete qualification using explicit CPU control-flow doubles.",
+        "Test direct pilot teacher/resume refusal before load/CUDA, and continued qualification checkpoint loading.",
+        "Cover same-shaped cross-cohort refusal in both directions before mutation, outer/embedded mismatch, matched labeled restore and explicit old-compatible receipt/state paths.",
+        "Public snapshot sanitation: generic fail-closed GPU UUID placeholders or source-publication status wording; original reviewed-source lineage retained."
+      ],
+      "reviewed_export_sha256": "aa0eb5cc941307b8aa8477d307f75a705894736095b79d170602fa454de0f0d4",
+      "reviewed_export_bytes": 21823
+    },
+    {
+      "path": "tests/test_review_hardening.py",
+      "source_commit": "fb6bf66b31458e632dff8f3c7eb672023bd48203",
+      "source_blob": "8d95c6b66a6d7f5ab8260de351c568bc3e1c0170",
+      "source_sha256": "45c61a31d0477137a6b20486b64651db59df01af0b4a91557ac02e885425c363",
+      "source_bytes": 15250,
+      "exported_sha256": "45c61a31d0477137a6b20486b64651db59df01af0b4a91557ac02e885425c363",
+      "exported_bytes": 15250,
+      "transformations": []
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/singleton_binding.py",
+      "source_commit": null,
+      "source_blob": null,
+      "source_sha256": null,
+      "source_bytes": null,
+      "exported_sha256": "e19f930b623c38969e6ba884bc3f432bfb32969bad8cade70be81abddc154fe6",
+      "exported_bytes": 4355,
+      "transformations": [
+        "Locally authored separate product candidate binding/manifest/tests over reviewed representation proof."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/singleton_profile.json",
+      "source_commit": null,
+      "source_blob": null,
+      "source_sha256": null,
+      "source_bytes": null,
+      "exported_sha256": "0a573c1b938dc9c96c4000826f9b7355472994c41ef920c4a75503f7f1f08413",
+      "exported_bytes": 1418,
+      "transformations": [
+        "Locally authored separate product candidate binding/manifest/tests over reviewed representation proof."
+      ]
+    },
+    {
+      "path": "src/voxcpm2_particle_sliders/wave_critic_singleton.hndl",
+      "source_commit": "6872683b15cfc267e725acdce59c5772ebf9f233",
+      "source_blob": "ccd168b54c10e784acfd0bafa81b6d1ca0ba307c",
+      "source_sha256": "6e42b438f5bde89c435331841ad1454045dff9c540f0a56b096d6ebc4ef3dc68",
+      "source_bytes": 555,
+      "exported_sha256": "6e42b438f5bde89c435331841ad1454045dff9c540f0a56b096d6ebc4ef3dc68",
+      "exported_bytes": 555,
+      "transformations": [
+        "Exact reviewed immutable singleton graph bytes; no plan mutation."
+      ]
+    },
+    {
+      "path": "tests/test_singleton_profile.py",
+      "source_commit": null,
+      "source_blob": null,
+      "source_sha256": null,
+      "source_bytes": null,
+      "exported_sha256": "bea15c075c2713873fcf93a81f6650ce2a1ad9b90e9bf07072acb7158b01a482",
+      "exported_bytes": 9710,
+      "transformations": [
+        "Locally authored separate product candidate binding/manifest/tests over reviewed representation proof.",
+        "Test reverse singleton-native packet to original-profile refusal before mutation and continued original compatible load."
+      ]
+    }
+  ],
+  "generated_controls": [
+    "EXPORT-NOTICE.md",
+    "MANIFEST.in",
+    "SOURCE-PROVENANCE.json"
+  ],
+  "excluded_categories": [
+    "judge/blinding maps and keys",
+    "evaluation request maps",
+    "recordings",
+    "weights",
+    "vendor",
+    "environments",
+    "historical receipts",
+    "run outputs",
+    "original Git history"
+  ],
+  "excluded_contents_read": false,
+  "history_mirrored": false,
+  "substantive_change_provenance": [
+    {
+      "commit": "3524959934be02bc079fb205c9762fd9cb497d1e",
+      "scope": "Optional modern core binding includes a substantive complete 50-file installed-source closure gate and new refusal tests, not only a dependency-label update.",
+      "core_commit": "a794e3b4a8813b012f2c4faa3da82b78d4a90214",
+      "core_wheel_sha256": "22e47ced4af8cb874d818db2f4006738f5f978cfcff324693931b6ab23f21c8a"
+    },
+    {
+      "base_commit": "3524959934be02bc079fb205c9762fd9cb497d1e",
+      "scope": "Vox-local Claude return-review hardening for blinding, GPU ownership, native metadata/code provenance, dtype, gradient evidence and cleanup. No shared GAN/routing/distillation equations copied.",
+      "official_voxcpm_python_hash_source": {
+        "commit": "19b6bf7590025418821a86dcb817504e0ad7e5df",
+        "files": 34,
+        "verification": "Each expected Python file byte-compared with its pinned local official Git blob."
+      }
+    },
+    {
+      "base_commit": "1e8af20fd900d471260028561e3536aac2b388a4",
+      "scope": "Sleepy native pilot preparation: explicit stock-control teacher on identical frozen speaker reference, canonical qualification GPU UUID, CPU tests and duration limitations. No shared code, graph, optimizer, objective or admission changes. Actual-source review pending."
+    },
+    {
+      "base_commit": "1f68bb977e8335554384f67d8749622a92b9035f",
+      "scope": "Claude return correctness fixes for genuinely fresh pilot and primary adapter error preservation; targeted operational/input guards, regression tests and precision/UCD reconciliation. Shared GAN, HNDL critic, PG admission and GPU0 stock-only separation unchanged."
+    },
+    {
+      "base_commit": "cada2b30ebd1b76fd8ae6fe1e2f6d6f18ab14438",
+      "scope": "Close direct _execute pilot warm-start entry before loading/output; preserve qualification resume behavior. No shared code, critic, objective or admission changes."
+    },
+    {
+      "base_commit": "646111d25ea32bfce08fc5a37f9570c4c07fabab",
+      "proof_commit": "6872683b15cfc267e725acdce59c5772ebf9f233",
+      "scope": "Fresh explicitly named singleton-spatial Vox candidate; exact reviewed HNDL graph, inherited full core/runtime closure, true Conv2d optimizer geometry and CPU derivative/restore/refusal tests. Original binding/manifest/Conv1d graph preserved byte-for-byte; no checkpoint migration, PG law, admission or temporal change."
+    },
+    {
+      "base_commit": "57dd46eb5bd529495b828c2d9df42311760f4cb5",
+      "scope": "Explicit product cohort identity on qualification/resume/export packets, pre-mutation refusal and explicit historical compatibility; reverse native-packet refusal test. Shared state schema, GAN/critic/source admission and immutable graphs unchanged. CPU only."
+    }
+  ],
+  "publication_source_commit": "059d5159d617a47336495431beb602b913e07a97",
+  "publication_metadata_paths": [
+    "SOURCE-PROVENANCE.json",
+    "EXPORT-NOTICE.md",
+    "MANIFEST.in",
+    "PUBLICATION.md"
+  ]
+}

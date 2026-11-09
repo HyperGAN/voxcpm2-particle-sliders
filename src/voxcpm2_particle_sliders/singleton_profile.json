@@ -1,0 +1,33 @@
+{
+  "profile": "voxcpm2-hypergan-hndl-singleton-v1",
+  "proof_commit": "6872683b15cfc267e725acdce59c5772ebf9f233",
+  "proof_sources": {
+    "analysis/voxcpm2_waveform_audit/conv2d_candidate.py": {
+      "sha256": "27899f509d74001ff1b2f4d958cacf4264793adb9dd68e4d0e7d07db03d6b2c7",
+      "bytes": 6980
+    },
+    "analysis/voxcpm2_waveform_audit/wave_critic_singleton.hndl": {
+      "sha256": "6e42b438f5bde89c435331841ad1454045dff9c540f0a56b096d6ebc4ef3dc68",
+      "bytes": 555
+    },
+    "analysis/voxcpm2_waveform_audit/test_conv2d_candidate.py": {
+      "sha256": "5c78df163658a50c1583e03b27100f62685d711dc2524a5fdbfbcc961b21638d",
+      "bytes": 12261
+    },
+    "analysis/voxcpm2_waveform_audit/CONV2D-PROOF.md": {
+      "sha256": "beb2b09515c3c87d513aa5d08437bf8542b06be61564fb80f7858885718abdf8",
+      "bytes": 6939
+    }
+  },
+  "base_vox_profile": "voxcpm2-hypergan-hndl-v1",
+  "base_binding_sha256": "2fd397039daa8dcf77a61324ded4e4a99ea63a60d3e07c279755aefad723f79e",
+  "base_manifest_sha256": "fcdc361a528d20b87056c8d0eabd70a7d1afca8ed2dcd540826ab1d5576e324b",
+  "graph_sha256": "6e42b438f5bde89c435331841ad1454045dff9c540f0a56b096d6ebc4ef3dc68",
+  "kernel_mapping": "W2[out,in,0,k]=W1[out,in,k]",
+  "game_boundary": "rank2 native waveform unchanged",
+  "production_admitted": false,
+  "cuda_qualified": false,
+  "native_qualified": false,
+  "larger_307200_admitted": false,
+  "cadence_qualified": false
+}

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voxcpm2-particle-sliders"
+version = "0.1.0"
+description = "Experimental VoxCPM2 native particle adapter integration and approximate ordinary LoRA distillation"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "torch>=2.6,<3",
+  "voxcpm @ git+https://github.com/OpenBMB/VoxCPM.git@19b6bf7590025418821a86dcb817504e0ad7e5df",
+  "particle-sliders-core @ git+https://github.com/HyperGAN/particle-sliders.git@3c25f785d14073e6f627c0fa9d2297a041c79913#subdirectory=packages/particle-sliders-core",
+  "hypergan @ git+https://github.com/HyperGAN/HyperGAN.git@5f368a3770cf5bdae0448995c9f76e29af8049f7",
+  "safetensors>=0.8,<1",
+  "soundfile>=0.12,<1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+voxcpm2-slider = "voxcpm2_particle_sliders.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+voxcpm2_particle_sliders = ["*.hndl", "hndl_profile.json", "singleton_profile.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

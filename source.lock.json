@@ -1,0 +1,31 @@
+{
+  "repositories": {
+    "VoxCPM": {
+      "repository": "https://github.com/OpenBMB/VoxCPM",
+      "commit": "19b6bf7590025418821a86dcb817504e0ad7e5df"
+    },
+    "particle-sliders": {
+      "repository": "https://github.com/HyperGAN/particle-sliders",
+      "commit": "3c25f785d14073e6f627c0fa9d2297a041c79913"
+    },
+    "HyperGAN": {
+      "repository": "https://github.com/HyperGAN/HyperGAN",
+      "commit": "5f368a3770cf5bdae0448995c9f76e29af8049f7"
+    }
+  },
+  "reviewed_sources": {
+    "vendor/VoxCPM/src/voxcpm/model/voxcpm2.py": "9c4f1e08495e727ce339e5da93347237b81f386398a783b79c66eb206c3397f6",
+    "vendor/VoxCPM/src/voxcpm/modules/locdit/unified_cfm.py": "e4535337024cf44b6888eccfd39ccbe98684e302dd1836e05f940b4d626dcfdf",
+    "vendor/VoxCPM/src/voxcpm/modules/layers/scalar_quantization_layer.py": "3e8c661a0eae8ecbf5abbebbea8971a962e95ebef8ea887b5ca4796d9436ca9d",
+    "vendor/VoxCPM/src/voxcpm/modules/audiovae/audio_vae_v2.py": "4a8c6f30ad3aa1e18c405cc103de617c125b21894d84d98a377930ca0ca7c429",
+    "vendor/particle-sliders/packages/particle-sliders-core/src/particle_sliders/routed_projection.py": "d71e032c1a578e7fdc0494b3d43b982b3b4afdbc4ba859f21f75e2118c347e04",
+    "vendor/particle-sliders/packages/particle-sliders-core/src/particle_sliders/distillation.py": "b277e561517a9cb40d1a399ad07c6350aa22a287232aea816b7f6e434e18a232",
+    "vendor/particle-sliders/packages/particle-sliders-core/src/particle_sliders/pg09.py": "b338f1aab3a6e0862b5a3ec921ddf280a9048b78c8bdd17b2586c83e8cd99581"
+  },
+  "shared_core_version": "0.11.0",
+  "compatible_particlegan": "0.9.3",
+  "latest_official_particlegan_requirement": "0.9.4 upgrade pending shared-core inventory owner",
+  "weights_downloaded": false,
+  "model_revision": null,
+  "publication": "public sanitized source only; no recordings, weights, private maps or runtime receipts"
+}

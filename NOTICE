@@ -1,0 +1,7 @@
+The fixed-length sampler's native model geometry follows OpenBMB VoxCPM 2.0.3,
+Copyright 2026 OpenBMB, Apache License 2.0. The official VoxCPM implementation is
+a pinned dependency; no pretrained model weights are included.
+
+Particle routing, GAN training and ridge distillation are imported from
+HyperGAN/particle-sliders and its official ParticleGAN dependency. Their source
+and license provenance are recorded in source.lock.json.

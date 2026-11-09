@@ -1,0 +1,92 @@
+{
+  "executable": false,
+  "provenance": {
+    "generated_data_available": false,
+    "reference_registry": "reference-registry.template.json",
+    "reference_status": "pending_verified_recordings",
+    "target": "auctioneer"
+  },
+  "rows": [
+    {
+      "id": "auctioneer-train-01",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-train-positive",
+      "seed": 171,
+      "split": "train",
+      "text": "The room is warm and quiet."
+    },
+    {
+      "id": "auctioneer-train-02",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-train-positive",
+      "seed": 172,
+      "split": "train",
+      "text": "I will wait beside the window."
+    },
+    {
+      "id": "auctioneer-train-03",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-train-positive",
+      "seed": 173,
+      "split": "train",
+      "text": "Please leave the lantern by the door."
+    },
+    {
+      "id": "auctioneer-train-04",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-train-positive",
+      "seed": 174,
+      "split": "train",
+      "text": "We can start again in the morning."
+    },
+    {
+      "id": "auctioneer-dev-01",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-dev-positive",
+      "seed": 171,
+      "split": "dev",
+      "text": "The package arrived before the rain."
+    },
+    {
+      "id": "auctioneer-dev-02",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-dev-positive",
+      "seed": 172,
+      "split": "dev",
+      "text": "The race begins in ten seconds."
+    },
+    {
+      "id": "auctioneer-dev-03",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-dev-positive",
+      "seed": 173,
+      "split": "dev",
+      "text": "Take your time; there is no hurry."
+    },
+    {
+      "id": "auctioneer-dev-04",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "auctioneer-dev-positive",
+      "seed": 174,
+      "split": "dev",
+      "text": "We won the final round at last."
+    }
+  ],
+  "schema": "voxcpm2-slider-manifest-template-v1"
+}

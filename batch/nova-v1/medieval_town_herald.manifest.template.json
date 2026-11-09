@@ -1,0 +1,92 @@
+{
+  "executable": false,
+  "provenance": {
+    "generated_data_available": false,
+    "reference_registry": "reference-registry.template.json",
+    "reference_status": "pending_verified_recordings",
+    "target": "medieval_town_herald"
+  },
+  "rows": [
+    {
+      "id": "medieval_town_herald-train-01",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-train-positive",
+      "seed": 171,
+      "split": "train",
+      "text": "The room is warm and quiet."
+    },
+    {
+      "id": "medieval_town_herald-train-02",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-train-positive",
+      "seed": 172,
+      "split": "train",
+      "text": "I will wait beside the window."
+    },
+    {
+      "id": "medieval_town_herald-train-03",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-train-positive",
+      "seed": 173,
+      "split": "train",
+      "text": "Please leave the lantern by the door."
+    },
+    {
+      "id": "medieval_town_herald-train-04",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-train-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-train-positive",
+      "seed": 174,
+      "split": "train",
+      "text": "We can start again in the morning."
+    },
+    {
+      "id": "medieval_town_herald-dev-01",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-dev-positive",
+      "seed": 171,
+      "split": "dev",
+      "text": "The package arrived before the rain."
+    },
+    {
+      "id": "medieval_town_herald-dev-02",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-dev-positive",
+      "seed": 172,
+      "split": "dev",
+      "text": "The race begins in ten seconds."
+    },
+    {
+      "id": "medieval_town_herald-dev-03",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-dev-positive",
+      "seed": 173,
+      "split": "dev",
+      "text": "Take your time; there is no hurry."
+    },
+    {
+      "id": "medieval_town_herald-dev-04",
+      "neutral_reference": null,
+      "neutral_reference_id": "base-dev-neutral",
+      "positive_reference": null,
+      "positive_reference_id": "medieval_town_herald-dev-positive",
+      "seed": 174,
+      "split": "dev",
+      "text": "We won the final round at last."
+    }
+  ],
+  "schema": "voxcpm2-slider-manifest-template-v1"
+}

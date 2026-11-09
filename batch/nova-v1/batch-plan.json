@@ -1,0 +1,143 @@
+{
+  "additional_targets": [],
+  "dependency_gate": {
+    "bypass_allowed": false,
+    "owner": "shared-core inventory owner",
+    "required": "Exact reviewed official explicit-continuous source profile and coherent core/PG/HyperGAN pins",
+    "status": "pending"
+  },
+  "distillation": {
+    "evidence": [
+      "disjoint held-out projection MSE/R2",
+      "stock loader and exact zero strength",
+      "native/distilled waveform, intelligibility, identity and expressivity comparisons"
+    ],
+    "method": "existing shared fit_routed_down; retained scaled up",
+    "promotion": "Approximate; no arbitrary R2 threshold substitutes for real character fidelity",
+    "requires_successful_native_candidate": true,
+    "status": "separate_unqualified_gate"
+  },
+  "evaluation": {
+    "blinded_judge": "Future local manifest only; no paid API calls or audio upload authorized here",
+    "cfg_value": 2.0,
+    "cfg_zero_star": true,
+    "expanded": "4 held-out texts x 2 seeds x strengths0/.5/1/2 x native/distilled =64 clips per target",
+    "first_pass": "2 held-out texts x 1 seed x native strengths0/1 =4 clips per target",
+    "frames": 48,
+    "measures": [
+      "blinded character identification including none-of-these",
+      "transcription fidelity / WER/CER",
+      "naturalness and artifacts",
+      "same-speaker consistency",
+      "delivery under incongruent content"
+    ],
+    "nova_threshold_suggestions": {
+      "clarity_rating": "4/5",
+      "id_accuracy": 0.7,
+      "status": "provisional uncalibrated suggestions; not automatic acceptance criteria"
+    },
+    "steps": 10,
+    "strength2": "extrapolation stress test; not a trained endpoint",
+    "supplementary": "Optional low-pass prosody-only listening; not definitive proof of semantic disentanglement",
+    "sway": 1.0,
+    "trained_strength": 1.0
+  },
+  "gpu_gate": {
+    "admission": "Live UUID/process/free-memory and owner lease verification required; no driver/permission changes",
+    "gpu0_owner": "studio; retain ownership until actually released",
+    "protected_physical_minor": 0,
+    "protected_uuid": "GPU-00000000-0000-0000-0000-000000000000",
+    "qualification_physical_minor": 1,
+    "qualification_uuid": "GPU-00000000-0000-0000-0000-000000000001",
+    "status": "unverified"
+  },
+  "network_integration_gate": {
+    "implemented": "Shared HNDL projection + Vox HyperGAN/HNDL waveform critic + public lora_up pre-hook retained-up distillation",
+    "inspected_candidate": {
+      "core_commit": "a794e3b4a8813b012f2c4faa3da82b78d4a90214",
+      "core_version": "0.12.0",
+      "hndl_version": "0.10.0",
+      "hypergan_commit": "5f368a3770cf5bdae0448995c9f76e29af8049f7",
+      "particlegan_version": "0.9.4",
+      "profile": "hypergan-hndl-v2"
+    },
+    "old_cohort_policy": "Preserve prototype identity; new graph/profile is a new source-bound cohort",
+    "prototype": "core0.11 TinyParticleProjection + Python WaveCritic; HyperGAN pin/schema witness only",
+    "status": "vox_local_implemented_cpu_candidate_tested",
+    "unresolved": [
+      "Final official continuous-domain admission; current candidate is not wide-waveform qualified",
+      "Final coherent default install pin after the owner selects the reviewed source profile"
+    ]
+  },
+  "parallelism": {
+    "first_batch": "One job per released/verified idle card",
+    "initial": "One bounded qualification on GPU1",
+    "maximum_current_proposal": 2,
+    "same_card_packing": "Unqualified; needs measured combined peaks and reviewed memory-aware leases"
+  },
+  "pilot": {
+    "max_wall_seconds": 900,
+    "maximum_updates": 200,
+    "note": "Pilot requires exact source/model/adapter/native-duration/GPU qualification with actual memory/time evidence; no per-card concurrency assumed",
+    "proposed_updates": 100,
+    "qualification_max_updates": 10,
+    "status": "blocked_until_matching_measured_real_qualification",
+    "stop_criteria": [
+      "explicit update budget",
+      "wall budget between updates",
+      "propagate shared-game nonfinite/disconnection/update failures; never promote a failed step"
+    ]
+  },
+  "qualification": {
+    "cfg_value": 2.0,
+    "cfg_zero_star": true,
+    "frames": 4,
+    "hosts": [
+      "dit"
+    ],
+    "requirements": [
+      "finite intended gradients and frozen backbone",
+      "native checkpoint/export/reload",
+      "stock distilled reload",
+      "measure peak allocated/reserved VRAM and wall time"
+    ],
+    "status": "blocked_by_dependency_gpu_model_references",
+    "steps": 10,
+    "updates": 2
+  },
+  "reference_policy": "One verified base speaker across OFF/ON and all four targets; shared neutral train/dev references; separate held-out recording sessions and text",
+  "schema": "voxcpm2-character-batch-plan-v1",
+  "source_data_available": false,
+  "spoken_text_policy": "Same neutral modern text for OFF/ON; avoid medieval wording as a style confound",
+  "status": "blocked_preparation_only",
+  "targets": [
+    {
+      "direction": "Projected drowsy reading; slower rate, within-phrase pauses and falling contours; intelligible, not whispery or intimate",
+      "id": "sleepy",
+      "references_status": "pending",
+      "requested_label": "Sleepy",
+      "target_definition_status": "nova_hypothesis_unvalidated"
+    },
+    {
+      "direction": "Projected rhythmic proclamation cadence and phrase-final lengthening on plain modern prose; no inserted archaic wording",
+      "id": "medieval_town_herald",
+      "references_status": "pending",
+      "requested_label": "Medieval Town Herald",
+      "target_definition_status": "nova_hypothesis_unvalidated"
+    },
+    {
+      "direction": "Bounded intelligible patter; no invented sale vocabulary or different speaker",
+      "id": "auctioneer",
+      "references_status": "pending",
+      "requested_label": "Auctioneer",
+      "target_definition_status": "nova_hypothesis_unvalidated"
+    },
+    {
+      "direction": "Even energy and low pitch variation; maintain intelligibility and the same base speaker",
+      "id": "flat_announcer",
+      "references_status": "pending",
+      "requested_label": "Flat Announcer",
+      "target_definition_status": "nova_hypothesis_unvalidated"
+    }
+  ]
+}

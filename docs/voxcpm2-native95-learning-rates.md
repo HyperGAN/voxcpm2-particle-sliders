@@ -51,7 +51,7 @@ setuptools installed, the Source-only install route is:
 python -m pip install --no-deps --no-index --no-build-isolation --no-cache-dir --no-compile \
   'particle-sliders-core[fibo-hndl] @ git+https://github.com/HyperGAN/particle-sliders.git@f7001a821c89df6c2e8473da4f6914db45516aeb#subdirectory=packages/particle-sliders-core'
 python -m pip install --no-deps --no-index --no-build-isolation --no-cache-dir --no-compile \
-  'voxcpm2-native95 @ git+https://github.com/HyperGAN/voxcpm2-particle-sliders.git@PUBLISHED_NATIVE_SOURCE_COMMIT#subdirectory=backends/voxcpm2-native95'
+  'voxcpm2-native95 @ git+https://github.com/HyperGAN/voxcpm2-particle-sliders.git@b470e56b840f1b2dec3c3009e385104defe7fd65#subdirectory=backends/voxcpm2-native95'
 ```
 
 These commands fetch pinned Source and install no dependencies. The new public

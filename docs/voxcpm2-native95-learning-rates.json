@@ -1,0 +1,78 @@
+{
+  "schema": "voxcpm2-native95-finished-Sleepy-LR-comparison-v1",
+  "measured_product_commit": "ba6ec023a121610a6a83cb2a816bf33f696584b2",
+  "measured_core_commit": "41f6066f2d2644902670d5eb736de052e1a70553",
+  "core_packaging_derivative_commit": "f7001a821c89df6c2e8473da4f6914db45516aeb",
+  "particlegan": "0.9.5",
+  "backend": "voxcpm2_native95",
+  "trait": "audible sleepy vocal delivery",
+  "selection_metric": "Equal-case mean normalized intended Sleepy intensity ON minus matched OFF",
+  "case_weights": [
+    0.5,
+    0.5
+  ],
+  "completed_updates_per_arm": 32,
+  "configured_horizon": 128,
+  "per_arm": [
+    {
+      "arm": "G012",
+      "G": 0.012,
+      "d_lr_mult": 1.5,
+      "actual_D": 0.018000000000000002,
+      "prior_lr_mult": 2.5,
+      "actual_bank": 0.03,
+      "ema_decay": null,
+      "completed_updates": 32,
+      "cases": [
+        {
+          "case_id": "package-seed7-native-EOS",
+          "OFF": 0.75,
+          "ON": 0.75,
+          "gain": 0.0
+        },
+        {
+          "case_id": "garden-seed11-native-EOS",
+          "OFF": 0.75,
+          "ON": 0.75,
+          "gain": 0.0
+        }
+      ],
+      "mean_gain": 0.0
+    },
+    {
+      "arm": "G001",
+      "G": 0.001,
+      "d_lr_mult": 18.0,
+      "actual_D": 0.018000000000000002,
+      "prior_lr_mult": 30.0,
+      "actual_bank": 0.03,
+      "ema_decay": null,
+      "completed_updates": 32,
+      "cases": [
+        {
+          "case_id": "package-seed7-native-EOS",
+          "OFF": 0.75,
+          "ON": 0.75,
+          "gain": 0.0
+        },
+        {
+          "case_id": "garden-seed11-native-EOS",
+          "OFF": 0.75,
+          "ON": 0.75,
+          "gain": 0.0
+        }
+      ],
+      "mean_gain": 0.0
+    }
+  ],
+  "exact_tie": true,
+  "unique_or_default_choice": null,
+  "selected_for_use": false,
+  "trait_qualified": false,
+  "flat_instrument_limitation": "Every OFF and ON was assigned3/4; these observations do not establish a successful sleepy control or an effect-validated optimum.",
+  "weight_EMA": null,
+  "prior_results_reobserved": false,
+  "candidate_health_or_resume_authority": false,
+  "old_failed_core_unchanged": true,
+  "released_weights_verified": 0
+}

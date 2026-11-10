@@ -1,0 +1,23 @@
+{
+  "distribution": "particle-sliders-core",
+  "version": "0.14.1",
+  "repository": "https://github.com/HyperGAN/particle-sliders",
+  "commit": "41f6066f2d2644902670d5eb736de052e1a70553",
+  "reviewed_source_head": "790f75a (merge-only ancestry differs)",
+  "particlegan": "0.9.5",
+  "source_profile": "voxcpm2-core0141-pg095-full-waveform-hndl-v1",
+  "checked_api_files": {
+    "initialization.py": "636dc1db85c9cd3c6dd7495cd943218170653c2fed16bdd1c6bb3b1b4d6f71eb",
+    "pg09.py": "1552615862c59b0658f0b36f25d7c57f4aba2d8fba16b863e4c98ae79fc6553f",
+    "pg095.py": "ecfaf6ad16f092bb1b76df64201858671ccdc2a341d6c8c50650574dc9a937e3",
+    "pg09_audio.py": "398f7fa4bab5d44f849b25efc47a23d0c3ba83d975a61180ae57fcbc5597b36d",
+    "response.py": "ede5387777b0efa43d74c71c4f0b7c7ebe6a4b053c441a852e909e5014045f3e",
+    "lifecycle.py": "058538569f47b6f333d0fad4c417fb99748f6585237875f1a825a8afe13047bb",
+    "inference.py": "2ecb2a791089f93af12deb447b26d9f81a2600e1b8d816eff89102207affdc88",
+    "routed_projection.py": "d71e032c1a578e7fdc0494b3d43b982b3b4afdbc4ba859f21f75e2118c347e04",
+    "fibo_hndl.py": "ff170b5ca321b6eac1db10f6f82b79abc60fd983409f9c8ada7513101de9b6a4",
+    "fibo_hndl_010_sources.json": "69e65e3daf18ac5c99154fd735d0b6fc8e8c95433c5b0618a074cdd203ed6251",
+    "fibo_projection.hndl": "b5efac1cfb0c597e5d6e0839af6077ff36dec916901bfa254be78db9f691c086",
+    "reference.py": "2c5809edd3818fab9efdd0c5234ea6b5027de5fc0130155e537950471018a371"
+  }
+}

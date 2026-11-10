@@ -15,10 +15,14 @@ all first observations remain unchanged. See the [HOW/value guide](../../docs/vo
 and [portable values](../../docs/voxcpm2-native95-learning-rates.json).
 
 Six distinct native CPU software cases and the original pretrained work remain
-evidence for their captured Source/runtime. This additive public packaging route
-has not yet been built, installed or executed. No released adapter weights are
-verified. Completed checks and searches are reused; publication is not a reason
-to repeat them.
+evidence for their captured Source/runtime. The exact public Source pair passed
+five offline packaging phases: core and native sdists, wheels from those sdists,
+and one fresh owned-target installation. All70 core files, four HNDL leaves,
+12 core-guard hashes and15 measured native files matched, along with dependency
+and entry metadata. Runtime modules were not imported; full native execution
+through this installed public package remains unverified. No public binary or
+released adapter weights are verified. Completed checks and searches are reused;
+publication does not repeat them.
 
 Installation uses the exact core41f packaging derivative and an already prepared
 owned runtime; the guide gives pinned Source commands. It does not change current

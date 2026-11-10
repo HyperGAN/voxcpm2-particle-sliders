@@ -54,10 +54,20 @@ python -m pip install --no-deps --no-index --no-build-isolation --no-cache-dir -
   'voxcpm2-native95 @ git+https://github.com/HyperGAN/voxcpm2-particle-sliders.git@b470e56b840f1b2dec3c3009e385104defe7fd65#subdirectory=backends/voxcpm2-native95'
 ```
 
-These commands fetch pinned Source and install no dependencies. The new public
-packaging route is unbuilt/uninstalled/unexecuted; no wheel, PyPI release,
-pretrained rerun or new software-check pass is claimed. The six previously
-completed native CPU cases retain their captured Source/runtime scope.
+These commands fetch pinned Source and install no dependencies. Separately, on
+2026-11-10 the exact coref700/nativeb470 Source pair completed five offline
+packaging phases: one sdist and wheel-from-sdist per package, then one fresh
+owned-target install. Validation copied the exact pinned Source into owned build
+trees; it did not execute these VCS install commands. All70 core runtime files,
+four HNDL leaves,12 checked core API hashes and15 measured native runtime files
+matched. Distribution versions, mandatory/optional dependencies, pinned VCS URLs,
+markers and console/backend entry metadata also matched.
+
+The worker genuinely exited0 and was reaped; its exact owned resource roles were
+released. No runtime module, model, GPU, old native test/proof, training, render or
+score ran in this packaging validation. No public binary/PyPI release or full
+native execution through the installed public package is claimed. The six prior
+native CPU cases retain their captured Source/runtime scope and were not repeated.
 
 ## Common training options
 

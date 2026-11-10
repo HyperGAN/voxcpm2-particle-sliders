@@ -10,10 +10,12 @@ Every OFF and ON was rated3/4; no successful Sleepy effect, unique optimum,
 default or automatic-use authority is established. Saved firsts and the original
 failed core remain unchanged. No adapter-weight release is verified.
 
-This additive packaging route uses an explicit core41f HNDL packaging derivative;
-its build/install/runtime checks remain unexecuted. It does not upgrade current
-shared-core main or a captured runtime, rerun old checks/searches, or reset a
-candidate. CUDA requires a real controller-owned admission context. Public
+This additive packaging route uses an explicit core41f HNDL packaging derivative.
+Its exact-source validation passed five offline sdist/wheel/install phases;
+Source, profiles, dependencies and entry metadata matched. Full native execution
+through the installed public package remains unverified. This does not upgrade
+current shared-core main or a captured runtime, rerun old checks/searches, or
+reset a candidate. CUDA requires a real controller-owned admission context. Public
 fixed-duration rendering is separate from the measured execution-owned native
 EOS previews.
 

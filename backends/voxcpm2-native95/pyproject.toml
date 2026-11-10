@@ -1,0 +1,28 @@
+[build-system]
+requires=["setuptools>=77"]
+build-backend="setuptools.build_meta"
+[project]
+name="voxcpm2-native95"
+version="0.1.0"
+requires-python=">=3.11,<3.13"
+dependencies=[
+ "torch>=2.6,<3",
+ "voxcpm @ git+https://github.com/OpenBMB/VoxCPM.git@19b6bf7590025418821a86dcb817504e0ad7e5df",
+ "particle-sliders-core[fibo-hndl] @ git+https://github.com/HyperGAN/particle-sliders.git@f7001a821c89df6c2e8473da4f6914db45516aeb#subdirectory=packages/particle-sliders-core",
+ "hypergan @ git+https://github.com/HyperGAN/HyperGAN.git@5f368a3770cf5bdae0448995c9f76e29af8049f7",
+ "safetensors>=0.8,<1","soundfile>=0.12,<1"]
+[project.optional-dependencies]
+test=["pytest>=8,<10"]
+[project.scripts]
+voxcpm2-native95="voxcpm2_native95.cli:main"
+[project.entry-points."particle_sliders.response_backends"]
+voxcpm2_native95="voxcpm2_native95.factory:TRAINING"
+[project.entry-points."particle_sliders.inference_backends"]
+voxcpm2_native95="voxcpm2_native95.factory:INFERENCE"
+[tool.setuptools.packages.find]
+where=["src"]
+[tool.setuptools.package-data]
+voxcpm2_native95=["*.json","*.hndl"]
+[tool.pytest.ini_options]
+testpaths=["tests"]
+pythonpath=["src"]

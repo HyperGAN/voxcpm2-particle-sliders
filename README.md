@@ -1,3 +1,26 @@
+# VoxCPM2 Particle Sliders
+
+The explicit [native ParticleGAN0.9.5 backend](backends/voxcpm2-native95/README.md)
+now preserves the measured full-waveform implementation, scoped fresh
+initialization, RAW exports and strict FULL restores. Its
+[HOW/value guide](docs/voxcpm2-native95-learning-rates.md) and
+[portable values](docs/voxcpm2-native95-learning-rates.json) record the completed
+G0.012/G0.001 Sleepy comparison: both score0.0 at32 updates on two equal cases.
+Every OFF and ON was rated3/4; no successful Sleepy effect, unique optimum,
+default or automatic-use authority is established. Saved firsts and the original
+failed core remain unchanged. No adapter-weight release is verified.
+
+This additive packaging route uses an explicit core41f HNDL packaging derivative;
+its build/install/runtime checks remain unexecuted. It does not upgrade current
+shared-core main or a captured runtime, rerun old checks/searches, or reset a
+candidate. CUDA requires a real controller-owned admission context. Public
+fixed-duration rendering is separate from the measured execution-owned native
+EOS previews.
+
+The original scaffold context follows unchanged.
+
+---
+
 # VoxCPM2 Particle Sliders — review scaffold
 
 Public source publication is authorized; final implementation review is pending.

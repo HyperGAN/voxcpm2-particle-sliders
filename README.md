@@ -1,5 +1,7 @@
 # VoxCPM2 Particle Sliders
 
+**Calculated memory:** Native default waveform training: **60 GiB GPU / 18 GiB host** for batch 2,4 frames,10 Euler steps,≤256 prefix positions. Matched fixed-waveform inference: **10 GiB GPU**. [Full memory ledger and limits](MEMORY.md). These are planning estimates, not measured peaks.
+
 The explicit [native ParticleGAN0.9.5 backend](backends/voxcpm2-native95/README.md)
 now preserves the measured full-waveform implementation, scoped fresh
 initialization, RAW exports and strict FULL restores. Its

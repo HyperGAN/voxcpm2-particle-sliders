@@ -1,11 +1,11 @@
-"""New explicit PG095 waveform cohort; historical packets are never migrated."""
+"""New explicit ParticleGAN 0.11.0 waveform cohort; historical packets are never migrated."""
 import hashlib,json,math
 from pathlib import Path
 from math import prod
 
-CORE_REVISION='41f6066f2d2644902670d5eb736de052e1a70553'
-BACKEND='voxcpm2_native95'
-SOURCE_PROFILE='voxcpm2-core0141-pg095-full-waveform-hndl-v1'
+CORE_REVISION='c13890f8e2a1ecf1dc8eb9f2a37f9187cb9fea78'
+BACKEND='voxcpm2_native'
+SOURCE_PROFILE='voxcpm2-engine-full-waveform-hndl-v1'
 INITIALIZATION_POLICY='voxcpm2-host-RMS-QR-zero-up-bank-R2-std1-v1'
 PROTOCOL='voxcpm2-native48k-fixed-noise-full-waveform-RAW-v1'
 WEIGHT_POLICY='raw-no-weight-EMA'
@@ -25,22 +25,28 @@ def samples(options):
     return architecture(options)['frames']*patch*prod(rates)
 def validate_profile(options):
     # Refuse BEFORE filesystem, model, native code or optimizer allocation.
-    if options.get('ema_decay')is not None or options.get('ema')is not None:raise ValueError('Vox095 refuses weight EMA')
+    if options.get('ema_decay')is not None or options.get('ema')is not None:raise ValueError('VoxCPM2 refuses weight EMA')
     if (options.get('source_profile')!=SOURCE_PROFILE or options.get('initialization_policy')!=INITIALIZATION_POLICY
-        or options.get('pg_version')!='0.9.5'or options.get('pg_source_profile')!='release-0.9.5'
-        or options.get('penalty_input_domain')!='continuous'):raise ValueError('explicit new PG095/full-waveform/continuous profile required')
+        or options.get('pg_version')!='0.11.0'or options.get('pg_source_profile')!='release-0.11.0'
+        or options.get('penalty_input_domain')!='continuous'):raise ValueError('explicit new ParticleGAN 0.11.0/full-waveform/continuous profile required')
     rate_overrides(options)
 def validate_installed_core():
     from importlib import metadata
     lock=json.loads(Path(__file__).with_name('current_core.json').read_text());d=metadata.distribution('particle-sliders-core')
-    if d.version!=lock['version']or lock['commit']!=CORE_REVISION:raise ValueError('exact current core source required')
+    origin = json.loads(d.read_text('direct_url.json') or '{}')
+    if (d.version != lock['version'] or lock['commit'] != CORE_REVISION
+            or origin.get('vcs_info', {}).get('commit_id') != CORE_REVISION):
+        raise ValueError('exact current core source required')
     for name,sha in lock['checked_api_files'].items():
         if file_hash(d.locate_file('particle_sliders/'+name))!=sha:raise ValueError('current core Source differs:'+name)
+    for name, expected in lock['checked_product_files'].items():
+        if file_hash(Path(__file__).with_name(name)) != expected:
+            raise ValueError('vendored HNDL source differs: ' + name)
 def validate_training(options):
     validate_profile(options)
     allowed=set(DEFAULTS)|{'model_dir','revision','training_file','teacher_cache','device','steps','batch','seed','ema_decay',
         'source_profile','initialization_policy','pg_version','pg_source_profile','penalty_input_domain','lr','d_lr_mult','prior_lr_mult'}
-    if set(options)-allowed:raise ValueError('unknown Vox095 option; use literal common rates, no nested recipe')
+    if set(options)-allowed:raise ValueError('unknown VoxCPM2 option; use literal common rates, no nested recipe')
     a=architecture(options)
     if a['rank']!=8 or type(a['rank'])is not int or a['particles']!=128 or type(a['particles'])is not int or a['alpha']!=8.:raise ValueError('unchanged HNDL rank8/alpha8/128x4 required')
     if not isinstance(a['hosts'],list)or not a['hosts']or len(set(a['hosts']))!=len(a['hosts'])or set(a['hosts'])-{'dit','lm'}:raise ValueError('explicit dit/lm hosts required')

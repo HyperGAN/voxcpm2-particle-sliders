@@ -30,7 +30,7 @@ def prepare(native,options,*,resume):
         references={p:file_hash(p)for r in records for p in(r.get('neutral_reference'),r.get('positive_reference'))if p})
     if path.exists():
         saved=torch.load(path,map_location='cpu',weights_only=True)
-        if saved.get('schema')!='voxcpm2-native95-frozen-teachers-v1'or saved.get('identity')!=identity:raise ValueError('original teacher cache identity differs; never retag/rebuild')
+        if saved.get('schema')!='voxcpm2-native-frozen-teachers-v1'or saved.get('identity')!=identity:raise ValueError('original teacher cache identity differs; never retag/rebuild')
         rows=[_restore(p,native.model)for p in saved['rows']];cond=saved['conditions'].to(next(native.network.parameters()).device)
         if len(rows)<2 or cond.ndim!=2 or cond.shape[0]!=len(rows)or not torch.isfinite(cond).all():raise ValueError('frozen cache rows/conditions differ')
         return rows,cond
@@ -38,7 +38,7 @@ def prepare(native,options,*,resume):
     rows=[native.prepare(native_row(native.model,r,frames=options.get('frames',4),steps=options.get('euler_steps',10)))for r in records if r['split']=='train']
     if len(rows)<2:raise ValueError('at least two matched native train rows required')
     cond=conditions(native.model,rows)
-    saved=dict(schema='voxcpm2-native95-frozen-teachers-v1',identity=identity,rows=[_row(p)for p in rows],conditions=cond.detach().cpu().clone())
+    saved=dict(schema='voxcpm2-native-frozen-teachers-v1',identity=identity,rows=[_row(p)for p in rows],conditions=cond.detach().cpu().clone())
     path.parent.mkdir(parents=True,exist_ok=True)
     # Exclusive partial plus atomic no-overwrite publication. A failed partial is
     # retained and refuses a blind retry; it is never treated as a complete cache.

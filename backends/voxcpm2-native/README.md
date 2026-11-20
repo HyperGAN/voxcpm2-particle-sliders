@@ -1,11 +1,19 @@
-# VoxCPM2 native waveform backend for ParticleGAN0.9.5
+# VoxCPM2 native waveform backend
 
-This explicit backend exports the exact15 runtime files measured at
-`ba6ec023a121610a6a83cb2a816bf33f696584b2`. It uses full native mono48k waveform
-responses, the shared ParticleGAN0.9.5 game and RAW weights with no weight EMA.
-Scoped fresh initialization preserves pretrained weights, original Parameters,
-host scales and zero-output LoRA; exact FULL restores retain all saved state
-without another initializer or teacher pass.
+This backend uses Particle Sliders core 0.15.1 at `c13890f8` with official
+ParticleGAN 0.11.0. It preserves the native mono48k waveform response, RAW
+exports, scoped initialization and exact FULL continuation. HNDL graphs and
+builder checks are adapted from the MIT-licensed core source, with HNDL 0.10.0
+and HyperGAN pinned directly.
+
+For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
+installing this subproject. For example, from this directory:
+
+```sh
+python -m pip install --index-url https://download.pytorch.org/whl/cpu 'torch==2.9.1+cpu' 'torchaudio==2.9.1+cpu'
+python -m pip install '.[test]'
+CUDA_VISIBLE_DEVICES='' python -m pytest -q
+```
 
 Two32-update pretrained Sleepy arms, G0.012 and G0.001, have completed the matched
 finished-output comparison. Both score0.0; every OFF and ON was rated3/4. This
@@ -24,9 +32,7 @@ through this installed public package remains unverified. No public binary or
 released adapter weights are verified. Completed checks and searches are reused;
 publication does not repeat them.
 
-Installation uses the exact core41f packaging derivative and an already prepared
-owned runtime; the guide gives pinned Source commands. It does not change current
-shared-core main or saved runtimes. CUDA still requires the real controller's
+The saved core41f validation applies to the earlier cohort. CUDA still requires the real controller's
 `runtime.admitted(OwnedCUDAAdmission(...))` context with actual UUID, held lease
 FDs, receipt and live checker. The bare console cannot supply that authority.
 CPU support is for tiny software fixtures; use the admitted CUDA API for the

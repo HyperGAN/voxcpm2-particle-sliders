@@ -10,7 +10,7 @@ from copy import deepcopy
 import math
 
 import torch
-from particle_sliders.pg09_backends import AdapterParameters
+from particle_sliders.backends import AdapterParameters
 
 
 @dataclass(frozen=True)

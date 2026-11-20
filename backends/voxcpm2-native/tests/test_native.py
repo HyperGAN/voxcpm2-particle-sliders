@@ -10,10 +10,10 @@ import pytest
 import torch
 from particle_sliders.lifecycle import SessionConfig,CheckpointError
 from particle_sliders.inference import open_inference
-from voxcpm2_native95 import factory as current
-from voxcpm2_native95.contracts import BACKEND,SOURCE_PROFILE,INITIALIZATION_POLICY,validate_profile,rate_overrides,samples
-from voxcpm2_native95.adapter import ParticleAdapter
-from voxcpm2_native95.waveform import VoxCPM2WaveBackend,WaveRow,make_prefix,fixed_noise
+from voxcpm2_native import factory as current
+from voxcpm2_native.contracts import BACKEND,SOURCE_PROFILE,INITIALIZATION_POLICY,validate_profile,rate_overrides,samples
+from voxcpm2_native.adapter import ParticleAdapter
+from voxcpm2_native.waveform import VoxCPM2WaveBackend,WaveRow,make_prefix,fixed_noise
 
 def config(tmp_path):
     (tmp_path/'model').mkdir();(tmp_path/'model/config.json').write_text(json.dumps(dict(architecture='voxcpm2',patch_size=2,audio_vae_config=dict(decoder_rates=[3,2,2]))))
@@ -21,7 +21,7 @@ def config(tmp_path):
     return SessionConfig(BACKEND,'new-Vox095-tiny-native-integration',model_dir=str(tmp_path/'model'),revision='a'*40,
         training_file=str(tmp_path/'rows.json'),teacher_cache=str(tmp_path/'native-teachers.pt'),device='cpu',frames=8,euler_steps=3,
         steps=3,batch=2,seed=7,ema_decay=None,lr=.012,d_lr_mult=.5,prior_lr_mult=.75,
-        source_profile=SOURCE_PROFILE,initialization_policy=INITIALIZATION_POLICY,pg_version='0.9.5',pg_source_profile='release-0.9.5',penalty_input_domain='continuous')
+        source_profile=SOURCE_PROFILE,initialization_policy=INITIALIZATION_POLICY,pg_version='0.11.0',pg_source_profile='release-0.11.0',penalty_input_domain='continuous')
 
 def install_tiny(monkeypatch,model_factory):
     def load(options):
@@ -29,7 +29,7 @@ def install_tiny(monkeypatch,model_factory):
         slider=ParticleAdapter(model,seed=options.get('seed',7))
         return VoxCPM2WaveBackend(model,slider,model_identity={'qualification':'real official tiny random VoxCPM2; no pretrained','revision':'a'*40})
     monkeypatch.setattr(current,'load_native',load)
-    import voxcpm2_native95.teacher_cache as cache
+    import voxcpm2_native.teacher_cache as cache
     monkeypatch.setattr(cache,'read_manifest',lambda path:dict(rows=[dict(id='one',split='train'),dict(id='two',split='train')]))
     def row(model,record,*,frames,steps):
         seed=11 if record['id']=='one'else 22
@@ -58,15 +58,15 @@ def test_profile_rates_and_EMA_refuse_before_allocation(tmp_path,monkeypatch):
     with pytest.raises(ValueError):current.open_training(SessionConfig('historical','old',**c.options))
 
 def test_unadmitted_cuda_refuses_without_probe(monkeypatch):
-    from voxcpm2_native95.runtime import require_owner
+    from voxcpm2_native.runtime import require_owner
     monkeypatch.setattr(torch.cuda,'get_device_properties',lambda *a:pytest.fail('unowned CUDA probe'))
     with pytest.raises(ValueError,match='OwnedCUDAAdmission'):require_owner('cuda:0')
     assert require_owner('cpu')is None
 
 def test_scoped_initialization_preserves_zero_up_backbone_and_alias(tmp_path,monkeypatch,model_factory):
     c=config(tmp_path);load=install_tiny(monkeypatch,model_factory);native=load(c.options)
-    from voxcpm2_native95.hndl_binding import WaveCritic
-    from voxcpm2_native95.initialization import construction_for,initialize_owned,policies
+    from voxcpm2_native.hndl_binding import WaveCritic
+    from voxcpm2_native.initialization import construction_for,initialize_owned,policies
     from hndl.operators.linear import Linear as HNDLLinear
     from hndl.operators.conv import Conv2d as HNDLConv2d
     critic=WaveCritic(samples(c.options),22);before=deepcopy(native.model.state_dict());bank=native.slider.particles;ids=[id(p)for p in native.slider.parameters()]
@@ -137,7 +137,7 @@ def test_full_native_width_exact_resume_cache_and_common_rates(tmp_path,monkeypa
         full.train();expected=full.checkpoint()
     assert len(calls)==2 and Path(c.options['teacher_cache']).is_file()
     with current.open_training(c)as first:first.train(stop_after=2);saved=first.checkpoint()
-    import voxcpm2_native95.initialization as init
+    import voxcpm2_native.initialization as init
     monkeypatch.setattr(init,'initialize_fresh_components',lambda *a,**k:pytest.fail('fresh init on exact restore'))
     with current.open_training(c,resume=saved)as resumed:
         assert resumed.game.completed_steps==2;resumed.train();equal(expected,resumed.checkpoint())
@@ -150,7 +150,7 @@ def test_full_native_width_exact_resume_cache_and_common_rates(tmp_path,monkeypa
 def test_RAW_native_render_without_teacher_or_initializer(tmp_path,monkeypatch,model_factory):
     c=config(tmp_path);install_tiny(monkeypatch,model_factory)
     with current.open_training(c)as session:artifact=session.export_inference(selection='raw')
-    import voxcpm2_native95.initialization as init
+    import voxcpm2_native.initialization as init
     monkeypatch.setattr(init,'initialize_fresh_components',lambda *a,**k:pytest.fail('init in RAW inference'))
     monkeypatch.setattr(VoxCPM2WaveBackend,'prepare',lambda *a,**k:pytest.fail('teacher in native inference'))
     options={k:c.options[k]for k in('model_dir','revision','device')};request=dict(text='one two',frames=8,euler_steps=3)

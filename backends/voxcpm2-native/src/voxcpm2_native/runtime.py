@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import os,stat,uuid as uuid_module
 
-_OWNER=ContextVar('voxcpm2_native95_cuda_owner',default=None)
+_OWNER=ContextVar('voxcpm2_native_cuda_owner',default=None)
 
 @dataclass(frozen=True)
 class HeldLease:

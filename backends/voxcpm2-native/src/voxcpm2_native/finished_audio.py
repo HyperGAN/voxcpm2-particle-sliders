@@ -38,7 +38,7 @@ def generate(native,**request):
         noise=fixed_noise(native.model,request.get('frames',4),request.get('seed',0))
         with native.network.scaled(request.get('strength',1.)):
             audio=waveform(native.model,prefix,noise,steps=request.get('euler_steps',10))
-    return AudioOutput(audio.detach().cpu(),dict(schema='voxcpm2-native95-finished-waveform-v1',selection='raw',weight_EMA=None,
+    return AudioOutput(audio.detach().cpu(),dict(schema='voxcpm2-native-finished-waveform-v1',selection='raw',weight_EMA=None,
         sample_rate=48000,samples=audio.shape[-1],frames=request.get('frames',4),euler_steps=request.get('euler_steps',10),
         strength=request.get('strength',1.),seed=request.get('seed',0),model_identity=native.model_identity,
         actual_resolved_base_dtype=native.model.config.dtype,native_AudioVAE_dtype='float32',adapter_dtype='float32',

@@ -9,7 +9,7 @@ These are **calculated planning budgets, not measured peaks or hard runtime ceil
 
 Frozen BF16/FP16 weights cost `2P`; FP32 costs `4P`. LoRA costs `r × Σ(in + out)`. The root particle bank is counted once (128 × 4 FP32 values). Rank-8 shared RoutedMLP branches have 6,476 parameters each: router 8→16→16→16→4 and network 12→48→48→48→8; graph variants below use this conservative branch allowance. Critic allocations are included. Frozen weights have no parameter gradients or optimizer moments.
 
-For ParticleGAN 0.9.5 `bispf_optimized`, DualNorm has zero momentum: do **not** add Adam's two full-sized moments. We reserve **64 bytes per trainable scalar** for FP32 parameters/gradients, old/displaced parameters and normalization/constraint temporaries, including protected-normal `.double()` buffers; small scalar step/constraint state fits the workspace allowance. This is a conservative transient envelope, not 64 bytes of persistent optimizer state. No model-weight EMA copy is allocated in the supported RAW policy. A separately identified supervised AdamW comparator uses its actual two FP32 moments.
+For ParticleGAN 0.11.0 `bispf_optimized`, DualNorm has zero momentum: do **not** add Adam's two full-sized moments. We reserve **64 bytes per trainable scalar** for FP32 parameters/gradients, old/displaced parameters and normalization/constraint temporaries, including protected-normal `.double()` buffers; small scalar step/constraint state fits the workspace allowance. This is a conservative transient envelope, not 64 bytes of persistent optimizer state. No model-weight EMA copy is allocated in the supported RAW policy. A separately identified supervised AdamW comparator uses its actual two FP32 moments.
 
 Activation estimates deliberately include FP32 routed branches and two FP32 attention-sized buffers for eager/math attention. With `L` layers, width `H`, FF width `I`, query heads `N`, tokens `T` and effective accumulated batch `B`, the uncheckpointed training allowance is `64BLTH + 12BLTI + 8BLNT²` bytes. With block checkpointing it is `8BLTH + 64BTH + 12BTI + 8BNT²`; hybrid attention uses only its full-attention layer count in the quadratic term, with recurrent state added separately. These are explicit planning allowances for saved tensors/recomputation, not a promise about every allocator/kernel. Sampling prefill uses `16BTH + 8BTI + 8BNT²`, plus actual KV/recurrent state and any materialized logits. Runtime/workspace allowances below cover Python/framework/CUDA workspaces, allocator fragmentation and the small game state; an executor must still enforce live resource checks.
 
@@ -48,13 +48,13 @@ Scope and limits:
 
 Source facts (read as text; no model execution):
 
-- [backends/voxcpm2-native95/src/voxcpm2_native95/contracts.py](backends/voxcpm2-native95/src/voxcpm2_native95/contracts.py)
-- [backends/voxcpm2-native95/src/voxcpm2_native95/adapter.py](backends/voxcpm2-native95/src/voxcpm2_native95/adapter.py)
-- [backends/voxcpm2-native95/src/voxcpm2_native95/runtime.py](backends/voxcpm2-native95/src/voxcpm2_native95/runtime.py)
-- [backends/voxcpm2-native95/src/voxcpm2_native95/waveform.py](backends/voxcpm2-native95/src/voxcpm2_native95/waveform.py)
-- [backends/voxcpm2-native95/src/voxcpm2_native95/finished_audio.py](backends/voxcpm2-native95/src/voxcpm2_native95/finished_audio.py)
-- [backends/voxcpm2-native95/src/voxcpm2_native95/wave_critic_singleton.hndl](backends/voxcpm2-native95/src/voxcpm2_native95/wave_critic_singleton.hndl)
+- [backends/voxcpm2-native/src/voxcpm2_native/contracts.py](backends/voxcpm2-native/src/voxcpm2_native/contracts.py)
+- [backends/voxcpm2-native/src/voxcpm2_native/adapter.py](backends/voxcpm2-native/src/voxcpm2_native/adapter.py)
+- [backends/voxcpm2-native/src/voxcpm2_native/runtime.py](backends/voxcpm2-native/src/voxcpm2_native/runtime.py)
+- [backends/voxcpm2-native/src/voxcpm2_native/waveform.py](backends/voxcpm2-native/src/voxcpm2_native/waveform.py)
+- [backends/voxcpm2-native/src/voxcpm2_native/finished_audio.py](backends/voxcpm2-native/src/voxcpm2_native/finished_audio.py)
+- [backends/voxcpm2-native/src/voxcpm2_native/wave_critic_singleton.hndl](backends/voxcpm2-native/src/voxcpm2_native/wave_critic_singleton.hndl)
 - [Pinned model metadata](https://huggingface.co/openbmb/VoxCPM2/tree/7936080b41163874f38610f46f438e2c0757f9fd) (architecture/parameter metadata or exact file-size lock as described above).
-- ParticleGAN 0.9.5 release `1b8355b184b21bb7d81104ee590813c262f6df0a`, `recipes.py:bispf_optimized`, `optim/dualnorm.py`, `optim/direction_blend.py` and `optim/constraint_geometry.py`; shared core `routed_projection.py`, `reference.py:RoutedMLP`, `pg09_audio.py:AudioResponseCritic`. These optimizer formulas are shared dependencies, not a new optimizer implementation.
+- ParticleGAN 0.11.0, `recipes.py:bispf_optimized`, `optim/dualnorm.py`, `optim/direction_blend.py` and `optim/constraint_geometry.py`; shared core `routed_projection.py`, `reference.py:RoutedMLP`, `audio.py:AudioResponseCritic`. These optimizer formulas are shared dependencies, not a new optimizer implementation.
 
 Calculated 2026-11-14. Counts, live runtime qualification and memory requirements are separate facts.

@@ -2,7 +2,7 @@
 
 **Calculated memory:** Native default waveform training: **60 GiB GPU / 18 GiB host** for batch 2,4 frames,10 Euler steps,≤256 prefix positions. Matched fixed-waveform inference: **10 GiB GPU**. [Full memory ledger and limits](MEMORY.md). These are planning estimates, not measured peaks.
 
-The explicit [native ParticleGAN0.9.5 backend](backends/voxcpm2-native95/README.md)
+The explicit [native waveform backend](backends/voxcpm2-native/README.md)
 now preserves the measured full-waveform implementation, scoped fresh
 initialization, RAW exports and strict FULL restores. Its
 [HOW/value guide](docs/voxcpm2-native95-learning-rates.md) and
@@ -12,14 +12,12 @@ Every OFF and ON was rated3/4; no successful Sleepy effect, unique optimum,
 default or automatic-use authority is established. Saved firsts and the original
 failed core remain unchanged. No adapter-weight release is verified.
 
-This additive packaging route uses an explicit core41f HNDL packaging derivative.
-Its exact-source validation passed five offline sdist/wheel/install phases;
-Source, profiles, dependencies and entry metadata matched. Full native execution
-through the installed public package remains unverified. This does not upgrade
-current shared-core main or a captured runtime, rerun old checks/searches, or
-reset a candidate. CUDA requires a real controller-owned admission context. Public
-fixed-duration rendering is separate from the measured execution-owned native
-EOS previews.
+The current backend uses Particle Sliders core 0.15.1 and ParticleGAN 0.11.0
+with pinned HNDL and HyperGAN. Fresh training uses a new waveform cohort.
+The earlier core41f packaging record and measured runtimes retain their
+original identities. CUDA still requires controller-owned admission. Public
+fixed-duration rendering and the earlier native EOS previews use different
+execution protocols.
 
 The original scaffold context follows unchanged.
 

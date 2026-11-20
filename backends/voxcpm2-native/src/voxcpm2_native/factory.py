@@ -4,7 +4,7 @@ from pathlib import Path
 import torch
 from particle_sliders.inference import InferenceBackend,InferenceBinding,native_identity
 from particle_sliders.lifecycle import Binding,Capabilities,read_packet
-from particle_sliders.pg095 import ConditionalPG095,engine_options
+from particle_sliders.engine import ConditionalParticleGAN,engine_options
 from particle_sliders.response import ResponseBackend,ResponseCapabilities
 from .contracts import (BACKEND,SOURCE_PROFILE,INITIALIZATION_POLICY,PROTOCOL,WEIGHT_POLICY,DEFAULTS,
     architecture,digest,file_hash,samples,rate_overrides,validate_training,validate_installed_core)
@@ -14,7 +14,7 @@ from .hndl_binding import WaveCritic
 from .teacher_cache import prepare as prepare_teachers
 
 class WaveResponse:
-    family='voxcpm2_native95_full_waveform'
+    family='voxcpm2_native_full_waveform'
     def __init__(self,native):
         self.runtime=native;self.model,self.slider,self.network=native.model,native.slider,native.network
         self.model_identity=deepcopy(native.model_identity)
@@ -32,7 +32,7 @@ class WaveResponse:
 
 def capabilities(options):
     return ResponseCapabilities('routed_particle_gan','audio','native_mono_waveform','continuous_vector',
-        (1,samples(options)),'0.9.5','release-0.9.5',penalty_input_domain='continuous',base_precisions=('float32','bfloat16'),
+        (1,samples(options)),'0.11.0','release-0.11.0',penalty_input_domain='continuous',base_precisions=('float32','bfloat16'),
         qualification='New full native waveform Source; CPU/pretrained/quality qualification pending')
 
 def validate(options):validate_training(options);validate_installed_core()
@@ -57,7 +57,7 @@ def prepare_training(options,*,construction=None):
             critic=WaveCritic(samples(options),cond.shape[1]).to(device=device,dtype=torch.float32)
             receipt=initialize_owned(native.slider,critic,construction,options)
             current.fresh_initialization=receipt.as_dict()
-        game=ConditionalPG095(current,rows,critic,conditions=cond,particles=current.slider.particles,
+        game=ConditionalParticleGAN(current,rows,critic,conditions=cond,particles=current.slider.particles,
             response_domain='continuous_vector',total_steps=options.get('steps',2),batch_size=options.get('batch',2),seed=options.get('seed',7),
             recipe_overrides=rate_overrides(options),**engine_options(options))
         spec=INFERENCE.specification(current,model_identity=current.model_identity,protocol=PROTOCOL,
@@ -74,7 +74,7 @@ def validate_inference(options,spec):
     c=spec.configuration
     if (set(c)!={'architecture','source_profile','initialization_policy','weight_policy','initialization'}
         or c['source_profile']!=SOURCE_PROFILE or c['initialization_policy']!=INITIALIZATION_POLICY
-        or c['weight_policy']!=WEIGHT_POLICY or spec.identity['protocol']!=PROTOCOL):raise ValueError('exact new Vox095 RAW artifact required; no historical packet migration')
+        or c['weight_policy']!=WEIGHT_POLICY or spec.identity['protocol']!=PROTOCOL):raise ValueError('exact new VoxCPM2 RAW artifact required; no historical packet migration')
     validate_receipt(c['initialization'],cohort=c['initialization'].get('cohort_id'));require_owner(options.get('device','cpu'))
 def preflight_inference(options,request,spec):
     from .finished_audio import validate_request
@@ -95,7 +95,7 @@ def prepare_inference(options,spec):
 # Configuration replaces the descriptor with exact native decoder geometry before
 # allocation; the initial positive placeholder never supplies training responses.
 TRAINING=ResponseBackend(BACKEND,ResponseCapabilities('routed_particle_gan','audio','native_mono_waveform','continuous_vector',
-    (1,1),'0.9.5','release-0.9.5',penalty_input_domain='continuous'),prepare_training,validate,
+    (1,1),'0.11.0','release-0.11.0',penalty_input_domain='continuous'),prepare_training,validate,
     configure_capabilities=capabilities,preflight=preflight)
 INFERENCE=InferenceBackend(BACKEND,Capabilities('routed_particle_gan',render=True,render_outputs=('audio',),
     operations=('response','render'),qualification='Actual native AudioVAE waveform Source; qualification pending'),

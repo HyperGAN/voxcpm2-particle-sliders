@@ -80,7 +80,8 @@ def eos_patch_gate(native, *, strength, gate, direction):
 
     if type(strength) not in (int, float) or not 0 < strength <= 1:
         raise ValueError("VoxCPM2 gated RAW strength must be in (0, 1]")
-    if tuple(native.network.hosts) != ("dit",):
+    adapter = getattr(native, "slider", native.network)
+    if tuple(adapter.hosts) != ("dit",):
         raise ValueError("native acoustic patch gating requires a DiT-only RAW adapter")
     if not isinstance(gate, ActivationGate) or gate.usage.eligible:
         raise ValueError("each native EOS request requires a fresh ActivationGate")

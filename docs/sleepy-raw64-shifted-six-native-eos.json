@@ -327,5 +327,95 @@
       "score_sha256": "c5a9ac09409280cc95980e8bfaf242d9167a18a2737ce86a027acdce82c5ebdf",
       "waveform_reused": false
     }
+  },
+  "held_out": {
+    "scope": "Two fresh prompts and seeds with the same RAW64, speaker reference, native EOS sampler and three nominal 0.75 ON profiles.",
+    "minimum_expected_word_order_fraction": 0.8,
+    "new_native_waveforms": 8,
+    "new_neutral_waveforms": 2,
+    "new_optimizer_updates": 0,
+    "new_teacher_forwards": 0,
+    "native_firsts_sha256": "c552ff2aedd0b14ceb70c2e8a5672143d96e76bda8fc96e2ee95e441dd432d7e",
+    "render_guard_sha256": "5a8aec2c91feacdca1c5e802c60026ba137d2e885aa2bfe32c79736284842dc8",
+    "speech_guard_sha256": "d86120c67df1171e1412bea36a8e05343c3a6804b0b57641b1834c42feea6d64",
+    "comparison_sha256": "b2de1ba3413d49f0cd09051b984b5b6872f8180e5431f13f0a5b2d0c328c593b",
+    "cases": {
+      "sleepy-clock": {
+        "seed": 611187,
+        "outputs": {
+          "OFF": {
+            "sha256": "535f803bee7394e6d36c7353bb1b184b112ccb789c1ffdcff987ab82d2a8a389",
+            "generated_patches": 26,
+            "native_EOS": true,
+            "speech_verdict": "unmeasured",
+            "expected_word_order_fraction": 0.6666666666666666,
+            "gain": null
+          },
+          "constant": {
+            "sha256": "e7bc93fd4f0a761b62b40dce5873ee05de4338592b062d3daf722a11d09c6806",
+            "generated_patches": 26,
+            "native_EOS": true,
+            "speech_verdict": "unmeasured",
+            "expected_word_order_fraction": 0.7777777777777778,
+            "gain": null
+          },
+          "early": {
+            "sha256": "19d63a40ba77db340dbd14c3c20d56e5e657b74cbe51bee038a4c3c8cfd559cd",
+            "generated_patches": 26,
+            "native_EOS": true,
+            "speech_verdict": "unmeasured",
+            "expected_word_order_fraction": 0.6666666666666666,
+            "gain": null
+          },
+          "late": {
+            "sha256": "e6aaee987191d5127cc1d44ee8d113d532f75ffcb7f5969de89e5984cccc4d6c",
+            "generated_patches": 26,
+            "native_EOS": true,
+            "speech_verdict": "unmeasured",
+            "expected_word_order_fraction": 0.6666666666666666,
+            "gain": null
+          }
+        }
+      },
+      "sleepy-window": {
+        "seed": 611189,
+        "outputs": {
+          "OFF": {
+            "sha256": "62d23080e16fd3639729a6e293f0251eec94d396199639e98164d2ef6c682f2e",
+            "generated_patches": 20,
+            "native_EOS": true,
+            "speech_verdict": "pass",
+            "expected_word_order_fraction": 0.9,
+            "gain": null
+          },
+          "constant": {
+            "sha256": "15975067e9c3b4fd582ad5f2818d88caaf051dcafabe77954828d792137262a8",
+            "generated_patches": 20,
+            "native_EOS": true,
+            "speech_verdict": "pass",
+            "expected_word_order_fraction": 0.9,
+            "gain": 0.023530497410194195
+          },
+          "early": {
+            "sha256": "542dd1213c07b74482c2834e022835e0aa70bcaef7375607dabb340139fc6733",
+            "generated_patches": 20,
+            "native_EOS": true,
+            "speech_verdict": "pass",
+            "expected_word_order_fraction": 0.9,
+            "gain": 0.023530497410194195
+          },
+          "late": {
+            "sha256": "6d9a87293fe09d38f27636d6452ded6d61eee56417c01944c22f47f372ceab8a",
+            "generated_patches": 20,
+            "native_EOS": true,
+            "speech_verdict": "pass",
+            "expected_word_order_fraction": 0.9,
+            "gain": 0.023530497410194195
+          }
+        }
+      }
+    },
+    "complete_panel_mean_pacing_gains": null,
+    "winning_tested_schedule": null
   }
 }

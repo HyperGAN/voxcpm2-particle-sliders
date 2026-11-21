@@ -1,0 +1,331 @@
+{
+  "profile": "VoxCPM2 Sleepy RAW64 original eager cached native EOS, two matched archival sentences",
+  "raw_sha256": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e",
+  "sample_rate": 48000,
+  "native_inference_timesteps": 10,
+  "native_cfg": 2.0,
+  "nominal_mean_patch_strength": 0.75,
+  "weights": "raw",
+  "ema_decay": null,
+  "new_native_waveforms": 4,
+  "new_neutral_waveforms": 0,
+  "new_optimizer_updates": 0,
+  "intended_metric": "Equal-case mean of natural-log active speech duration ON minus OFF for the same words",
+  "metric_qualification_sha256": "42dc9b613d97eda366a1f8f56b660d327ea089a903854aa21fb7b006998267ca",
+  "winning_tested_schedule": "early",
+  "improved_cases_over_constant": 1,
+  "mean_improvement_over_constant": 0.020480781187166064,
+  "earlier_unshifted_early_mean_pacing_gain": 0.0,
+  "scope": "Use only for replay of the tested Sleepy RAW64 profile. The reversed library arm is unmeasured. The archived library OFF integrity remains unmeasured under the native speech observer and the pacing comparator permits it at equal ASR word count. Held-out native verification is pending.",
+  "render_guard_sha256": "a6bb42a20865ceadf83f1002cd1ec8fa2350406e7c10cda98c1db447637c5e65",
+  "speech_guard_sha256": "ca77436924bfff6b5f5f1f08455c62fc90858240080760b9d010753c00ef71a6",
+  "comparison_sha256": "0cf00ba095bd4daf2079d915066235d5e7ebba2a59764584fe4e198922795412",
+  "arms": {
+    "constant": {
+      "effective_strengths_last_repeats": [
+        0.75
+      ],
+      "mean_pacing_gain": -0.020245680677368427,
+      "cases": [
+        {
+          "case": "sleepy-library",
+          "seed": 611182,
+          "native_EOS": true,
+          "actual_patch_strengths": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75
+          ],
+          "gain": 0.0,
+          "ON": {
+            "sha256": "8cd580f87422c96dbe6ee61672746beec656352e11b3ee2e4a63cfa07d1aeda7",
+            "speech": "pass",
+            "asr_words": 9,
+            "active_speech_seconds": 2.7
+          },
+          "OFF": {
+            "sha256": "3412758dc0686bdd08b8d2b55e4e650620f351db2bf7ee0a76b9d8c25bb5f78a",
+            "speech": "unmeasured",
+            "asr_words": 9,
+            "active_speech_seconds": 2.7
+          }
+        },
+        {
+          "case": "sleepy-tram",
+          "seed": 611183,
+          "native_EOS": true,
+          "actual_patch_strengths": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75
+          ],
+          "gain": -0.040491361354736854,
+          "ON": {
+            "sha256": "6f7b55995fd407875d21765300d517c4449052efaebee6d6729f5c6b3c163898",
+            "speech": "pass",
+            "asr_words": 10,
+            "active_speech_seconds": 2.42
+          },
+          "OFF": {
+            "sha256": "d46f671af3b860cc419fd8ad994e8ecd9f663e54bd039de25096e2e8a3af1ece",
+            "speech": "pass",
+            "asr_words": 10,
+            "active_speech_seconds": 2.52
+          }
+        }
+      ],
+      "score_sha256": "914077feac0ffe3cb9a5df79bad77debf4d387c7ff25136f452b8670f7fc2d61",
+      "waveform_reused": true
+    },
+    "early": {
+      "effective_strengths_last_repeats": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.75
+      ],
+      "mean_pacing_gain": 0.00023510050979763664,
+      "cases": [
+        {
+          "case": "sleepy-library",
+          "seed": 611182,
+          "native_EOS": true,
+          "actual_patch_strengths": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.75
+          ],
+          "gain": -0.0074349784875180625,
+          "ON": {
+            "sha256": "7609a4a6e51daeb25811027a6dba17aba05c54069c3a6123e6fd4d261355926a",
+            "speech": "pass",
+            "asr_words": 9,
+            "active_speech_seconds": 2.68
+          },
+          "OFF": {
+            "sha256": "3412758dc0686bdd08b8d2b55e4e650620f351db2bf7ee0a76b9d8c25bb5f78a",
+            "speech": "unmeasured",
+            "asr_words": 9,
+            "active_speech_seconds": 2.7
+          }
+        },
+        {
+          "case": "sleepy-tram",
+          "seed": 611183,
+          "native_EOS": true,
+          "actual_patch_strengths": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.75,
+            0.75
+          ],
+          "gain": 0.007905179507113336,
+          "ON": {
+            "sha256": "5ae0bd8ddd015950e34b27df6cca1d7bf3e1e18474e8d80e66714f5769beb406",
+            "speech": "pass",
+            "asr_words": 10,
+            "active_speech_seconds": 2.54
+          },
+          "OFF": {
+            "sha256": "d46f671af3b860cc419fd8ad994e8ecd9f663e54bd039de25096e2e8a3af1ece",
+            "speech": "pass",
+            "asr_words": 10,
+            "active_speech_seconds": 2.52
+          }
+        }
+      ],
+      "score_sha256": "773d75b15d2059855707ccc81fd1f8bc65f0f6aad832edede029557aef7d58db",
+      "waveform_reused": false
+    },
+    "late": {
+      "effective_strengths_last_repeats": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.8,
+        0.75
+      ],
+      "mean_pacing_gain": null,
+      "cases": [
+        {
+          "case": "sleepy-library",
+          "seed": 611182,
+          "native_EOS": true,
+          "actual_patch_strengths": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.75,
+            0.75,
+            0.75,
+            0.75
+          ],
+          "gain": null,
+          "ON": {
+            "sha256": "8b6724205aa73c28b234b2d4da96533f3d7acd64ba8f0b46f9dc2b67995aef87",
+            "speech": "unmeasured",
+            "asr_words": 13,
+            "active_speech_seconds": null
+          },
+          "OFF": {
+            "sha256": "3412758dc0686bdd08b8d2b55e4e650620f351db2bf7ee0a76b9d8c25bb5f78a",
+            "speech": "unmeasured",
+            "asr_words": 9,
+            "active_speech_seconds": null
+          }
+        },
+        {
+          "case": "sleepy-tram",
+          "seed": 611183,
+          "native_EOS": true,
+          "actual_patch_strengths": [
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.75,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.7,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.8,
+            0.75,
+            0.75
+          ],
+          "gain": -0.040491361354736854,
+          "ON": {
+            "sha256": "9af7ba99d6a7c1c7b2ae57ac5ed7a3b1d644050f00bd900a6eb8d9e9a2287b92",
+            "speech": "pass",
+            "asr_words": 10,
+            "active_speech_seconds": 2.42
+          },
+          "OFF": {
+            "sha256": "d46f671af3b860cc419fd8ad994e8ecd9f663e54bd039de25096e2e8a3af1ece",
+            "speech": "pass",
+            "asr_words": 10,
+            "active_speech_seconds": 2.52
+          }
+        }
+      ],
+      "score_sha256": "c5a9ac09409280cc95980e8bfaf242d9167a18a2737ce86a027acdce82c5ebdf",
+      "waveform_reused": false
+    }
+  }
+}

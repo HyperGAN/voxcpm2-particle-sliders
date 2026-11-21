@@ -74,5 +74,12 @@ All eight waveforms in a fresh two-case panel reached native EOS. In the
 window case, all three profiles passed the speech check and tied at
 +0.02353 in pacing gain. The clock case fell below the 0.80 transcript
 threshold in every arm, including OFF, so the full panel has no comparable
-mean. The earlier timing gain remains scoped to its original panel.
+mean for that panel.
+
+A separate four-utterance confirmation produced 16 native-EOS waveforms,
+all of which passed the frozen speech check. Mean pacing gain was +0.02465
+at constant 0.75, +0.03002 with shifted early emphasis and +0.02939 with
+its reverse. Shifted early emphasis improved two cases over constant, tied
+one and lost one. Use the shifted early profile for the tested Sleepy RAW64
+setup.
 [Follow-up evidence](docs/sleepy-raw64-shifted-six-native-eos.json)

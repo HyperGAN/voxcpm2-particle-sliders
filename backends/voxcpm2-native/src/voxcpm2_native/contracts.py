@@ -3,7 +3,7 @@ import hashlib,json,math
 from pathlib import Path
 from math import prod
 
-CORE_REVISION='ec1161f5d74481be3540cb0dfa63d0e8f8b54e90'
+CORE_REVISION='b1f780decc516808cfd3019d5e5b674457161f86'
 BACKEND='voxcpm2_native'
 SOURCE_PROFILE='voxcpm2-engine-full-waveform-hndl-v1'
 INITIALIZATION_POLICY='voxcpm2-host-RMS-QR-zero-up-bank-R2-std1-v1'

@@ -65,3 +65,52 @@ def eos_patch_schedule(native, strengths):
         handles.callback(scope.close)
         scope.enter_context(native.network.scaled(current()))
         yield applied
+
+
+@contextmanager
+def eos_patch_gate(native, *, strength, gate, direction):
+    """Gate the DiT-only RAW adapter on each eager native-EOS acoustic patch.
+
+    The official cached loop passes the current fused LM conditioning as
+    ``mu`` before DiT generation. Its projections are outside this adapter's
+    hosts. Hold the gate decision for the full native DiT patch call.
+    """
+    import torch
+    from particle_sliders.adaptive_steering import ActivationGate, activation_projection
+
+    if type(strength) not in (int, float) or not 0 < strength <= 1:
+        raise ValueError("VoxCPM2 gated RAW strength must be in (0, 1]")
+    if tuple(native.network.hosts) != ("dit",):
+        raise ValueError("native acoustic patch gating requires a DiT-only RAW adapter")
+    if not isinstance(gate, ActivationGate) or gate.usage.eligible:
+        raise ValueError("each native EOS request requires a fresh ActivationGate")
+    if not isinstance(direction, torch.Tensor) or direction.ndim != 1 or not direction.is_floating_point():
+        raise ValueError("supply a calibrated unit direction in native decoder mu coordinates")
+    direction = direction.detach()
+    length = direction.float().norm()
+    if not torch.isclose(length, torch.ones_like(length)):
+        raise ValueError("supply a finite unit direction in native decoder mu coordinates")
+
+    trace = []
+    scope = ExitStack()
+
+    def before_patch(_decoder, _args, kwargs):
+        mu = kwargs.get("mu")
+        if not isinstance(mu, torch.Tensor) or mu.ndim != 2 or mu.shape[0] != 1:
+            raise RuntimeError("native EOS patch must supply one fused LM conditioning row as mu")
+        score = float(activation_projection(mu[0], direction, strength=strength))
+        decision = gate.step(score)
+        applied = strength if decision.fired else 0.0
+        scope.enter_context(native.network.scaled(applied))
+        trace.append(dict(score=score, probability=decision.probability,
+                          fired=decision.fired, strength=applied))
+
+    def after_patch(_decoder, _args, _output):
+        scope.close()
+
+    decoder = native.model.feat_decoder
+    with ExitStack() as handles:
+        handles.callback(decoder.register_forward_pre_hook(before_patch, with_kwargs=True).remove)
+        handles.callback(decoder.register_forward_hook(after_patch, always_call=True).remove)
+        handles.callback(scope.close)
+        yield trace

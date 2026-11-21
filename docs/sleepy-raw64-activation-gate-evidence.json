@@ -1,0 +1,491 @@
+{
+  "scope": "Sleepy RAW64, native VoxCPM2 DiT pacing, 48 kHz speech, native end of speech",
+  "weights": "raw",
+  "ema_decay": null,
+  "new_optimizer_updates": 0,
+  "core_api": "CFP and CLABS per-patch gates from particle-sliders with native pre-DiT mu readout",
+  "source_sha256": {
+    "raw": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e",
+    "probe_fit": "c58fe6132bc8c180b6600ea9395d3d40bbd2414f16aea06b62e922001adb5b32",
+    "active_calibration": "1aff8aa49f7f46193614fd3320ec05f2e2174675a35814cea0b8a915288ed2e9",
+    "native_pairs": "cc2fc33bb6be518c2a7bca4c21e86e146454980fe958f0f89a85d7cac91d948f",
+    "observer_plan": "37487790450d771ce5bc81e3e95974592803dd0a2754da52483672f442eeac23",
+    "prior_observation": "54d125407aca7e4eb9ceb7410a820e08b5b1de81a7a189c3c0cc528523cba235",
+    "neutral_anchor": "49317cce49715d847d7efa0122947933bd0ab2bc1df1d5e5227def5a9763d98b",
+    "pacing_method": "7ad3c842acc574317539810e5d5765e04a10e1c9dd9a059139f1b6c314b84095"
+  },
+  "measure": "Log active speech seconds on the frozen PCM pacing method. Mean ON minus the matched OFF, with equal weight across independently qualified cases.",
+  "calibration": {
+    "target_rate": 0.5,
+    "rate_tolerance": 0.021739130434782608,
+    "methods": {
+      "cfp": {
+        "parameter": -25.078822448849685,
+        "fired": 24,
+        "eligible": 49
+      },
+      "clabs": {
+        "parameter": -0.4403309093786457,
+        "fired": 24,
+        "eligible": 49
+      }
+    },
+    "protocol": "Steering active on two separate native calibration utterances."
+  },
+  "evaluation": {
+    "sleepy-porch": [
+      {
+        "method": "cfp",
+        "dose": {
+          "gate_patches": 25,
+          "gate_fired": 15,
+          "gate_firing_fraction": 0.6,
+          "gate_dose": 11.25,
+          "constant_strength": 0.45,
+          "first_control_strength": 0.45,
+          "constant_patches": 25,
+          "constant_dose": 11.25,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "11ce861436495d144d2cebeeb32b4505b4e203575127144fada7f7db5a7176f3",
+            "frames": 207360,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "ea042a1a23289fd8577e72785071a7da1b192e65a8710d23d10357d233298741"
+          },
+          "gate": {
+            "pcm_sha256": "015cb07b7182d2ce602c8d9368e720d8527c98b32db56aca2d5b00cc4b2be7b6",
+            "frames": 192000,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "8b35d532e01bf77c3619ba6647e081b5635c52d4cd2d1f070cdbacf4e9395eac"
+          },
+          "control": {
+            "pcm_sha256": "5817a4056138a0f128659f66c70f7d89ec02fe1cfad9093de98c8748fddc6b37",
+            "frames": 192000,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "3135b69d501b60848c34af51e614c29688f9a91e04eeab35bc3c540b9c26bd92"
+          }
+        },
+        "gate_minus_off": -0.04652001563489283,
+        "control_minus_off": -0.017192400540372743,
+        "gate_minus_control": -0.029327615094520088
+      },
+      {
+        "method": "clabs",
+        "dose": {
+          "gate_patches": 25,
+          "gate_fired": 19,
+          "gate_firing_fraction": 0.76,
+          "gate_dose": 14.25,
+          "constant_strength": 0.57,
+          "first_control_strength": 0.57,
+          "constant_patches": 25,
+          "constant_dose": 14.249999999999998,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "11ce861436495d144d2cebeeb32b4505b4e203575127144fada7f7db5a7176f3",
+            "frames": 207360,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "ea042a1a23289fd8577e72785071a7da1b192e65a8710d23d10357d233298741"
+          },
+          "gate": {
+            "pcm_sha256": "73c313400f8b08cce107889ea4ee6b900300bd4d2c77ba742a5e9738ee90fef0",
+            "frames": 192000,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "98e62e531dae48e14f671324b818aeeab18ae2fd475bfe188f44b27cf3ba6d6b"
+          },
+          "control": {
+            "pcm_sha256": "7bc99d26bb98cea6f8009803891030e5b227476fb1369123802de557b13fc528",
+            "frames": 192000,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "23a6461c65b4f951d11e919bbb897ea1d51ea1d0deb777172fa709ac15fd0331"
+          }
+        },
+        "gate_minus_off": -0.0524901826213966,
+        "control_minus_off": -0.04652001563489283,
+        "gate_minus_control": -0.0059701669865037665
+      },
+      {
+        "method": "random",
+        "dose": null,
+        "equal_dose_status": "unmeasured",
+        "reason": "observed patch counts cycle among tried constant strengths"
+      }
+    ],
+    "sleepy-dinner": [
+      {
+        "method": "cfp",
+        "dose": {
+          "gate_patches": 21,
+          "gate_fired": 16,
+          "gate_firing_fraction": 0.7619047619047619,
+          "gate_dose": 12.0,
+          "constant_strength": 0.5714285714285714,
+          "first_control_strength": 0.5714285714285714,
+          "constant_patches": 21,
+          "constant_dose": 12.0,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "3d4107643187a62a7636d5843b2db9b9cb7d127124a33664bc6f31396e530f75",
+            "frames": 161280,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "baf32433c7b130132b2fc330ab4cbec6981cc6ef2a5c055eccfb6ed53bebfcc8"
+          },
+          "gate": {
+            "pcm_sha256": "6eea51d169ea19a17be7ee1b73b4924572f3c16ccc4c6b5ef2dd196561415f29",
+            "frames": 161280,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "197511af7780fe424faa522523c5da85398f6db74aa62f4948ba8964f22b358d"
+          },
+          "control": {
+            "pcm_sha256": "2f6a4d563942890e27a36f881a9a4e1f2156120ec4a3b555533f55e80ddb1dcf",
+            "frames": 161280,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "4f1e18fb6c34c99d5893024d2f6753e833e942262ce77cb1db16a1e24c5eaabc"
+          }
+        },
+        "gate_minus_off": -0.007017572658646554,
+        "control_minus_off": 0.0,
+        "gate_minus_control": -0.007017572658646554
+      },
+      {
+        "method": "clabs",
+        "dose": null,
+        "equal_dose_status": "unmeasured",
+        "reason": "observed patch counts cycle among tried constant strengths"
+      },
+      {
+        "method": "random",
+        "dose": {
+          "gate_patches": 24,
+          "gate_fired": 11,
+          "gate_firing_fraction": 0.4583333333333333,
+          "gate_dose": 8.25,
+          "constant_strength": 0.34375,
+          "first_control_strength": 0.34375,
+          "constant_patches": 24,
+          "constant_dose": 8.25,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "3d4107643187a62a7636d5843b2db9b9cb7d127124a33664bc6f31396e530f75",
+            "frames": 161280,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "baf32433c7b130132b2fc330ab4cbec6981cc6ef2a5c055eccfb6ed53bebfcc8"
+          },
+          "gate": {
+            "pcm_sha256": "ddacbf29b0fc450c9e96436e00cebf09fc669fb97dcc0851b9ce8c54d9898322",
+            "frames": 184320,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "1dbe6e3456695599fb4a78e27137fe7883b4380cef7c289efe2bfbbf8c632754"
+          },
+          "control": {
+            "pcm_sha256": "b0341f90bf418add812cbf33bf654bc84d0fb344ebbe0c68988c609229f7bab6",
+            "frames": 184320,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "0eee6f12fdf1b235d394448514311ec4215347d8596fe8d523219bee44df2d2d"
+          }
+        },
+        "gate_minus_off": 0.13702179756429111,
+        "control_minus_off": 0.1247517049724769,
+        "gate_minus_control": 0.012270092591814219
+      }
+    ],
+    "sleepy-park": [
+      {
+        "method": "cfp",
+        "dose": {
+          "gate_patches": 22,
+          "gate_fired": 10,
+          "gate_firing_fraction": 0.45454545454545453,
+          "gate_dose": 7.5,
+          "constant_strength": 0.32608695652173914,
+          "first_control_strength": 0.3409090909090909,
+          "constant_patches": 23,
+          "constant_dose": 7.5,
+          "same_patch_count": false,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "c56d11eb816ceb33ab5ec53826e2ed616920b9f42ef87072ae5281573200b5b3",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "9a811dab700e68f81a5405e577a11bf2f6771bf267176835e6ab68a04944a805"
+          },
+          "gate": {
+            "pcm_sha256": "963c70ed81dc534975657a0726aa59d5d989f505d55ec267fbcd67575cecf0c3",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "038b5286fdd1565abba56d18c4a0eb89c1ee237dbc58064fe1a68cec1497659d"
+          },
+          "control": {
+            "pcm_sha256": "f39cd4cc4f2459911f371c90258a454f411b5aae8eb61e2fc54c151281e8675c",
+            "frames": 176640,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "18e7c282f0c5e34139d8b99436906afcab759b0254478d14ec4f5206b1a1b973"
+          }
+        },
+        "gate_minus_off": 0.025533302005164793,
+        "control_minus_off": 0.04220035449037651,
+        "gate_minus_control": -0.01666705248521172
+      },
+      {
+        "method": "clabs",
+        "dose": {
+          "gate_patches": 22,
+          "gate_fired": 12,
+          "gate_firing_fraction": 0.5454545454545454,
+          "gate_dose": 9.0,
+          "constant_strength": 0.4090909090909091,
+          "first_control_strength": 0.4090909090909091,
+          "constant_patches": 22,
+          "constant_dose": 9.0,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "c56d11eb816ceb33ab5ec53826e2ed616920b9f42ef87072ae5281573200b5b3",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "9a811dab700e68f81a5405e577a11bf2f6771bf267176835e6ab68a04944a805"
+          },
+          "gate": {
+            "pcm_sha256": "4d807095eab743f93e8a0155e2902bbd681a256a27f618939216e547ab40725d",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "e5ed3fe337118e42d44cc81e3babab80eacc930074b37abbd8256c3616ec9bea"
+          },
+          "control": {
+            "pcm_sha256": "bc2036eb6d62be1735eb3c5c3fc6f943eea5e87330d0feefcdfeebf949c96553",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "00e517248b586565f57444813147af7e3f44c1566cae54ff655675fa6b753e10"
+          }
+        },
+        "gate_minus_off": 0.017094433359300165,
+        "control_minus_off": 0.08269171584511337,
+        "gate_minus_control": -0.0655972824858132
+      },
+      {
+        "method": "random",
+        "dose": {
+          "gate_patches": 22,
+          "gate_fired": 12,
+          "gate_firing_fraction": 0.5454545454545454,
+          "gate_dose": 9.0,
+          "constant_strength": 0.4090909090909091,
+          "first_control_strength": 0.4090909090909091,
+          "constant_patches": 22,
+          "constant_dose": 9.0,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "c56d11eb816ceb33ab5ec53826e2ed616920b9f42ef87072ae5281573200b5b3",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "9a811dab700e68f81a5405e577a11bf2f6771bf267176835e6ab68a04944a805"
+          },
+          "gate": {
+            "pcm_sha256": "f288b87ae5d1f3246003b9ed68b8dc44aeb4be7d329bda6cef552c49607ad0cc",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "0cffe0fa3bcf86ee1c1feee93f73f5fc06750a808857877a907eaa9c961fedc1"
+          },
+          "control": {
+            "pcm_sha256": "bc2036eb6d62be1735eb3c5c3fc6f943eea5e87330d0feefcdfeebf949c96553",
+            "frames": 168960,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "00e517248b586565f57444813147af7e3f44c1566cae54ff655675fa6b753e10"
+          }
+        },
+        "gate_minus_off": 0.03390155167568132,
+        "control_minus_off": 0.08269171584511337,
+        "gate_minus_control": -0.04879016416943205
+      }
+    ],
+    "sleepy-shop": [
+      {
+        "method": "cfp",
+        "dose": {
+          "gate_patches": 18,
+          "gate_fired": 14,
+          "gate_firing_fraction": 0.7777777777777778,
+          "gate_dose": 10.5,
+          "constant_strength": 0.5833333333333334,
+          "first_control_strength": 0.5833333333333334,
+          "constant_patches": 18,
+          "constant_dose": 10.5,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "85e158376c3534c503e535dba02858a54a19ccebb26225d1291b519070eb75e4",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "af41e4b65687b7d9e31b8064b7e434c7e4461706c5c020f83ac8478dab878244"
+          },
+          "gate": {
+            "pcm_sha256": "655ecc95b482435b2178c8614f820e6ca56766122ef967b0681556bd86fdcd7b",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "985e885b0b6bfe7b5c22ee6aba4fcce21512ad78598339a49306ce6213882b11"
+          },
+          "control": {
+            "pcm_sha256": "19c5a0e68fdf9c4dfcfc8b1a5c427ce09110f68a5caa4b0b4d5c29f1e4fec512",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "8304c424dde013e7923fd589436674a4462dd774ad0b65dca7ddce0442bb3eb7"
+          }
+        },
+        "gate_minus_off": -0.009389740349838971,
+        "control_minus_off": -0.009389740349838971,
+        "gate_minus_control": 0.0
+      },
+      {
+        "method": "clabs",
+        "dose": {
+          "gate_patches": 18,
+          "gate_fired": 16,
+          "gate_firing_fraction": 0.8888888888888888,
+          "gate_dose": 12.0,
+          "constant_strength": 0.6666666666666666,
+          "first_control_strength": 0.6666666666666666,
+          "constant_patches": 18,
+          "constant_dose": 12.0,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "85e158376c3534c503e535dba02858a54a19ccebb26225d1291b519070eb75e4",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "af41e4b65687b7d9e31b8064b7e434c7e4461706c5c020f83ac8478dab878244"
+          },
+          "gate": {
+            "pcm_sha256": "fa81bfd5904f255ea06596d758c87857c78f4c38301a2e27252225b06dec93bf",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "a5a497873769d97113ae025e72c75f803abc5708a2627820726d28be111cd880"
+          },
+          "control": {
+            "pcm_sha256": "eadae9abc10373f07d52468211c51a79f4264bcf688007dc11a5fbf4d69c9a75",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "fee354ba1c5601888f34f32b1bb0afa96e503221a72428bd3693a4222699d4e9"
+          }
+        },
+        "gate_minus_off": -0.009389740349838971,
+        "control_minus_off": -0.009389740349838971,
+        "gate_minus_control": 0.0
+      },
+      {
+        "method": "random",
+        "dose": {
+          "gate_patches": 18,
+          "gate_fired": 9,
+          "gate_firing_fraction": 0.5,
+          "gate_dose": 6.75,
+          "constant_strength": 0.375,
+          "first_control_strength": 0.375,
+          "constant_patches": 18,
+          "constant_dose": 6.75,
+          "same_patch_count": true,
+          "dose_equal_within_rounding": true,
+          "complete_native_EOS": true,
+          "matched_dose_comparison": true
+        },
+        "equal_dose_status": "matched",
+        "audio": {
+          "OFF": {
+            "pcm_sha256": "85e158376c3534c503e535dba02858a54a19ccebb26225d1291b519070eb75e4",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "af41e4b65687b7d9e31b8064b7e434c7e4461706c5c020f83ac8478dab878244"
+          },
+          "gate": {
+            "pcm_sha256": "870aec6795cf8ea8537951c443059054f87387f61d9b5bdabb33fba55e67cba9",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "9b8228d877b3cbee14c7c34e0b2f7067b02057ba5a984b4bc57ed3bcf29b59b6"
+          },
+          "control": {
+            "pcm_sha256": "b5b085b25ea96ec065f87872efb6c393a99707f17ac91d532863740b38346c9a",
+            "frames": 138240,
+            "independent_speech_verdict": "pass",
+            "first_sha256": "db1ff964cbe925b2894a24330eecc9b4a536cc384da4635c8e4f61c03b13642c"
+          }
+        },
+        "gate_minus_off": 0.0,
+        "control_minus_off": -0.009389740349838971,
+        "gate_minus_control": 0.009389740349838971
+      }
+    ]
+  },
+  "means": {
+    "cfp": {
+      "gate_minus_off": -0.00934850665955339,
+      "control_minus_off": 0.0039045534000411997,
+      "gate_minus_control": -0.01325306005959459
+    },
+    "clabs": {
+      "gate_minus_off": null,
+      "control_minus_off": null,
+      "gate_minus_control": null
+    },
+    "random": {
+      "gate_minus_off": null,
+      "control_minus_off": null,
+      "gate_minus_control": null
+    }
+  },
+  "restored_park_reference": {
+    "active_seconds": 2.32,
+    "absolute_OFF_intensity": 0.8415671856782185,
+    "archived_OFF_speech_verdict_reused": true,
+    "new_model_calls": 0
+  },
+  "interpretation": "CFP had lower mean effect than its matched constant across the four held-out utterances. CLABS and random stay unmeasured over the full panel. For each, the attempted constant strengths cycled between native patch counts and no exact match was observed in one case."
+}

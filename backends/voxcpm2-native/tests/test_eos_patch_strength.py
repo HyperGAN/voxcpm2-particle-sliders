@@ -38,9 +38,11 @@ def test_official_eos_scope_covers_prefill_and_feedback_and_records_only_real_pa
 
 def test_native_eos_gate_matches_off_and_replays_strengths(model):
     import torch
+    from particle_sliders.backends import AdapterParameters
     from particle_sliders.adaptive_steering import ActivationGate
     from voxcpm2_native.adapter import ParticleAdapter
     from voxcpm2_native.frame_strength import eos_patch_gate
+    from voxcpm2_native.waveform import VoxCPM2WaveBackend
 
     class StopAtNativeMinimum(nn.Module):
         def forward(self, hidden):
@@ -49,10 +51,12 @@ def test_native_eos_gate_matches_off_and_replays_strengths(model):
     # Keep the actual native loop, KV caches, DiT and AudioVAE. Give the stop
     # head deterministic logits so the native minimum-length check admits EOS.
     model.stop_head = StopAtNativeMinimum()
-    network = ParticleAdapter(model, seed=7)
-    native = SimpleNamespace(model=model, network=network)
+    slider = ParticleAdapter(model, seed=7)
+    native = VoxCPM2WaveBackend(model, slider, model_identity={"fixture": "tiny official VoxCPM2"})
+    assert isinstance(native.network, AdapterParameters)
+    assert slider.names and all(name.startswith("feat_decoder.estimator.") for name in slider.names)
     with torch.no_grad():
-        for branch in network.branches:
+        for branch in slider.branches:
             branch.lora_up.weight.normal_(std=0.05)
 
     width = model.lm_to_dit_proj.out_features + model.res_to_dit_proj.out_features
@@ -67,13 +71,13 @@ def test_native_eos_gate_matches_off_and_replays_strengths(model):
                                   inference_timesteps=2, retry_badcase=False)
 
     try:
-        with network.scaled(0):
+        with native.network.scaled(0):
             off = render()
-        with network.scaled(strength):
+        with native.network.scaled(strength):
             used = ActivationGate("random", 0, seed=1)
             with eos_patch_gate(native, strength=strength, gate=used, direction=direction) as off_trace:
                 gated_off = render()
-            assert all(branch.multiplier == strength for branch in network.branches)
+            assert all(branch.multiplier == strength for branch in slider.branches)
         assert torch.equal(off, gated_off)
         assert off.shape == (1, 3 * samples_per_patch)
         assert [entry["strength"] for entry in off_trace] == [0, 0, 0]
@@ -93,7 +97,30 @@ def test_native_eos_gate_matches_off_and_replays_strengths(model):
         assert not torch.equal(adaptive, off)
         assert len(model.feat_decoder._forward_pre_hooks) == len(model.feat_decoder._forward_hooks) == 0
     finally:
-        network.close()
+        slider.close()
+
+
+def test_native_eos_gate_rejects_mixed_dit_and_lm_hosts(model):
+    import pytest
+    import torch
+    from particle_sliders.adaptive_steering import ActivationGate
+    from voxcpm2_native.adapter import ParticleAdapter
+    from voxcpm2_native.frame_strength import eos_patch_gate
+    from voxcpm2_native.waveform import VoxCPM2WaveBackend
+
+    slider = ParticleAdapter(model, hosts=("dit", "lm"), seed=7)
+    try:
+        native = VoxCPM2WaveBackend(model, slider, model_identity={"fixture": "tiny official VoxCPM2"})
+        assert any(name.startswith("feat_decoder.estimator.") for name in slider.names)
+        assert any(name.startswith("base_lm.") for name in slider.names)
+        gate = ActivationGate("cfp", 2)
+        with pytest.raises(ValueError, match="DiT-only RAW adapter"):
+            with eos_patch_gate(native, strength=0.75, gate=gate, direction=torch.tensor([1.0])):
+                pytest.fail("accepted mixed DiT and LM hosts")
+        assert gate.usage.eligible == 0
+        assert len(model.feat_decoder._forward_pre_hooks) == len(model.feat_decoder._forward_hooks) == 0
+    finally:
+        slider.close()
 
 
 def test_gate_restores_strength_and_hooks_if_patch_fails():
@@ -131,7 +158,3 @@ def test_gate_restores_strength_and_hooks_if_patch_fails():
     with pytest.raises(ValueError, match="fresh ActivationGate"):
         with eos_patch_gate(native, strength=0.75, gate=gate, direction=torch.tensor([1.0])):
             pytest.fail("reused gate")
-    native.network.hosts = ("dit", "lm")
-    with pytest.raises(ValueError, match="DiT-only RAW adapter"):
-        with eos_patch_gate(native, strength=0.75, gate=ActivationGate("cfp", 2), direction=torch.tensor([1.0])):
-            pytest.fail("accepted an LM adapter")

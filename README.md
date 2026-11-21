@@ -51,3 +51,12 @@ patches that were actually emitted. The last strength repeats through native
 EOS or the original cap. This scope uses the original stop head, cached
 feedback and decoder. Use the fixed-patch `frame_gains` API for the separate
 fixed-length waveform path.
+
+Three Sleepy RAW64 timing panels produced sixteen new 48 kHz waveforms
+through native EOS. At nominal 0.75, using 0.80 for six patches and 0.70
+for six before returning to 0.75 recovered the measured pacing loss from
+constant strength. Both early-heavy outputs passed speech integrity and
+matched OFF on pacing. The reversed library case lacked a comparable score.
+At nominal 0.5, late-heavy showed positive pacing gain against OFF, with
+the constant arm missing a comparable library score.
+[Per-case evidence](docs/sleepy-raw64-native-eos-timing.json)

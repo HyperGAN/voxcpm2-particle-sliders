@@ -6,7 +6,7 @@
   "new_optimizer_updates": 0,
   "ema_decay": null,
   "measure": "Mean active speech pacing intensity ON minus exact matched OFF, with the archived ASR comparability rules",
-  "qualified_positive_improvement_over_constant": false,
+  "selected_schedule": null,
   "studies": {
     "half_large": {
       "nominal_strength": 0.5,

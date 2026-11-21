@@ -11,7 +11,7 @@ def verified_profile(profile=PROFILE):
     builder,identity=fibo_hndl.verified_builder()
     return fibo_hndl.HNDLParticleProjection,builder,dict(profile=PROFILE,shared_runtime=identity,
         graph_sha256=file_hash(Path(__file__).with_name('wave_critic_singleton.hndl')),
-        binding_sha256=file_hash(__file__),training_pg_version='0.11.0',penalty_input_domain='continuous')
+        binding_sha256=file_hash(__file__),training_pg_version='0.11.1',penalty_input_domain='continuous')
 
 class WaveCritic(nn.Module):
     score_bound=0

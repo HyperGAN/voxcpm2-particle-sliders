@@ -1,9 +1,9 @@
-"""New explicit ParticleGAN 0.11.0 waveform cohort; historical packets are never migrated."""
+"""New explicit ParticleGAN 0.11.1 waveform cohort; historical packets are never migrated."""
 import hashlib,json,math
 from pathlib import Path
 from math import prod
 
-CORE_REVISION='c13890f8e2a1ecf1dc8eb9f2a37f9187cb9fea78'
+CORE_REVISION='ec1161f5d74481be3540cb0dfa63d0e8f8b54e90'
 BACKEND='voxcpm2_native'
 SOURCE_PROFILE='voxcpm2-engine-full-waveform-hndl-v1'
 INITIALIZATION_POLICY='voxcpm2-host-RMS-QR-zero-up-bank-R2-std1-v1'
@@ -27,8 +27,8 @@ def validate_profile(options):
     # Refuse BEFORE filesystem, model, native code or optimizer allocation.
     if options.get('ema_decay')is not None or options.get('ema')is not None:raise ValueError('VoxCPM2 refuses weight EMA')
     if (options.get('source_profile')!=SOURCE_PROFILE or options.get('initialization_policy')!=INITIALIZATION_POLICY
-        or options.get('pg_version')!='0.11.0'or options.get('pg_source_profile')!='release-0.11.0'
-        or options.get('penalty_input_domain')!='continuous'):raise ValueError('explicit new ParticleGAN 0.11.0/full-waveform/continuous profile required')
+        or options.get('pg_version')!='0.11.1'or options.get('pg_source_profile')!='release-0.11.1'
+        or options.get('penalty_input_domain')!='continuous'):raise ValueError('explicit new ParticleGAN 0.11.1/full-waveform/continuous profile required')
     rate_overrides(options)
 def validate_installed_core():
     from importlib import metadata

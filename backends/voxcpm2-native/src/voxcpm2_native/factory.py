@@ -32,7 +32,7 @@ class WaveResponse:
 
 def capabilities(options):
     return ResponseCapabilities('routed_particle_gan','audio','native_mono_waveform','continuous_vector',
-        (1,samples(options)),'0.11.0','release-0.11.0',penalty_input_domain='continuous',base_precisions=('float32','bfloat16'),
+        (1,samples(options)),'0.11.1','release-0.11.1',penalty_input_domain='continuous',base_precisions=('float32','bfloat16'),
         qualification='New full native waveform Source; CPU/pretrained/quality qualification pending')
 
 def validate(options):validate_training(options);validate_installed_core()
@@ -95,7 +95,7 @@ def prepare_inference(options,spec):
 # Configuration replaces the descriptor with exact native decoder geometry before
 # allocation; the initial positive placeholder never supplies training responses.
 TRAINING=ResponseBackend(BACKEND,ResponseCapabilities('routed_particle_gan','audio','native_mono_waveform','continuous_vector',
-    (1,1),'0.11.0','release-0.11.0',penalty_input_domain='continuous'),prepare_training,validate,
+    (1,1),'0.11.1','release-0.11.1',penalty_input_domain='continuous'),prepare_training,validate,
     configure_capabilities=capabilities,preflight=preflight)
 INFERENCE=InferenceBackend(BACKEND,Capabilities('routed_particle_gan',render=True,render_outputs=('audio',),
     operations=('response','render'),qualification='Actual native AudioVAE waveform Source; qualification pending'),

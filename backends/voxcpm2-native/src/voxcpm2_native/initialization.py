@@ -115,7 +115,7 @@ def validate_receipt(value, *, cohort):
             or value.get("cohort_id") != cohort or value.get("source_identity") != source_identity()
             or value.get("completed_steps") != 0 or value.get("restored_from") is not None
             or value.get("helper_source") != expected_source
-            or value.get("particlegan", {}).get("version") != "0.11.0"
+            or value.get("particlegan", {}).get("version") != "0.11.1"
             or value.get("particlegan", {}).get("initializer_source", {}).get("sha256") !=
                "3534ff23efa413cdf8b4125b91e0d30671d873b3e2958547d4e744b750454b9b"):
         raise ValueError("initialization receipt differs from this explicit fresh source cohort")
@@ -170,7 +170,7 @@ def construction_for(config, packet):
     if packet["schema"] != TRAINING or packet["manifest"]["config"] != config.as_dict():
         raise ValueError("resume requires the exact new-cohort training packet/config")
     game = packet["payload"]["game"]
-    if game["config"].get("pg_version") != "0.11.0":
+    if game["config"].get("pg_version") != "0.11.1":
         raise ValueError("historical PG packets retain their original source; no migration")
     value = deepcopy(game["config"]["backend"]["fresh_initialization"])
     receipt = validate_receipt(value, cohort=config.cohort)

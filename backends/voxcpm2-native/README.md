@@ -1,6 +1,6 @@
 # VoxCPM2 native waveform backend
 
-This backend uses Particle Sliders core 0.15.2 at `ec1161f5` with official
+This backend uses Particle Sliders core 0.15.2 at `b1f780de` with official
 ParticleGAN 0.11.1. It preserves the native mono48k waveform response, RAW
 exports, scoped initialization and exact FULL continuation. HNDL graphs and
 builder checks are adapted from the MIT-licensed core source, with HNDL 0.10.0
@@ -12,6 +12,75 @@ effective strength for its adapted language and denoising forwards. Keep
 `strength * gain` within `[0, 1]`. The WAV sidecar records the values in
 `effective_frame_strengths`. The tiny native AudioVAE check passed. Finished
 pretrained speech effect is pending a matched comparison.
+
+## Gate the saved RAW adapter in native EOS generation
+
+`eos_patch_gate` applies the shared CFP, CLABS, or matched random gate to one
+patch at a time in the original eager cached sampler. It reads `mu[0]`, the
+current concatenation of the base and residual LM states after their native
+DiT projections. This row is available before the DiT adapter can affect the
+patch. There is one eligible event per actual decoder call, including the last
+patch before the stop head reports EOS. Prompt prefill, feedback, DiT Euler
+substeps, and the stop check do not advance the gate separately. The original
+stop head, model RNG, classifier-free guidance, cache and AudioVAE remain in
+charge of generation. Keep bad-case retries disabled so one scope is one
+trajectory. The adapter must target the DiT only.
+[Original native loop](https://github.com/OpenBMB/VoxCPM/blob/19b6bf7590025418821a86dcb817504e0ad7e5df/src/voxcpm/model/voxcpm2.py#L972-L1013)
+
+This variant keeps the saved routed RAW edit and varies its strength between
+zero and the selected native strength. The direction is a readout for the gate.
+The paper's residual addition uses its direction as the edit itself. Preserve
+the original RAW loader, sampler, and CUDA ownership for any replay.
+[Right Token, Right Time](https://arxiv.org/html/2611.18274v1#S3)
+
+```python
+from particle_sliders.adaptive_steering import ActivationGate
+from voxcpm2_native.frame_strength import eos_patch_gate
+
+# Use the original owner scope, exact RAW loader, and per-case native RNG scope.
+gate = ActivationGate("cfp", calibrated_threshold)
+with eos_patch_gate(native, strength=qualified_strength, gate=gate,
+                    direction=fitted_mu_direction) as patch_trace:
+    audio = native.model.generate(retry_badcase=False, **native_request)
+# Store patch_trace in the WAV receipt with the gate and artifact provenance.
+```
+
+Use one gate per utterance. CLABS also takes an explicit gate RNG seed and
+`CLABSParameters` with measured projection statistics and a recorded controller
+configuration. The audio RNG remains independent. Store each patch's
+projection, probability, firing decision and effective strength. Store the
+exact RAW, VoxCPM2 weights and source, solver settings, direction artifact,
+calibration inputs and configuration with the trace.
+
+To reproduce the paper's probe derivation in `mu` coordinates, collect the fused
+row at the same hook with verified target and neutral corpora under the same
+model and sampler. Use an SAE trained on this exact fused representation.
+Average SAE codes over patches within each utterance and supply the example
+rows, decoder matrix and declared feature count to
+`particle_sliders.adaptive_steering.contrastive_sae_direction`. Keep the corpus
+and SAE identity, feature selection and direction checksum. The fitted vector
+must match the full fused width and have unit norm.
+
+Fit the CFP threshold or CLABS bias with the shared `calibrate_gate_budget`
+using fresh gate state for each rollout. Reuse the same disjoint calibration
+utterances and seeds for each candidate with RAW steering active. Count every
+emitted patch through native EOS or its cap, and report held-out realized
+fired/eligible counts even when runs end at different lengths. Match the
+random gate at the same target rate and strength. Report summed effective
+strength as well as firing fraction. Compare whole waveforms to matched native
+OFF, selected constant strength and the retained fixed schedule, under the
+original conditioning/Euler/CFG, reference and seeds. Fit the direction and
+calibrate on separate cases from the four qualified Sleepy RAW64 utterances
+(porch, dinner, park and shop), which supply prior matched comparators. Keep the
+original frozen speech checks and rank by equal-case pacing ON minus OFF on
+qualified output pairs. Record the speech verdict separately and leave
+incomplete or uncertain pairs unmeasured.
+[Qualified RAW64 comparison and frozen checks](../../docs/sleepy-raw64-shifted-six-native-eos.json)
+
+The saved audio cases contain the fixed-schedule results. They provide no
+qualified fused-row SAE/direction or active-rollout threshold or bias for the
+new gate. The adaptive scope is opt-in pending that calibration and a native
+finished-output comparison.
 
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:

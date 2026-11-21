@@ -44,6 +44,10 @@ Automated CI is not configured; no hosted check pass is claimed.
 
 ### Scheduling the original eager native-EOS path
 
+The shared activation gate can also scale a saved DiT-only RAW adapter per
+acoustic patch when a calibrated direction and gate settings are available.
+[Native gate setup and calibration](backends/voxcpm2-native/README.md#gate-the-saved-raw-adapter-in-native-eos-generation)
+
 An owner already running the original cached VoxCPM2 eager waveform path can
 wrap a single native generation call with `voxcpm2_native.frame_strength.eos_patch_schedule`.
 Pass effective strengths in `[0,1]` and use the resulting list to record the

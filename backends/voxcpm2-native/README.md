@@ -6,6 +6,13 @@ exports, scoped initialization and exact FULL continuation. HNDL graphs and
 builder checks are adapted from the MIT-licensed core source, with HNDL 0.10.0
 and HyperGAN pinned directly.
 
+To schedule RAW strength, include `frame_gains` in the native render request.
+Provide one gain for each declared `frames` patch. That patch uses the same
+effective strength for its adapted language and denoising forwards. Keep
+`strength * gain` within `[0, 1]`. The WAV sidecar records the values in
+`effective_frame_strengths`. The tiny native AudioVAE check passed. Finished
+pretrained speech effect is pending a matched comparison.
+
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:
 

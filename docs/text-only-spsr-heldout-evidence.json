@@ -286,5 +286,767 @@
     ],
     "adaptive_minus_constant": 0.001238511812448495
   },
-  "interpretation": "All four adaptive and neutral utterances passed independent speech integrity. Two constant settings matched the realized accumulated coefficient at FP32 precision. In two cases the tried constants cycled between native EOS lengths. The four-case timing mean remains unmeasured."
+  "interpretation": "All four adaptive and neutral utterances passed independent speech integrity. Their mean adaptive-minus-OFF effect was +0.02823. The two exact-dose comparisons previously measured had a mean adaptive-minus-constant effect of +0.00124. The follow-up exhausted the eligible lengths for beekeeping and harbor navigation without an exact-dose constant. The four-case timing comparison remains unmeasured.",
+  "exact_control_followup": {
+    "scope": "The two previously unresolved constants on the frozen text-only S-PSR panel.",
+    "coefficient_rule": "For each candidate length, divide the exactly summed applied adaptive FP32 coefficients by that length and round once to nearest-even FP32.",
+    "exact_match_rule": "The constant rendering must reach native EOS within the original observer length domain and use precisely the rounded FP32 coefficient for the realized patch count.",
+    "candidate_order": "Increasing distance from the saved adaptive EOS count, with equal distances ordered by ascending length.",
+    "native_min_length_index": 2,
+    "qualified_speech_sample_limit": 384000,
+    "samples_per_native_patch": 7680,
+    "inclusive_scoreable_patch_domain": [
+      4,
+      50
+    ],
+    "new_native_attempts": 88,
+    "new_independent_speech_calls": 0,
+    "new_pacing_scores": 0,
+    "full_panel_timing_comparison": "unmeasured",
+    "verification_sha256": {
+      "frozen_search": "38f634b022f5c7ff372822ccac7bbe368f459889afa95291b648dffc89c56059",
+      "native_firsts": "aadfc945d0cb4019ef7e954c3fc5730831e5f6adf90d452a468542ba431c7f13",
+      "native_guard": "ce18ee3563bc1b3a789e6cff958580f4ab011d214943295effab461db2eb893d",
+      "independent_observer": "53f3d8795f33c5557a075fcc790bf6642e0f1964c98b7d0db2d134baf4089037",
+      "independent_FP32_domain_audit": "6eb547315cc2ad2dec324265cf6f66b49039eddd2b41e729dc1f40fc78fe5ee5"
+    },
+    "cases": [
+      {
+        "family": "beekeeping",
+        "status": "unmeasured",
+        "reason": "No exact native FP32 constant in the exhausted original observer length domain.",
+        "native_patch_cap": 100,
+        "adaptive_total_in_binary32_units": 78936342556722311418056824606073402156740771840,
+        "previously_rendered_lengths": [
+          23,
+          24,
+          25,
+          21
+        ],
+        "new_true_native_EOS_attempts": [
+          {
+            "proposed_patches": 22,
+            "realized_patches": 23,
+            "coefficient": 5.027880668640137,
+            "dose_difference_binary32_units": 3588014903729328997844799443092884393715302400,
+            "wav_sha256": "1af58543f29ab544404a5bc5394c69c89af4ef4cd5c207a38e4e179ac5c1fd54",
+            "native_sha256": "317ffec76ab9440c675bd45fe32dbae8ef510f79a253f614f88da915f80d09f4"
+          },
+          {
+            "proposed_patches": 20,
+            "realized_patches": 21,
+            "coefficient": 5.53066873550415,
+            "dose_difference_binary32_units": 3946816457905205695305241286784911726543372288,
+            "wav_sha256": "a7c976f6045b9972512ef5076a3a4ab097d4a600f021b8c6d5e72e69fde5cadd",
+            "native_sha256": "7b528ce030de30c1d7e4151296d5178c9cf931ef625f540235eeb906382df47d"
+          },
+          {
+            "proposed_patches": 26,
+            "realized_patches": 23,
+            "coefficient": 4.254360675811768,
+            "dose_difference_binary32_units": -9108038284072206639620528951175166399277432832,
+            "wav_sha256": "b4a1ecbac83f6701dc01ca828dd8fcb80dff4585d98baea2f0dfc03a12a5212e",
+            "native_sha256": "253e0cce9d49aebd5bcc5bc443db15419e5fe028a64c498bce9c91b04126b280"
+          },
+          {
+            "proposed_patches": 19,
+            "realized_patches": 23,
+            "coefficient": 5.821756839752197,
+            "dose_difference_binary32_units": 16618181139139526484430911463159965440490340352,
+            "wav_sha256": "6d34fc3fd6a88ff5355333c2639caa528e108cefc173cc5c964077e4648e59c7",
+            "native_sha256": "3208740e9df61bfeae758e25054b8393c3034a0c52fdb74b88e1497cf48736bc"
+          },
+          {
+            "proposed_patches": 27,
+            "realized_patches": 21,
+            "coefficient": 4.096791744232178,
+            "dose_difference_binary32_units": -17541408629974205160064973438980807415950213120,
+            "wav_sha256": "06141f862fd28752714b4cce90cf96be3b72584b89b626c389dfe23fc5b97216",
+            "native_sha256": "84c107b45ad5380fe2f1500fe4a67880c52fe63fd627df30fbc2a70d09b310cd"
+          },
+          {
+            "proposed_patches": 18,
+            "realized_patches": 21,
+            "coefficient": 6.1451873779296875,
+            "dose_difference_binary32_units": 13156054760434995299077085779132111920878845952,
+            "wav_sha256": "48c093001e5654f9dcbfc187ea4d9adb54b27bcff2cfd432a206fd383b79e8e4",
+            "native_sha256": "26fde77fb0574d392fa827810505ce5382fbb54286246e47e5e516011389e466"
+          },
+          {
+            "proposed_patches": 28,
+            "realized_patches": 21,
+            "coefficient": 3.9504776000976562,
+            "dose_difference_binary32_units": -19734087138549757099899310787012714535413874688,
+            "wav_sha256": "5ddb507d29c477bb8cefcce8d50240cfccf969981ccf4fed16159b6cba2b094e",
+            "native_sha256": "d66f6c2dc4fa82fe0b925bd4b54097ceb264be187587d280c28694380b5a9ef7"
+          },
+          {
+            "proposed_patches": 17,
+            "realized_patches": 21,
+            "coefficient": 6.506669044494629,
+            "dose_difference_binary32_units": 18573255443318331616521166711304995815695581184,
+            "wav_sha256": "43fce8d705f7a073dc204efc1d67bd48848600c0003405463fef5efc7f606ecd",
+            "native_sha256": "a8cc8812e77ea5748a64daf29cdd1410ff9b8b77076687fd2cf962003660f5bd"
+          },
+          {
+            "proposed_patches": 29,
+            "realized_patches": 24,
+            "coefficient": 3.8142542839050293,
+            "dose_difference_binary32_units": -13609715043554995677070279379421204261231394816,
+            "wav_sha256": "5b9a6f978e95f73789fa9ea20c0c827a20cacfa9509bd731c992a0eebea71287",
+            "native_sha256": "335711fa04a874efce87147bbd0df0564010689dc9c21821a23149f92660ff40"
+          },
+          {
+            "proposed_patches": 16,
+            "realized_patches": 21,
+            "coefficient": 6.913335800170898,
+            "dose_difference_binary32_units": 24667604425079658638718824577282801180581298176,
+            "wav_sha256": "b28e45bfdae5019315b202746c69d97c70a3cc1e091009f1f5d9871aeb507dcc",
+            "native_sha256": "9c19fa1199e054b8edabed45509fb07cd00150d3485a50decf64724162947658"
+          },
+          {
+            "proposed_patches": 30,
+            "realized_patches": 23,
+            "coefficient": 3.68711256980896,
+            "dose_difference_binary32_units": -18418479114642035249464857027082130197961506816,
+            "wav_sha256": "7c86a0753c39b22b928cbee5d5a45208324767adc1e434a5f2171ea93a5951f0",
+            "native_sha256": "d3829e5bc295fc6531f123b7be7c902b5bb446a18212e43873674466ec3824f8"
+          },
+          {
+            "proposed_patches": 15,
+            "realized_patches": 21,
+            "coefficient": 7.37422513961792,
+            "dose_difference_binary32_units": 31574538511424279846328507494693268376682233856,
+            "wav_sha256": "55cc6fa3902cf9f09ecf24137aa3586204b67a490eb198b32d19b7e90448d5e8",
+            "native_sha256": "9be943d52ac7ae5a4c347ecacdf66bc51cb7caab9e617b881154ee83b0769881"
+          },
+          {
+            "proposed_patches": 31,
+            "realized_patches": 23,
+            "coefficient": 3.568173408508301,
+            "dose_difference_binary32_units": -20370669015337635046669564980367265189922340864,
+            "wav_sha256": "9bf83748e17d591c1d9f286948b2cf1a292574985114084ac876fc2150553828",
+            "native_sha256": "a832df41d4c6598591e5ec526a53a5496eb3cadd6565b8299d98ee969b84e28c"
+          },
+          {
+            "proposed_patches": 14,
+            "realized_patches": 21,
+            "coefficient": 7.9009552001953125,
+            "dose_difference_binary32_units": 39468168279622797218258203032047973085913022464,
+            "wav_sha256": "3733b8f17a659c966c6fc131f38955e4a336bf05c4180964b23db07f7a38bae1",
+            "native_sha256": "e182bd7c602cbc3b1bbcd2daca82eacba6ccea16d7f4d1ab6794d6643e05b616"
+          },
+          {
+            "proposed_patches": 32,
+            "realized_patches": 23,
+            "coefficient": 3.456667900085449,
+            "dose_difference_binary32_units": -22200847780973613529822540529473576519635828736,
+            "wav_sha256": "d73d33c629da822dc143a5a486e3ea86c5b1cf5f3fe86e163cab31a20bfbd91d",
+            "native_sha256": "06b2496c41ab51a055e43f13a701809bdca78a0c505e22fe298023d68175995c"
+          },
+          {
+            "proposed_patches": 13,
+            "realized_patches": 22,
+            "coefficient": 8.508721351623535,
+            "dose_difference_binary32_units": 54648239530086584679821306211992787987971702784,
+            "wav_sha256": "1a44e2094a0e0511ebcb6df8463365a67c8b8783f06798d8307b53dc65855dc7",
+            "native_sha256": "f905d9a19299f8b20a4defad20b28d34e84e1d0be45ebaa98156ca929a016839"
+          },
+          {
+            "proposed_patches": 33,
+            "realized_patches": 23,
+            "coefficient": 3.3519203662872314,
+            "dose_difference_binary32_units": -23920105554170291004386518516231872944881532928,
+            "wav_sha256": "1ca08bdd6be0fdd9913bf0488a0a22e4cf8614021bc6e371a3839542a5de20c4",
+            "native_sha256": "47b0adeca85ad910263fe09d5f7d6d0f1a09e5f4864a5c51414d80fb43b9d68d"
+          },
+          {
+            "proposed_patches": 12,
+            "realized_patches": 22,
+            "coefficient": 9.217781066894531,
+            "dose_difference_binary32_units": 65780281798810599137439320284963834250947198976,
+            "wav_sha256": "b0fe26c48bfdb254b2c87fc441277ffa4cc0459efd1c5a2be617ca22baf252ee",
+            "native_sha256": "b55d60abf8213749e13e27d98495d86b3496e937c886dfbec042b479ef6d439d"
+          },
+          {
+            "proposed_patches": 34,
+            "realized_patches": 20,
+            "coefficient": 3.2533345222473145,
+            "dose_difference_binary32_units": -32503200651941052830162543026369403122247270400,
+            "wav_sha256": "30a411f2a3b64d671cd71e57cd2bb846b087d788f4f2c9ace95f481f1ae1720c",
+            "native_sha256": "3b305391337f99fe9f3538e74f59d7cef4c84c1f454be92f6ee61b184346c77e"
+          },
+          {
+            "proposed_patches": 11,
+            "realized_patches": 21,
+            "coefficient": 10.055761337280273,
+            "dose_difference_binary32_units": 71760310197145901515328749744578077631048581120,
+            "wav_sha256": "a315fe2444df3e7bc57cfe8d0242cb3ad44dfe3a2a64eba0f27a248a11757139",
+            "native_sha256": "7c24684fb92d0165e0a703c57a1110376f17b324af1d00f6da547560e5230972"
+          },
+          {
+            "proposed_patches": 35,
+            "realized_patches": 23,
+            "coefficient": 3.1603822708129883,
+            "dose_difference_binary32_units": -27063887059725726247608758158707173201977278464,
+            "wav_sha256": "fe71984e10737afb3d7e129962cb9b3830e73fd652f440bac2dd830b069e7cba",
+            "native_sha256": "f4ddff33fb6a3c8521652167711c153143aa4e6f1f10f12c1bd9f9d360302d46"
+          },
+          {
+            "proposed_patches": 10,
+            "realized_patches": 23,
+            "coefficient": 11.0613374710083,
+            "dose_difference_binary32_units": 102617243856271297496926748302092428254262591488,
+            "wav_sha256": "3b5153fa049739a9850e20a68bdb16ba6ec0fc8303f5721db784e7eff57425fe",
+            "native_sha256": "206d5297908265898266ff87d40b4f7fadc6415e409b885817b05651fe1628d0"
+          },
+          {
+            "proposed_patches": 36,
+            "realized_patches": 24,
+            "coefficient": 3.0725936889648438,
+            "dose_difference_binary32_units": -26312115518346707579694590100241679826672418816,
+            "wav_sha256": "9dd65fe5cc925ff6029467531253d8aa684a736fe9f841f1ccd0bb4b0fa54948",
+            "native_sha256": "4fa146e02b3a65cc0cd71b3df35e70001b5be03bcb2fe472c41172bfedcca2ca"
+          },
+          {
+            "proposed_patches": 9,
+            "realized_patches": 21,
+            "coefficient": 12.290374755859375,
+            "dose_difference_binary32_units": 105248452077592302016210996164337625998498463744,
+            "wav_sha256": "c897619b7aaca5e56c9083701c4969b063dbba127ead57d7d86c9a32b964ab44",
+            "native_sha256": "dca6880a3d4908f86e0908c03918477387c147b53f5cca8e40b3f4ec55e912af"
+          },
+          {
+            "proposed_patches": 37,
+            "realized_patches": 23,
+            "coefficient": 2.9895505905151367,
+            "dose_difference_binary32_units": -29867806957506920767777695656452794629010489344,
+            "wav_sha256": "2ae4ea0b8548f0c61fcfb758e86058ac436b744f856bb39774968ed88fcf9751",
+            "native_sha256": "a79dcc3501b89a06436aed4837ce388f9b20a4ba2626a0f80622dd5a0a399a96"
+          },
+          {
+            "proposed_patches": 8,
+            "realized_patches": 23,
+            "coefficient": 13.826671600341797,
+            "dose_difference_binary32_units": 148005636546272480134880311700325900391679000576,
+            "wav_sha256": "a2ad8df3d921d70b8004e4659c5632f8511cfd70355c9bc05de2552cbbc12b0f",
+            "native_sha256": "7c354f23082042edb4857450324e591fdc63f81eab744055c92bdafbabda01c2"
+          },
+          {
+            "proposed_patches": 38,
+            "realized_patches": 23,
+            "coefficient": 2.9108784198760986,
+            "dose_difference_binary32_units": -31159080708791392466812956571456718358125215744,
+            "wav_sha256": "1f1f6fb8346b19a3c659060937416976b0af1a323aac884e5b869125759e9916",
+            "native_sha256": "8b63bbe47c63f8d8533fd5a0edc18ca5fd74a7113063876ca9d3a05a7cf6834e"
+          },
+          {
+            "proposed_patches": 7,
+            "realized_patches": 25,
+            "coefficient": 15.801910400390625,
+            "dose_difference_binary32_units": 202979159434575566287455145960882253182911119360,
+            "wav_sha256": "fc5c88813f59d65866c95efcc4b613cde9cfba2a4bff623130a6cfe6380fa1ee",
+            "native_sha256": "636890bd33de47eb8e89f0a2fb3112b446f4d4a1e7929dd6dc719d1444f32c72"
+          },
+          {
+            "proposed_patches": 39,
+            "realized_patches": 21,
+            "coefficient": 2.836240291595459,
+            "dose_difference_binary32_units": -36432159729259685651664845407583684587618828288,
+            "wav_sha256": "93cce333f19222daabc5f5c596eb850a74d8d789bdc4046e7b6d66b6a968f56c",
+            "native_sha256": "c59beca8bca0246f4b0f75689c74d1dd4b6b21ff1672eac75d250017a1bfa460"
+          },
+          {
+            "proposed_patches": 6,
+            "realized_patches": 27,
+            "coefficient": 18.435562133789062,
+            "dose_difference_binary32_units": 276277189952313014490888258308290723571220611072,
+            "wav_sha256": "cc2d32c089eb64e95941cb897231267cafb588cd83f901c302bc6b580910548a",
+            "native_sha256": "43a5865b09e9e6a4c4c1876a75787dff044be5d39ac8a8d429eef5089da1859b"
+          },
+          {
+            "proposed_patches": 40,
+            "realized_patches": 23,
+            "coefficient": 2.765334367752075,
+            "dose_difference_binary32_units": -33547945953473909189310931379031944553989931008,
+            "wav_sha256": "9da6d1c6c3fb29b2b9b8908ed98befe4ab87b444bf60ccc11cfda1e5635e08b6",
+            "native_sha256": "433c24c37780c079c0c9f3d84fc4c1963732be484bc3ebb4b454f40cb63e0d16"
+          },
+          {
+            "proposed_patches": 5,
+            "realized_patches": 24,
+            "coefficient": 22.1226749420166,
+            "dose_difference_binary32_units": 299958098653003481100169762332707461309701029888,
+            "wav_sha256": "cf88d013b85aa920a569564a5a02a148d9c240893ce09574f1f8e377dd38bac4",
+            "native_sha256": "dbb031b39406580464529303c1ea88f2a260d45f7dbc9f276feba78a7d5e6f97"
+          },
+          {
+            "proposed_patches": 41,
+            "realized_patches": 21,
+            "coefficient": 2.6978871822357178,
+            "dose_difference_binary32_units": -38505533368439738501047374569689672897420853248,
+            "wav_sha256": "f3d7fe4fc652fe34def1e40ec6f33b0f18ce2558df1fc3e296f8ca407546a7e6",
+            "native_sha256": "eb1c63bffe0c28aeaea1687efe4e51989824e9bf8196b91714b4ccf15af564b1"
+          },
+          {
+            "proposed_patches": 4,
+            "realized_patches": 26,
+            "coefficient": 27.653343200683594,
+            "dose_difference_binary32_units": 434149871067439826005974961825785890561425670144,
+            "wav_sha256": "b2baa7ce801a00e495539e055a09fbe2be60fa642c7d9b2a1a7b384f0379e614",
+            "native_sha256": "d07fb506b23ce2b4e78050c0fe1cf5e73b24ad33a7bd24906cba2e8a13dbbd99"
+          },
+          {
+            "proposed_patches": 42,
+            "realized_patches": 21,
+            "coefficient": 2.6336517333984375,
+            "dose_difference_binary32_units": -39468172277940608539285148726699610409189507072,
+            "wav_sha256": "d50c3669aff29ae513b4b44a7aed32fd638febea8e6ea2945785ad27fb13c0aa",
+            "native_sha256": "b6c3bf9618aed1407b4ef30953df1cccda43668e70a011037b431d47ae734fc6"
+          },
+          {
+            "proposed_patches": 43,
+            "realized_patches": 21,
+            "coefficient": 2.572404146194458,
+            "dose_difference_binary32_units": -40386034791907819968869631272616031269085511680,
+            "wav_sha256": "78d98fd41659c2abeee5a0ce65a046ef985f52ee161de7d05de72cfa14ad5e90",
+            "native_sha256": "3ff5861000ff3f0da5b19ed4b72f71922b70899a80ade351f46ab3272d909319"
+          },
+          {
+            "proposed_patches": 44,
+            "realized_patches": 20,
+            "coefficient": 2.5139403343200684,
+            "dose_difference_binary32_units": -43056187139134641672012640236870668873933783040,
+            "wav_sha256": "72468a14cd7280c3820a9e659a701b540a9092e3dda7769377b647d56ad1169a",
+            "native_sha256": "770c56462f821a4ea3f41c9d047948f55b678b0018978f5c10b039c42fca30fb"
+          },
+          {
+            "proposed_patches": 45,
+            "realized_patches": 23,
+            "coefficient": 2.4580750465393066,
+            "dose_difference_binary32_units": -38591100262002127305662179553412554184221261824,
+            "wav_sha256": "98daee0925a55bc6654624b8d645b22bf853beaea31c8425a0bd5056a294b7e4",
+            "native_sha256": "392645069f7c15c8079a74c07578051c57f59b7b067d2440bd12e9d834059c64"
+          },
+          {
+            "proposed_patches": 46,
+            "realized_patches": 21,
+            "coefficient": 2.4046385288238525,
+            "dose_difference_binary32_units": -42900187240137489340476332123403130475653365760,
+            "wav_sha256": "7a79dd9427216ee5b1d588f82964561eabf6a5dc9ee73ce8e41085ca4e877ca0",
+            "native_sha256": "f134a80e6120adf5d22367281175cc06b8ac192f1960b461ed04165e289267c4"
+          },
+          {
+            "proposed_patches": 47,
+            "realized_patches": 21,
+            "coefficient": 2.353476047515869,
+            "dose_difference_binary32_units": -43666913340836765951513556837428731484431187968,
+            "wav_sha256": "0a6de632fe966a3b6ad806d045293cb93585ac2c8604ec7af9ee26ab217fc2ff",
+            "native_sha256": "06386b55b801f15bbc6209761bbbc411c7d28d43ae875eb8113cc1533f95166a"
+          },
+          {
+            "proposed_patches": 48,
+            "realized_patches": 20,
+            "coefficient": 2.304445266723633,
+            "dose_difference_binary32_units": -46046200657737559019080428039928575700448051200,
+            "wav_sha256": "cec5e656f31191276c10f2732ae4792c662fe8243c56103a3503bd50ee796250",
+            "native_sha256": "ca9258c71e2a2e6e00ff4b07a43b28d710e2e9c4754f75e7889681ea9ae3fbaa"
+          },
+          {
+            "proposed_patches": 49,
+            "realized_patches": 23,
+            "coefficient": 2.257415771484375,
+            "dose_difference_binary32_units": -41884590866437447491046679902987801740672237568,
+            "wav_sha256": "3760e24b8806b626eca7fbd5957d1104a16b479280e8d3b493b5e7975cecb6eb",
+            "native_sha256": "7d8229241a6951c398b0d87e9799290733e9647c5a71f94ae3c71bbd63076dc6"
+          },
+          {
+            "proposed_patches": 50,
+            "realized_patches": 23,
+            "coefficient": 2.2122673988342285,
+            "dose_difference_binary32_units": -42625626839422477471377041955963430260673871872,
+            "wav_sha256": "0a4153822278dccccddfe87aedd1e727d611cb9932796022255aca1eb4d5edac",
+            "native_sha256": "f3a729a1393a67cca92a0edee754e7af736e031924e0627cac9da4c5d3fcdf92"
+          }
+        ],
+        "exact_native_matches": 0,
+        "independently_scored_new_constants": 0
+      },
+      {
+        "family": "harbor-navigation",
+        "status": "unmeasured",
+        "reason": "No exact native FP32 constant in the exhausted original observer length domain.",
+        "native_patch_cap": 82,
+        "adaptive_total_in_binary32_units": 58565135214680207446738060567077179909507907584,
+        "previously_rendered_lengths": [
+          23,
+          21
+        ],
+        "new_true_native_EOS_attempts": [
+          {
+            "proposed_patches": 22,
+            "realized_patches": 23,
+            "coefficient": 3.7303287982940674,
+            "dose_difference_binary32_units": 2662051244917534921143336404975509499038138368,
+            "wav_sha256": "5abf0ae1e6bfe38be052b8361a003c297e4c15bafa3a4bc8e1d4799cc4f0d987",
+            "native_sha256": "5ed25f46d53801bd341b3ea24bb073156a58513188381b6af2b06fd6f3546570"
+          },
+          {
+            "proposed_patches": 24,
+            "realized_patches": 21,
+            "coefficient": 3.4194681644439697,
+            "dose_difference_binary32_units": -7320640710846741707557635449073521477499748352,
+            "wav_sha256": "2fc6c41b14726812fa0ce0535162ccec847f3a5beedf24b55c4e28306f8587e0",
+            "native_sha256": "3b9c00e61decad0f1445879540fd9f7cac85c5a9fd1f837203c7fa2e07438988"
+          },
+          {
+            "proposed_patches": 25,
+            "realized_patches": 21,
+            "coefficient": 3.282689332962036,
+            "dose_difference_binary32_units": -9370422063104615511860553654584354149549211648,
+            "wav_sha256": "ade77a88c6af9fcaa8e725573c7349e0c1d5b9566dbfcf5d0f2f8cfb80d3984d",
+            "native_sha256": "4e80807ab9dc77aeee55044821a3adbecd9686b5aa2754068e82514657264f78"
+          },
+          {
+            "proposed_patches": 20,
+            "realized_patches": 21,
+            "coefficient": 4.1033616065979,
+            "dose_difference_binary32_units": 2928255331548069304395356482180507782048907264,
+            "wav_sha256": "b3b24d3abd47f5a17472736c0a9841b70f01bf9c97fa530ed75b36db24e51631",
+            "native_sha256": "8592afc23400d7e25e5277d1347f5c1228fdb815d64957772568336ee1fbe44c"
+          },
+          {
+            "proposed_patches": 26,
+            "realized_patches": 23,
+            "coefficient": 3.1564321517944336,
+            "dose_difference_binary32_units": -6757514397617802523610597810414140615609548800,
+            "wav_sha256": "36ce9fb94e245c04f25ab1021a8f1e15b251603653bc46697173c2912e7df5f0",
+            "native_sha256": "cc628d4fbe971d00efdbf690434c652d0d3cc58b3ee929a2d898175c9f0ec123"
+          },
+          {
+            "proposed_patches": 19,
+            "realized_patches": 21,
+            "coefficient": 4.319328308105469,
+            "dose_difference_binary32_units": 6164754084042003032165156999004653071372386304,
+            "wav_sha256": "c6e977dd0d9026c4ca2925d5a60f14174f0b456a4b9647b2251e460a22f4769d",
+            "native_sha256": "883e0e90e49c45e568c3c9015f8e64e7812cb70149c79345877fc306508429d6"
+          },
+          {
+            "proposed_patches": 27,
+            "realized_patches": 23,
+            "coefficient": 3.039527177810669,
+            "dose_difference_binary32_units": -8676316473035853680657206373967285374198743040,
+            "wav_sha256": "c0bcdfe250b17e3d0faf7aaadf8d2024c5bd0348dbba3f4611b457395e1bedff",
+            "native_sha256": "779eea6b8ef863089bba5f46fb24565b07a27b67a25a61c92562b39b957f48d3"
+          },
+          {
+            "proposed_patches": 18,
+            "realized_patches": 21,
+            "coefficient": 4.559290885925293,
+            "dose_difference_binary32_units": 9760857457097746872169172923594364666502971392,
+            "wav_sha256": "fd5dad2fe917de854b80a88175e9ff5fc18f5331c855f7c99fdb598274261087",
+            "native_sha256": "f26257137e3ad287021a2bcd7f396e02454e0b9eb36dbbf3566552e960dc629c"
+          },
+          {
+            "proposed_patches": 28,
+            "realized_patches": 21,
+            "coefficient": 2.9309725761413574,
+            "dose_difference_binary32_units": -14641284824517152624499905531893117272681611264,
+            "wav_sha256": "f294521a427360a95f6c9feb149e333a7fa2a6305abe1e3528882ca1ad4b9624",
+            "native_sha256": "4471f62545b1f1a2a7280357cec0dc55af8c8c367880c8a57409cb377dc08913"
+          },
+          {
+            "proposed_patches": 17,
+            "realized_patches": 23,
+            "coefficient": 4.827484130859375,
+            "dose_difference_binary32_units": 20670044039772101836926534478913841883040972800,
+            "wav_sha256": "612f164d89a9d7fda3b0746d9d9fae9608843a2d84c74ce16db7e108523ff440",
+            "native_sha256": "87a91c75d99d2ad155a22e4e6f671708406eb8702c14c36b02ea52e7bd05eb8b"
+          },
+          {
+            "proposed_patches": 29,
+            "realized_patches": 21,
+            "coefficient": 2.829904556274414,
+            "dose_difference_binary32_units": -16155900355212430376990876395175326329123897344,
+            "wav_sha256": "bf26c2e5c9a596b9303817653c7fe43cf99b5589e39ee8387abed107dffa07e9",
+            "native_sha256": "41ac77a73290e922b8e47f521cfc42ab35bad267a21497987f21528582a33595"
+          },
+          {
+            "proposed_patches": 16,
+            "realized_patches": 21,
+            "coefficient": 5.129201889038086,
+            "dose_difference_binary32_units": 18301601181622712157251777561778240688155000832,
+            "wav_sha256": "e656c8c0a1326eddbbd8bc7921911fe6be3fdaf3397425e30a8c37f5a5aac05d",
+            "native_sha256": "d9397e967ce39b7f0bb250377396fd151c4231b3a484271f4e2d528ba66023ba"
+          },
+          {
+            "proposed_patches": 30,
+            "realized_patches": 22,
+            "coefficient": 2.73557448387146,
+            "dose_difference_binary32_units": -15617369141040986243775276278079202525905420288,
+            "wav_sha256": "f86e253656ca69e058bfaf1d6d5ba0663e51996f00d1f15e7948f3bb47f19cf5",
+            "native_sha256": "772856ffa343df526214c8ba7c5cb63a68daad646e683a91a0e23fbc6df83345"
+          },
+          {
+            "proposed_patches": 15,
+            "realized_patches": 21,
+            "coefficient": 5.47114896774292,
+            "dose_difference_binary32_units": 23426054562267396668009073075555322368278659072,
+            "wav_sha256": "5bde4ca3cfe184a3ba14f2d4d7c27f442044f71fad9da9468465c7bb2ccbbc57",
+            "native_sha256": "c3499b94f9067b14825c54653f8cbcb1697e3d8bfa209186bf1573c7a933189f"
+          },
+          {
+            "proposed_patches": 31,
+            "realized_patches": 23,
+            "coefficient": 2.6473300457000732,
+            "dose_difference_binary32_units": -15113584669779389518471616537209847722411032576,
+            "wav_sha256": "15c0bfaccb95be2faf33d88e372e7b52be879754e6fce18797ac9a6b151ae1cc",
+            "native_sha256": "1801199263d9929a7392d7546b30aa07c157b153c4f6593e1cc262647ee0bd08"
+          },
+          {
+            "proposed_patches": 14,
+            "realized_patches": 21,
+            "coefficient": 5.861945152282715,
+            "dose_difference_binary32_units": 29282565565645902197738249503290945364144685056,
+            "wav_sha256": "d2650fa27acefc41d2f3dcf8179f56cb1ec83ba5fb4a76a7a1d83987dd9673ce",
+            "native_sha256": "fb22ea8cf8071bf5461bf39b1c8fbbfa0b61a11562ccf1cc8984b8aaad4b3191"
+          },
+          {
+            "proposed_patches": 32,
+            "realized_patches": 23,
+            "coefficient": 2.564600944519043,
+            "dose_difference_binary32_units": -16471446235752418139791244448894449582216314880,
+            "wav_sha256": "d480782bc7d87133a51ac389764cc7956ddb8599665e4778e1783d56003ca026",
+            "native_sha256": "e1f45a50bb5b9231f06619fb80da6fcde68dcda09966e29ea02f44e02cc8eb04"
+          },
+          {
+            "proposed_patches": 13,
+            "realized_patches": 22,
+            "coefficient": 6.312864303588867,
+            "dose_difference_binary32_units": 40545095913613088927940563836973851783167213568,
+            "wav_sha256": "3c44ebb2726698b199f5022b0da2a59e33512442d8704c3277a30a2428937bd8",
+            "native_sha256": "eb0620142cc96c700723784a547969b130279fc55fa69b030975de54fb23b5ca"
+          },
+          {
+            "proposed_patches": 33,
+            "realized_patches": 22,
+            "coefficient": 2.4868857860565186,
+            "dose_difference_binary32_units": -19521713212783659139646028530315692174164885504,
+            "wav_sha256": "b9626980aad8b82d8e91987567149ad17ab10aa6bc092867eaceedaa1e91489b",
+            "native_sha256": "d780d1e5dad3cdcb583f86b64228153dcd0a288c6fc6b60e8dd4608a66eb6f89"
+          },
+          {
+            "proposed_patches": 12,
+            "realized_patches": 21,
+            "coefficient": 6.8389363288879395,
+            "dose_difference_binary32_units": 43923853792986724031622789668930136954508410880,
+            "wav_sha256": "fff3394f704af873f24f00329f2ae4719748adf243deb4ddadba662026c0fccc",
+            "native_sha256": "2f1d07874313c974c8f6e6c346785b1bd6d202724164d4e62316b9aeaa06021f"
+          },
+          {
+            "proposed_patches": 34,
+            "realized_patches": 21,
+            "coefficient": 2.4137420654296875,
+            "dose_difference_binary32_units": -22392553381125892338978136741733452569431244800,
+            "wav_sha256": "a0f353d7e7e33e109fe27a2349b36741c045ab55a903d70719992532598df9c1",
+            "native_sha256": "1809fcdc5cbb071ad03d41a31ee2a5bdb9714bf0188beee7959aeabce20f71a3"
+          },
+          {
+            "proposed_patches": 11,
+            "realized_patches": 21,
+            "coefficient": 7.460657596588135,
+            "dose_difference_binary32_units": 53241031363715669920697533903627731184358785024,
+            "wav_sha256": "0604fa5473e6841514cf5d9a482881499081ba69593043d00e0c88cb79c12b31",
+            "native_sha256": "fb3fc3ef0844f744d0f42382832d180c1f3b1dc957f1d7563bd5d1f2c956d1b3"
+          },
+          {
+            "proposed_patches": 35,
+            "realized_patches": 21,
+            "coefficient": 2.344778060913086,
+            "dose_difference_binary32_units": -23426054902549763588947536538929929800046870528,
+            "wav_sha256": "75b7f5b1aa9f237fc358d74a7f7bfab1aeff823b77ce84cd387ff5fb64608d3b",
+            "native_sha256": "090fbb289204877a190117ff9b86522d81860a653de54cb5ab6ee51141ab306f"
+          },
+          {
+            "proposed_patches": 10,
+            "realized_patches": 21,
+            "coefficient": 8.2067232131958,
+            "dose_difference_binary32_units": 64421645877776346055528773531438195473605722112,
+            "wav_sha256": "840536195fa2a523950206111363d6d11ae5c332c745ff1a9221cf6bccb2e09a",
+            "native_sha256": "ddf0b5ad319dec0cb69a9329e24167f5f41435a9ef618ba18703030fbd94db82"
+          },
+          {
+            "proposed_patches": 36,
+            "realized_patches": 23,
+            "coefficient": 2.2796454429626465,
+            "dose_difference_binary32_units": -21148520180135137224479337465042762641692426240,
+            "wav_sha256": "d087125ef306d1388f521ddf4b8bcf309639a84ad7348e0d94d59b6ed6b038b5",
+            "native_sha256": "999c5c3a861d2bf6392c97529932f89e6ce1004930f8e9010e74ff3b86aa2583"
+          },
+          {
+            "proposed_patches": 9,
+            "realized_patches": 21,
+            "coefficient": 9.118581771850586,
+            "dose_difference_binary32_units": 78086850128875701191076406414265909242513850368,
+            "wav_sha256": "c9f0a8892d0123bbf53bedbf118d08bfd0b8cf47fb51b677375092437232cc1c",
+            "native_sha256": "682b85a745d6d2fa0c88a06e374027fe0e0cf25a302f1b402b5abd611f26d59c"
+          },
+          {
+            "proposed_patches": 37,
+            "realized_patches": 21,
+            "coefficient": 2.2180333137512207,
+            "dose_difference_binary32_units": -25325464456018173923430599115292841804149293056,
+            "wav_sha256": "139e9cbd9ae9b3333e76bba0d4ba7af3ecc5d2c5088cae73e51dab1b011b4e04",
+            "native_sha256": "5ab57ccc833a8e221cee62439a84d9f1c9469dd18fafca8cf0f876e40ce62dfe"
+          },
+          {
+            "proposed_patches": 8,
+            "realized_patches": 23,
+            "coefficient": 10.258403778076172,
+            "dose_difference_binary32_units": 109809620701030949781049203905653741399658463232,
+            "wav_sha256": "e951e897330512bd4dde6324ea113f6eec9e633b69d94448ed418bfc97ba370c",
+            "native_sha256": "7373a36bb66e6069b9dd4baf41cd47d2358dc53fbc6b9422afb18476c28b7fd6"
+          },
+          {
+            "proposed_patches": 38,
+            "realized_patches": 22,
+            "coefficient": 2.1596641540527344,
+            "dose_difference_binary32_units": -24659002724873335291122089461034315014761086976,
+            "wav_sha256": "2d287401613cc29b9a971f9b30d0ab0c3bba487500e194bc2aa7a6580069e190",
+            "native_sha256": "9162b3832100922c3da99d7ca4bc8adf81fb3e265bf5cec965c416e1987d36f0"
+          },
+          {
+            "proposed_patches": 7,
+            "realized_patches": 23,
+            "coefficient": 11.72389030456543,
+            "dose_difference_binary32_units": 133863161732700794631638618634681570689921581056,
+            "wav_sha256": "cd71d60308fb93bf2163b1b68585b5e8659c67e1e714a1df749268b4fb234d5d",
+            "native_sha256": "9c467873b19e4879855bd4334733dc354b2c8f4468dec4fa58d1b802cfd93a35"
+          },
+          {
+            "proposed_patches": 39,
+            "realized_patches": 23,
+            "coefficient": 2.104288101196289,
+            "dose_difference_binary32_units": -24026721336638604164653085395968487046909001728,
+            "wav_sha256": "5f101e3b6d985e216ecf140a73dda1e8f65338057023649d7f604575df2181e0",
+            "native_sha256": "e5c0de8d4d86df03cf5cbea727e1543a74def250dd759a40e9559769508292b7"
+          },
+          {
+            "proposed_patches": 6,
+            "realized_patches": 21,
+            "coefficient": 13.677872657775879,
+            "dose_difference_binary32_units": 146412842800653655509983639904937453818524729344,
+            "wav_sha256": "68505f72c03893c4a42ac11efba6ad8d3a676eeca311994038678b150cf982cc",
+            "native_sha256": "805e2616c605f8be26f3f713c73f8f71445ade765547071952496e1ed0ca05b4"
+          },
+          {
+            "proposed_patches": 40,
+            "realized_patches": 22,
+            "coefficient": 2.05168080329895,
+            "dose_difference_binary32_units": -26354311595227300577096746874608867309168623616,
+            "wav_sha256": "ddf08fca1e4ca1e95e7a85769fe32b5b950388125993f4559a812cb55a720243",
+            "native_sha256": "9bbe10cd82913598ad71161e462bcfa2c6903cf079ea241871fd872a88d4d608"
+          },
+          {
+            "proposed_patches": 5,
+            "realized_patches": 23,
+            "coefficient": 16.4134464263916,
+            "dose_difference_binary32_units": 210834480511653195462989290315385070929693376512,
+            "wav_sha256": "7fe19d711b60812c6934f5d0a4aee22e8d010ee5cde2a25dab5bd3f2e11a7d70",
+            "native_sha256": "6eb1a50f8b044626dc06ab28e1a41ce9823343fa26c1adb0fb13c2187977bafb"
+          },
+          {
+            "proposed_patches": 41,
+            "realized_patches": 23,
+            "coefficient": 2.0016398429870605,
+            "dose_difference_binary32_units": -25711522968066784712752920728414761202483200000,
+            "wav_sha256": "c3e285a7e6eed1740d5968e0e45060f0cddcba8b7182e8dd1984b43ef9c6e131",
+            "native_sha256": "9e833c4c79642d45247dbf4f8b1695fd383e8db3fc3a4e4771bba5eb11ff356f"
+          },
+          {
+            "proposed_patches": 4,
+            "realized_patches": 21,
+            "coefficient": 20.516807556152344,
+            "dose_difference_binary32_units": 248901810370531470969221291948344502481143726080,
+            "wav_sha256": "d73d61b20827f53a5ca19f879ced2a5e4fca22da470ab51b800d6057574c92dc",
+            "native_sha256": "f07e608828218418ca452d2a43eb616cb8c316cced04785465a7c3e17219d60c"
+          },
+          {
+            "proposed_patches": 42,
+            "realized_patches": 21,
+            "coefficient": 1.9539817571640015,
+            "dose_difference_binary32_units": -29282567692410695453603646149382241812696006656,
+            "wav_sha256": "02fc4545e9025d3fa1024594171acc51bb470afbbcd0dd731218d6f875c9d549",
+            "native_sha256": "b25ff5511b0c28d0d6762a609f961c0936ae7a4ed3dfdb7e615d65fa82c94e12"
+          },
+          {
+            "proposed_patches": 43,
+            "realized_patches": 21,
+            "coefficient": 1.9085403680801392,
+            "dose_difference_binary32_units": -29963556928505306251263565924068549366451798016,
+            "wav_sha256": "612d99d9b9a0278929b8abb2ad25af4ce1439ca5e43c65371a0c6d06511c8b8d",
+            "native_sha256": "c1b11c6135f037322892b80f089a1739d9d5cdc12e7b4aa021249329adbb9737"
+          },
+          {
+            "proposed_patches": 44,
+            "realized_patches": 21,
+            "coefficient": 1.8651643991470337,
+            "dose_difference_binary32_units": -30613593570081238104879161949400952136041234432,
+            "wav_sha256": "dfce67918f18e7770feff8f4b2d072d6b7fcd8c72d995ac36cb4ab133f89381e",
+            "native_sha256": "5468a1753ed8dc121ff622e8dac99e45c0b830b5b5e4f3d3a50ac3ee96aa8c7f"
+          },
+          {
+            "proposed_patches": 45,
+            "realized_patches": 23,
+            "coefficient": 1.8237162828445435,
+            "dose_difference_binary32_units": -28631844361018317146168781034092041734855852032,
+            "wav_sha256": "b7b7eeaf301c879ba759cc87ef7e7eac5bef5bc4abc40007b1ace6bcdb523e02",
+            "native_sha256": "78ac60d5a6775661a34b442b4e3f160a3942a94d7550667d752ce33b2310de67"
+          },
+          {
+            "proposed_patches": 46,
+            "realized_patches": 23,
+            "coefficient": 1.7840702533721924,
+            "dose_difference_binary32_units": -29282568458046021025715188941975108534174482432,
+            "wav_sha256": "4c5e2eb98a65d749144d6d83dead1f2861a7431531087604d99342c1857c4581",
+            "native_sha256": "8a9ee792bc15f1fbdf9429b57634738fd82ab8a804fd186995f2f04251d87452"
+          },
+          {
+            "proposed_patches": 47,
+            "realized_patches": 23,
+            "coefficient": 1.7461113929748535,
+            "dose_difference_binary32_units": -29905600461124290663339563290149029894386876416,
+            "wav_sha256": "057ac1ac415126cb1d28b945fea6dafbfd68839a21f2fc46eb6ab2a5b35131e9",
+            "native_sha256": "2eab9e1e713bba18567df4ed425c78db04c7dd5604cbf9118cc8016e163a8a71"
+          },
+          {
+            "proposed_patches": 48,
+            "realized_patches": 21,
+            "coefficient": 1.7097340822219849,
+            "dose_difference_binary32_units": -32942887962763474577147848008075350693503827968,
+            "wav_sha256": "d616f2824ff85e41685f161289155490bb4d0259005731dcca075bdff0938a2f",
+            "native_sha256": "73268d4cc6d50032478be549810f4ff7a010515ce9c74f56b6220ff1c299b55b"
+          },
+          {
+            "proposed_patches": 49,
+            "realized_patches": 23,
+            "coefficient": 1.6748415231704712,
+            "dose_difference_binary32_units": -31075377669358517237514464289224218652732030976,
+            "wav_sha256": "2d45af87f2dcb8a0ed2ea524da57800938213397bb34a610011fd735c7aeb484",
+            "native_sha256": "6851c0ab8f3a2245ec7e423635aaa3a22bab1a35acddf9f1349f088977c89d57"
+          },
+          {
+            "proposed_patches": 50,
+            "realized_patches": 23,
+            "coefficient": 1.641344666481018,
+            "dose_difference_binary32_units": -31625173250722145196686092495950156279054336000,
+            "wav_sha256": "4df65e32426d264f0ac46b60717d78601e41a731a98eab27ece53d7b9e2733e5",
+            "native_sha256": "dbeaf4cd330e8de24bd875cfc73f523b9a5db23d690422df6bc53ecf3ee6423a"
+          }
+        ],
+        "exact_native_matches": 0,
+        "independently_scored_new_constants": 0
+      }
+    ]
+  }
 }

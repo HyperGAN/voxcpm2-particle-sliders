@@ -68,5 +68,11 @@ pass `[0.75] * 6 + [0.80] * 6 + [0.70] * 6 + [0.75]` to
 at constant 0.75 across the two matched cases. The tram case improved.
 Both scheduled waveforms passed the native speech check. The reversed
 library case lacked a comparable pacing score, and its archived neutral
-speech verdict remains unmeasured. Held-out verification is pending.
+speech verdict remains unmeasured.
+
+All eight waveforms in a fresh two-case panel reached native EOS. In the
+window case, all three profiles passed the speech check and tied at
++0.02353 in pacing gain. The clock case fell below the 0.80 transcript
+threshold in every arm, including OFF, so the full panel has no comparable
+mean. The earlier timing gain remains scoped to its original panel.
 [Follow-up evidence](docs/sleepy-raw64-shifted-six-native-eos.json)

@@ -41,3 +41,13 @@ protected-GPU, lease, process, memory and source/admission guards remain.
 
 See [PUBLICATION.md](PUBLICATION.md) for source lineage and validation scope.
 Automated CI is not configured; no hosted check pass is claimed.
+
+### Scheduling the original eager native-EOS path
+
+An owner already running the original cached VoxCPM2 eager waveform path can
+wrap a single native generation call with `voxcpm2_native.frame_strength.eos_patch_schedule`.
+Pass effective strengths in `[0,1]` and use the resulting list to record the
+patches that were actually emitted. The last strength repeats through native
+EOS or the original cap. This scope uses the original stop head, cached
+feedback and decoder. Use the fixed-patch `frame_gains` API for the separate
+fixed-length waveform path.

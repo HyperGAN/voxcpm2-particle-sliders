@@ -1,0 +1,290 @@
+{
+  "study": "Standalone English text-conditioned native VoxCPM2 S-PSR pacing",
+  "scope": "Experimental intervention on the native acoustic patches. The underlying weights and RAW checkpoint were frozen. The RAW adapter scale was zero for this standalone test.",
+  "metric": "equal-weight whole-output matched words active-duration log difference",
+  "weights": "raw",
+  "ema_decay": null,
+  "fit": {
+    "recipe": {
+      "author_commit": "3d916c618d146c5d657f055e432a432b0fa493c6",
+      "epochs": 15,
+      "batch_size": 1,
+      "learning_rate": 0.001,
+      "weight_decay": 1e-06,
+      "shuffle_seed": 123,
+      "stop_mean_loss_below": 0.001,
+      "gradient_accumulation_steps": 1,
+      "clip_grad_norm": null,
+      "positive_training_alpha": 1.0,
+      "optimizer": "AdamW",
+      "scheduler": "linear decay; no warm-up",
+      "init": "FP32 Linear direction first then FP32 Linear affine probe, PyTorch reset law",
+      "regularization": null,
+      "normalization": "initialized steered mean on training utterances only",
+      "adaptation": "Published IFEval positive-only answer-only S-PSR-MSE recipe transferred to native acoustic patches",
+      "paper": "https://arxiv.org/html/2605.03907v1#S3",
+      "author_code": "https://github.com/Nokia-Bell-Labs/steer-like-the-llm/tree/3d916c618d146c5d657f055e432a432b0fa493c6",
+      "initialization_seed": 1211823707928883619,
+      "source_sha256": {
+        "default_model_configs.py": "7c658b2009a83cf8d57fc9c6de339f5f985ae64cebd2fb5b742f6c2346a51528",
+        "steering_base.py": "c289fb6cac9f340e407db90c929459edea4c0d59a95d57a5b3f975920225fb0c",
+        "training_run.py": "dd1b758500db4a2618cef2d62c14dd51c62499df6dd8545f2ccb04eb138c6b13",
+        "focused_steering.py": "31c7628eff84e14defcc41f8811c8ad4866a3cd17541b03f119a91d24198f70d",
+        "eval.py": "b9ab6a7c7f42dd0fa5d26817c4185d735a6bbc7253627cda29f3323a88bcf9d0"
+      },
+      "initialization_seed_source_sha256": "90d1433de97f71a3ee06d762f8b9cb5587b671f498dc00739d271c2f71bfc2d4"
+    },
+    "updates": 45,
+    "training_utterances": 3,
+    "retained_native_patches": 115,
+    "fit_receipt_sha256": "fc98199bdeafd989f7ef26bfccba1f3ce3ee667a047e694620e3c0e4b7feca1b",
+    "fitted_module_sha256": "1a35c267a169d76e60e39108f51871aea06b36c395f74a386ba68e2dcecd0c1c"
+  },
+  "calibration": {
+    "families": [
+      "kayak-storage",
+      "microscopy"
+    ],
+    "native_firsts_sha256": "a872702270bb87385563124fd7254ae1e01645ca475fa29674689f4108c53dcf",
+    "frozen_alpha": 1.0
+  },
+  "verification": {
+    "native_sha256": "1f2de59041800fc91ac548cff7c21f326139065ddb17fd1c12e08590100d695a",
+    "observer_sha256": "b6d8dc0ad6c6071b44df2e97e163ebd1be2277a9c0d10e3ff709cee95311d5f5",
+    "independent_audit_sha256": "47e39ebcadb022309c2a52824f9f31abf5ef64e933b92c631c1e3c0d6d2e311e"
+  },
+  "held_out": [
+    {
+      "family": "piano-rehearsal",
+      "seed": 7928378275613737538,
+      "control_status": "matched_at_FP32_precision",
+      "adaptive_patches": 20,
+      "neutral_patches": 20,
+      "attempts": [
+        {
+          "coefficient": 3.2942967414855957,
+          "proposed_patches": 20,
+          "realized_patches": 20,
+          "total_difference_in_binary32_units": 659297085909318272960288301899050909696,
+          "wav_sha256": "a6487ceb1665af590075aa22d2fa1be3fa0e3b2cb949e8d2ed851a34380116d3"
+        }
+      ],
+      "effects": {
+        "adaptive_minus_OFF": 0.0,
+        "constant_minus_OFF": -0.021053409197832273,
+        "adaptive_minus_constant": 0.021053409197832273
+      },
+      "unavailable_measurements": {},
+      "qualified_wav": {
+        "OFF": {
+          "sha256": "34a1a667b610120c08a7258254588fea073ca8ec82eecb063702a70e7f480650",
+          "speech_verdict": "pass",
+          "pacing": 1.0577902941478545,
+          "speech_first_sha256": "c3294d64584e981656c5171732565ae9e54bdd827f3f8e6acce77e6185a4f425",
+          "pacing_first_sha256": "7a21cbb7af4f5f10b0dad46c1adf945068ac27e0b7ead3c82727b0cf83a1a2ad"
+        },
+        "adaptive": {
+          "sha256": "3d4eb30a2dd09412123df663b438544eca78b02857d14eec2912ec5add429ef2",
+          "speech_verdict": "pass",
+          "pacing": 1.0577902941478545,
+          "speech_first_sha256": "58d2f94e7e496ec2e1aebfb93e2e74e4c2e52a98a6785bc128b07b0335e9ee88",
+          "pacing_first_sha256": "5411cf7524a7e8a8dcbb26eabded0d6be314a5a0d04e7d76227c0a968846c679"
+        },
+        "constant": {
+          "sha256": "a6487ceb1665af590075aa22d2fa1be3fa0e3b2cb949e8d2ed851a34380116d3",
+          "speech_verdict": "pass",
+          "pacing": 1.0367368849500223,
+          "speech_first_sha256": "91f866e461a813e209b5aa010b3180726b02217b89fa575251ebb61c7f77523a",
+          "pacing_first_sha256": "175af83dbbaf745e0125a7722384209e21fcff1910cee9a1c523d7ea0fa81a51"
+        }
+      }
+    },
+    {
+      "family": "beekeeping",
+      "seed": 374111743517447927,
+      "control_status": "unmeasured",
+      "adaptive_patches": 23,
+      "neutral_patches": 21,
+      "attempts": [
+        {
+          "coefficient": 4.809277057647705,
+          "proposed_patches": 23,
+          "realized_patches": 24,
+          "total_difference_in_binary32_units": 3432012452614424759270015354315790257173299200,
+          "wav_sha256": "daad03d0e1e6bb9907af715bda5813fa97ada42060be25032dfabdfcd2d53f2f"
+        },
+        {
+          "coefficient": 4.608890533447266,
+          "proposed_patches": 24,
+          "realized_patches": 25,
+          "total_difference_in_binary32_units": 3289012190739569579384166809288663983991029760,
+          "wav_sha256": "9441f1a64eba548a787f35a6723f99bf985b824478d36bff9e9fd5ede3d0119c"
+        },
+        {
+          "coefficient": 4.424534797668457,
+          "proposed_patches": 25,
+          "realized_patches": 21,
+          "total_difference_in_binary32_units": -12629818203392179863250264984133453476966432768,
+          "wav_sha256": "919fa2bb52a9b562240678cc9fd096ea1d0ec77ebf6f31463a1341c00a4ff7be"
+        },
+        {
+          "coefficient": 5.267303466796875,
+          "proposed_patches": 21,
+          "realized_patches": 23,
+          "total_difference_in_binary32_units": 7517744720609037744966846367792998814085808128,
+          "wav_sha256": "69d2647e802d9e090a37966a752361bc5233f14bf0a213aa09fb39f19477f024"
+        }
+      ],
+      "effects": {
+        "adaptive_minus_OFF": 0.08819271203546086,
+        "constant_minus_OFF": null,
+        "adaptive_minus_constant": null
+      },
+      "unavailable_measurements": {
+        "constant_minus_OFF": "The native precision matcher did not establish a constant control",
+        "adaptive_minus_constant": "The native precision matcher did not establish a constant control"
+      },
+      "qualified_wav": {
+        "OFF": {
+          "sha256": "47bf7b98379e326c87a7d0d82909d4246c3a13ca062c0bc1794a108cc4f47205",
+          "speech_verdict": "pass",
+          "pacing": 1.0367368849500223,
+          "speech_first_sha256": "7f61d96ff05a2e8af8cc7bb5184c7b2c325c1aa6fdc6b70702d65149e66c1c20",
+          "pacing_first_sha256": "090d43a077e1fbf10db2f6589d7b1c081c6fd9c198d12d6e2d9bba6439480913"
+        },
+        "adaptive": {
+          "sha256": "29451d27a48c0000d079b32e9fd744e619aeab38b857c382990e60e50a18aaba",
+          "speech_verdict": "pass",
+          "pacing": 1.1249295969854831,
+          "speech_first_sha256": "21c8f19713e8a26e50d5a73440a23d45eafb0db5501cfaf599b4fb3694bcad33",
+          "pacing_first_sha256": "a7443fad3cbe0a7dc68ea4945162d6521d5b979076756b6ec249e49baee0a77b"
+        }
+      }
+    },
+    {
+      "family": "software-maintenance",
+      "seed": 3736859725254538249,
+      "control_status": "matched_at_FP32_precision",
+      "adaptive_patches": 25,
+      "neutral_patches": 26,
+      "attempts": [
+        {
+          "coefficient": 4.5183563232421875,
+          "proposed_patches": 25,
+          "realized_patches": 26,
+          "total_difference_in_binary32_units": 3224404096326462811962921793152197951783698432,
+          "wav_sha256": "694ed350ad8b0ab48b33be1602a0f372622930bf4a13dd328924d3ec307a99ac"
+        },
+        {
+          "coefficient": 4.344573497772217,
+          "proposed_patches": 26,
+          "realized_patches": 26,
+          "total_difference_in_binary32_units": -680564733841876926926749214863536422912,
+          "wav_sha256": "2470347db6dbd709c71e10cc64d2152be864e93952330efaaf13e56324ba4ab3"
+        }
+      ],
+      "effects": {
+        "adaptive_minus_OFF": -0.006230549750636083,
+        "constant_minus_OFF": 0.0123458358222992,
+        "adaptive_minus_constant": -0.018576385572935283
+      },
+      "unavailable_measurements": {},
+      "qualified_wav": {
+        "OFF": {
+          "sha256": "27ab9ceb6b702d685958dbfefd75f5c1aeaf6026609ffcf572180daef8f3633e",
+          "speech_verdict": "pass",
+          "pacing": 1.169381359556317,
+          "speech_first_sha256": "d37aaaee09eef3e4de2bba2a430d27395d2c7923ec7d4765dd608ccbdc5895af",
+          "pacing_first_sha256": "d937240d9f5cbbb1832bfc1db6833e1d6baa49def079f5b28f1d9fb4a6d999f7"
+        },
+        "adaptive": {
+          "sha256": "39e3b17b63b1246da599c4609fa6d983912b97eb3c0c1a8b696810509f489806",
+          "speech_verdict": "pass",
+          "pacing": 1.1631508098056809,
+          "speech_first_sha256": "174aa4fe30dc931196f36cfd711ad827375ab2416684bbd378d4515a56cad90c",
+          "pacing_first_sha256": "22852bdcbe6046afbcc0e59013acdbc742c80aada4ebc2204bb24a12525a9165"
+        },
+        "constant": {
+          "sha256": "2470347db6dbd709c71e10cc64d2152be864e93952330efaaf13e56324ba4ab3",
+          "speech_verdict": "pass",
+          "pacing": 1.1817271953786161,
+          "speech_first_sha256": "f5cdfd9cbe059690e9a1d465fcc97dbb26aae73baf08da34a6bd3260d8ab1126",
+          "pacing_first_sha256": "e5144c8e240fd6722072fff1f241acb2ddb44fd2b0d438a7ff6a20b89c587b62"
+        }
+      }
+    },
+    {
+      "family": "harbor-navigation",
+      "seed": 3057539835480415354,
+      "control_status": "unmeasured",
+      "adaptive_patches": 23,
+      "neutral_patches": 22,
+      "attempts": [
+        {
+          "coefficient": 3.5681405067443848,
+          "proposed_patches": 23,
+          "realized_patches": 21,
+          "total_difference_in_binary32_units": -5092622006913432243131077599499484354551218176,
+          "wav_sha256": "bb05fc80f5ab68b4dbf6a29e87567864bb0b438bfb0c137b1fc843e3c7c39ce6"
+        },
+        {
+          "coefficient": 3.907963514328003,
+          "proposed_patches": 21,
+          "realized_patches": 23,
+          "total_difference_in_binary32_units": 5577631738862533109651609109778398778746732544,
+          "wav_sha256": "fdac70420491290fec10eb9f7c33f8e193d6672b59e4256b36754b9900d5ed7e"
+        }
+      ],
+      "effects": {
+        "adaptive_minus_OFF": 0.030962225603966775,
+        "constant_minus_OFF": null,
+        "adaptive_minus_constant": null
+      },
+      "unavailable_measurements": {
+        "constant_minus_OFF": "The native precision matcher did not establish a constant control",
+        "adaptive_minus_constant": "The native precision matcher did not establish a constant control"
+      },
+      "qualified_wav": {
+        "OFF": {
+          "sha256": "f40ff776ccd2be2db44d320667dfa5d174147bd8b9817e3bfb358aa2ffb1e437",
+          "speech_verdict": "pass",
+          "pacing": 1.1568811967920856,
+          "speech_first_sha256": "2cf166abcf0a95397ba34da0c5a5c6b15af0d525d3bfa9805ecb306bc7330d07",
+          "pacing_first_sha256": "ccab8d27d0485ca0b118d946ae393e59d12e85e252648c4413a8a66cb90a90b3"
+        },
+        "adaptive": {
+          "sha256": "460d3d39857ead4449a9be3278a4a9b2944e976271db74f6849dee53fd27e29e",
+          "speech_verdict": "pass",
+          "pacing": 1.1878434223960523,
+          "speech_first_sha256": "62dade20c031e1fc3f05f1599acc506ab67eb80493b08825701d2c1bf7475257",
+          "pacing_first_sha256": "6097c91cc574e3959467dc3030460b00f50fb6c5cd020e5abdc0951ea142366f"
+        }
+      }
+    }
+  ],
+  "means": {
+    "adaptive_minus_OFF": {
+      "measured": 4,
+      "required": 4,
+      "mean": 0.02823109697219789
+    },
+    "constant_minus_OFF": {
+      "measured": 2,
+      "required": 4,
+      "mean": null
+    },
+    "adaptive_minus_constant": {
+      "measured": 2,
+      "required": 4,
+      "mean": null
+    }
+  },
+  "precision_matched_subset": {
+    "cases": [
+      "piano-rehearsal",
+      "software-maintenance"
+    ],
+    "adaptive_minus_constant": 0.001238511812448495
+  },
+  "interpretation": "All four adaptive and neutral utterances passed independent speech integrity. Two constant settings matched the realized accumulated coefficient at FP32 precision. In two cases the tried constants cycled between native EOS lengths. The four-case timing mean remains unmeasured."
+}

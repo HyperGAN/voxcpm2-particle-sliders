@@ -6,13 +6,13 @@ The explicit [native waveform backend](backends/voxcpm2-native/README.md)
 now preserves the measured full-waveform implementation, scoped fresh
 initialization, RAW exports and strict FULL restores. Its
 [HOW/value guide](docs/voxcpm2-native95-learning-rates.md) and
-[portable values](docs/voxcpm2-native95-learning-rates.json) record the completed
+[portable values](https://github.com/HyperGAN/voxcpm2-particle-sliders/blob/ffb4e74c8f8c9fbfb4c311abb56f2adefcfc2dc5/docs/voxcpm2-native95-learning-rates.json) record the completed
 G0.012/G0.001 Sleepy comparison: both score0.0 at32 updates on two equal cases.
 Every OFF and ON was rated3/4; no successful Sleepy effect, unique optimum,
 default or automatic-use authority is established. Saved firsts and the original
 failed core remain unchanged. No adapter-weight release is verified.
 
-The current backend uses Particle Sliders core 0.15.1 and ParticleGAN 0.11.0
+The current backend uses Particle Sliders core 0.15.2 and ParticleGAN 0.11.1
 with pinned HNDL and HyperGAN. Fresh training uses a new waveform cohort.
 The earlier core41f packaging record and measured runtimes retain their
 original identities. CUDA still requires controller-owned admission. Public

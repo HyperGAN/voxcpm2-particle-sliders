@@ -21,7 +21,7 @@ def config(tmp_path):
     return SessionConfig(BACKEND,'new-Vox095-tiny-native-integration',model_dir=str(tmp_path/'model'),revision='a'*40,
         training_file=str(tmp_path/'rows.json'),teacher_cache=str(tmp_path/'native-teachers.pt'),device='cpu',frames=8,euler_steps=3,
         steps=3,batch=2,seed=7,ema_decay=None,lr=.012,d_lr_mult=.5,prior_lr_mult=.75,
-        source_profile=SOURCE_PROFILE,initialization_policy=INITIALIZATION_POLICY,pg_version='0.11.0',pg_source_profile='release-0.11.0',penalty_input_domain='continuous')
+        source_profile=SOURCE_PROFILE,initialization_policy=INITIALIZATION_POLICY,pg_version='0.11.1',pg_source_profile='release-0.11.1',penalty_input_domain='continuous')
 
 def install_tiny(monkeypatch,model_factory):
     def load(options):

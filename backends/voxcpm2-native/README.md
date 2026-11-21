@@ -1,7 +1,7 @@
 # VoxCPM2 native waveform backend
 
-This backend uses Particle Sliders core 0.15.1 at `c13890f8` with official
-ParticleGAN 0.11.0. It preserves the native mono48k waveform response, RAW
+This backend uses Particle Sliders core 0.15.2 at `ec1161f5` with official
+ParticleGAN 0.11.1. It preserves the native mono48k waveform response, RAW
 exports, scoped initialization and exact FULL continuation. HNDL graphs and
 builder checks are adapted from the MIT-licensed core source, with HNDL 0.10.0
 and HyperGAN pinned directly.
@@ -20,7 +20,7 @@ finished-output comparison. Both score0.0; every OFF and ON was rated3/4. This
 flat provisional instrument establishes no successful Sleepy control, unique
 optimum, default rate or automatic-use authority. The original failed core and
 all first observations remain unchanged. See the [HOW/value guide](../../docs/voxcpm2-native95-learning-rates.md)
-and [portable values](../../docs/voxcpm2-native95-learning-rates.json).
+and [portable values](https://github.com/HyperGAN/voxcpm2-particle-sliders/blob/ffb4e74c8f8c9fbfb4c311abb56f2adefcfc2dc5/docs/voxcpm2-native95-learning-rates.json).
 
 Six distinct native CPU software cases and the original pretrained work remain
 evidence for their captured Source/runtime. The exact public Source pair passed

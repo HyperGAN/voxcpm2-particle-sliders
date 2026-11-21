@@ -60,3 +60,13 @@ matched OFF on pacing. The reversed library case lacked a comparable score.
 At nominal 0.5, late-heavy showed positive pacing gain against OFF, with
 the constant arm missing a comparable library score.
 [Per-case evidence](docs/sleepy-raw64-native-eos-timing.json)
+
+A follow-up kept the first six patches at 0.75 and moved the same two
+six-patch changes later. For replay of the tested Sleepy RAW64 profile,
+pass `[0.75] * 6 + [0.80] * 6 + [0.70] * 6 + [0.75]` to
+`eos_patch_schedule`. Its mean pacing gain was +0.00024 versus −0.02025
+at constant 0.75 across the two matched cases. The tram case improved.
+Both scheduled waveforms passed the native speech check. The reversed
+library case lacked a comparable pacing score, and its archived neutral
+speech verdict remains unmeasured. Held-out verification is pending.
+[Follow-up evidence](docs/sleepy-raw64-shifted-six-native-eos.json)

@@ -159,6 +159,12 @@ def test_RAW_native_render_without_teacher_or_initializer(tmp_path,monkeypatch,m
         off=session.render(strength=0,seed=11,**request);zero=session.render(strength=1,seed=11,**request)
         assert off.sample_rate==48000 and off.waveform.shape==(1,192)and torch.equal(off.waveform,zero.waveform)
         assert zero.native['selection']=='raw'and zero.native['weight_EMA']is None
+        gains = [1.5] * 4 + [0.5] * 4
+        scheduled = session.render(strength=0.5, seed=11, frame_gains=gains, **request)
+        assert scheduled.native['effective_frame_strengths'] == [0.75] * 4 + [0.25] * 4
+        assert torch.equal(scheduled.waveform, off.waveform)
+        with pytest.raises(ValueError, match='effective strengths'):
+            session.render(strength=1.0, seed=11, frame_gains=gains, **request)
         out=tmp_path/'actual-tiny.wav';zero.save(out)
         import soundfile as sf
         info=sf.info(out);assert info.frames==192 and info.samplerate==48000 and info.subtype=='FLOAT'

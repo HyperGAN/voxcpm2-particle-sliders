@@ -1,0 +1,1455 @@
+{
+  "profile": "Sleepy RAW64 native EOS adaptive steering",
+  "scope": "Two frozen saved-checkpoint held-out controls within the qualified eight-second speech domain",
+  "default_change": false,
+  "original_PG0101_raw_checkpoint": {
+    "bytes": 5902525,
+    "sha256": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e"
+  },
+  "native_sample_rate": 48000,
+  "samples_per_patch": 7680,
+  "maximum_qualified_patches": 50,
+  "dose_rule": "Sum the effective adapter strength across the native EOS patches and match within one ULP.",
+  "search_order": "Ascending absolute distance from archived gate patch count, then ascending count",
+  "application_scalar": "Binary64 strength recorded at the rational nearest value. All values accepted by the original one-ULP dose test share that CUDA FP32 arithmetic input within each state.",
+  "source_receipts": {
+    "independent_verification": {
+      "bytes": 149816,
+      "sha256": "6600a163202d4f504a4a092cded1c194fcdb256d03798a03b181b94930490629"
+    },
+    "candidate_domain": {
+      "bytes": 67354,
+      "sha256": "bc8b3c74de4760a9bff4d530a300ba69887fa544aaeb365251f198dd846d02e7"
+    },
+    "original_native_guard": {
+      "bytes": 198,
+      "sha256": "b4ceaea679e4015c00e773c1fdfd542ec92d0b5ee1bcc30bfa24f153f388c143"
+    },
+    "native_result": {
+      "bytes": 1364,
+      "sha256": "e5ad943ed4595556c0dcd8c09582943e0b3230f627ad37905f421559db02e635"
+    },
+    "final_observer_scope": {
+      "bytes": 1532,
+      "sha256": "fb9c69058ff57571064e7b7f93e564ea0743602805330d0607fab912ad65e1b8"
+    }
+  },
+  "new_gate_renders": 0,
+  "new_OFF_renders": 0,
+  "optimizer_updates": 0,
+  "ema_decay": null,
+  "cases": {
+    "sleepy-dinner-clabs": {
+      "case": "sleepy-dinner",
+      "method": "clabs",
+      "seed": 611193,
+      "frozen_patch_cap": 88,
+      "frozen_gate_native_EOS_patches": 21,
+      "frozen_gate_fired": 15,
+      "frozen_gate_nominal_strength": 0.75,
+      "frozen_gate_dose": "45/4",
+      "frozen_gate_wav": {
+        "bytes": 645200,
+        "sha256": "bdb6f17eae5a4c4de7878311e2f644d086a5a5b7eac9d6b9b44c331a12f45437"
+      },
+      "shared_OFF": {
+        "bytes": 645200,
+        "sha256": "db18a9a9cee74bd5a2e2888bbf31a9222b1bdc868a69d2d23ac1a3d4cb80fea1"
+      },
+      "prior_native_candidate_counts": [
+        21,
+        23,
+        15
+      ],
+      "bounded_candidates_available": 36,
+      "candidate_results": [
+        {
+          "expected_native_patches": 20,
+          "realized_native_patches": 23,
+          "amplitude": 0.5625,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 12.9375,
+          "matched": false,
+          "canonical_pcm_sha256": "ae9992995bbac96998830694dc8e8046a3e35f8590c96f8733bdd4814f0163e3",
+          "native_receipt": {
+            "bytes": 1956,
+            "sha256": "f337f9456734a6fba9c01eda7c263bbf85a093e06d7467c7e722c45f159d7e15"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "01169514c5dfe3b3349e97107619713870dade43515e056cdd2caab14dbb5cee"
+          }
+        },
+        {
+          "expected_native_patches": 22,
+          "realized_native_patches": 23,
+          "amplitude": 0.5113636363636364,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 11.761363636363637,
+          "matched": false,
+          "canonical_pcm_sha256": "90b59520f3b37b1d3eb3c3e0658aac8fb707fe0f7db9098c34b39773201eb366",
+          "native_receipt": {
+            "bytes": 2244,
+            "sha256": "cb1d26bfa70cac50a572b382ed96f243ba16df932585217038c02b8a29117747"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "2187634e445a44953394b41827028d5d8e51ec611fbc33c8c3a139f7eebfe210"
+          }
+        },
+        {
+          "expected_native_patches": 19,
+          "realized_native_patches": 21,
+          "amplitude": 0.5921052631578947,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 12.434210526315788,
+          "matched": false,
+          "canonical_pcm_sha256": "431e645caa38edf31db544e3f581f8337e333b587a693dabf89422f98fcc3885",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "3dfcf59e59a08fdcd4781f9aa559cd040a32e46624c39fc11cd41589dbf99058"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "4c4a3fefad2031f9522634b01c0763ac0a90952c005ab44edb4256d4c0054237"
+          }
+        },
+        {
+          "expected_native_patches": 18,
+          "realized_native_patches": 24,
+          "amplitude": 0.625,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 15.0,
+          "matched": false,
+          "canonical_pcm_sha256": "af16abd29c62217611c0bb16e8149cbcb33c8af75b19ce3ca0a0c630b70f62f9",
+          "native_receipt": {
+            "bytes": 1943,
+            "sha256": "be1e3cf7bbe3b28bae02323f07a455f6c2de616406a647158a573b1c9a2d927d"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "a61873ab9a1361ecc4320dba45b2368c209f025dc4dbc1b73befa109e56a6b11"
+          }
+        },
+        {
+          "expected_native_patches": 24,
+          "realized_native_patches": 21,
+          "amplitude": 0.46875,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 9.84375,
+          "matched": false,
+          "canonical_pcm_sha256": "26e41c521d8940c1d943f3d451bac5f2e48e4cc341a8c525b49f06dd9165ce94",
+          "native_receipt": {
+            "bytes": 1954,
+            "sha256": "88ae6a430ad7a8192b30478b20c3ccff86c8add55ea759a20fb86518e585b8f2"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "005e95d994bae1364cacd4ab9e850c5a0169efdd5549d06c9ac1d6ac0ae1fd64"
+          }
+        },
+        {
+          "expected_native_patches": 17,
+          "realized_native_patches": 21,
+          "amplitude": 0.6617647058823529,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 13.897058823529411,
+          "matched": false,
+          "canonical_pcm_sha256": "49dc36627fddc0e6233d44a544c455fc9578df5b168e3f8b8a843c0b0ea41b6e",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "d0b0a40ea9d2f8273cb7e0d1ca47f6aa97ab4bf3723a4b4a05e0f8af897e2024"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "2c2cd002468ae70c442353fd3fb6224e16df99983c5028bf9f6f260b64e17165"
+          }
+        },
+        {
+          "expected_native_patches": 25,
+          "realized_native_patches": 22,
+          "amplitude": 0.45,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 9.9,
+          "matched": false,
+          "canonical_pcm_sha256": "d3a57bb70cfe867cc50c467a043b1f607296e1bdf6e4c4e0c49f03ad9c0fb0eb",
+          "native_receipt": {
+            "bytes": 1898,
+            "sha256": "930bd41f51ab4e99f9ab7afacaba1e30cef6b4c36af34f0c514719e45dcdcc96"
+          },
+          "wav": {
+            "bytes": 675920,
+            "sha256": "f57fbd62fa595032566aec2237a3797105b801c1236d27b362e6cd474693647e"
+          }
+        },
+        {
+          "expected_native_patches": 16,
+          "realized_native_patches": 23,
+          "amplitude": 0.703125,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 16.171875,
+          "matched": false,
+          "canonical_pcm_sha256": "7e2e470df817ec311bc2bbaab1fb1bdb1d63b75fba4a582e23d95de9f7c135e9",
+          "native_receipt": {
+            "bytes": 2004,
+            "sha256": "724dfc7199789b50839ed873d7517a4ad4e44d32f436d7cab9d94abc3c8e0786"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "4eedf97ecc4f229dfe6425a6a78d21f3c3d1c6bc4a578487f95484f4beab7d4e"
+          }
+        },
+        {
+          "expected_native_patches": 26,
+          "realized_native_patches": 21,
+          "amplitude": 0.4326923076923077,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 9.086538461538462,
+          "matched": false,
+          "canonical_pcm_sha256": "226da4971cb8ccd7375900b0c098e45045b197281d4a3e57d93cc760801acb07",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "17f52c09be9e0d22eb1c2a772b476b0235d4967b09e865cb29b18c03719245da"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "bfea0e7bb1b39bd064f842a450f6df83a34269b587ac8db0789abd4d4d704fdb"
+          }
+        },
+        {
+          "expected_native_patches": 27,
+          "realized_native_patches": 21,
+          "amplitude": 0.4166666666666667,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.75,
+          "matched": false,
+          "canonical_pcm_sha256": "1881f1161a6b1e771386e6c018e07f0cc4a6713f72dcb4f6af4a924fe49425ed",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "e6eb2797c530fb616b4201a4769d2bc4800627932dfafd3df7c92d74a5c10bbc"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "626c7b89c2263c15c29b3e37e27d428dcadecb928860398be569059e16fcf633"
+          }
+        },
+        {
+          "expected_native_patches": 14,
+          "realized_native_patches": 24,
+          "amplitude": 0.8035714285714286,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 19.285714285714285,
+          "matched": false,
+          "canonical_pcm_sha256": "1585040006bd6a2c68b11d8fde10fcce22ffaaec5bee5f8032daaa9cd45f55ff",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "7456f023d0e8b7828fbb826b277f641bfc0b0a57f79180159545bc145c12eb3b"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "2b2387681ba46b530b9251381b3c46b0da5f41fde9a8b4160c755b41ce40d33a"
+          }
+        },
+        {
+          "expected_native_patches": 28,
+          "realized_native_patches": 21,
+          "amplitude": 0.4017857142857143,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.4375,
+          "matched": false,
+          "canonical_pcm_sha256": "de116214e0faab35a7f16a21d0ef5d6a97322e262470740da1343050ea382785",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "1fee5230b1c2890625c43fdf70c4b9dc7408918a0bc7ec9d27eb089f192bbdcb"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "d84109c022684e842da55cc0050a3b435613a6b374e00eecfc4e4aaf9c98dfef"
+          }
+        },
+        {
+          "expected_native_patches": 13,
+          "realized_native_patches": 21,
+          "amplitude": 0.8653846153846154,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 18.173076923076923,
+          "matched": false,
+          "canonical_pcm_sha256": "2a1fe9f2f8ef3f0ffde1f915cd403151ed6ccc2c727029db202cfa71c36a8979",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "dc61472ca85828b11e8945fb0f79067f27c99c0901edf600737c34192f448616"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "05a56f77717ea9a14d0d0657fc72b98b05c9517ca2e0ebce63eb10424e51c44d"
+          }
+        },
+        {
+          "expected_native_patches": 29,
+          "realized_native_patches": 23,
+          "amplitude": 0.3879310344827586,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.922413793103448,
+          "matched": false,
+          "canonical_pcm_sha256": "a999600fbee9fc3bdf8a141c5dc8e125f634a5a19a7b5dde07077ff2bc070d5c",
+          "native_receipt": {
+            "bytes": 2244,
+            "sha256": "e1f97d22831af3c97fc604bd918853351acab5ddfca59cbb0dbd169fa015f5d5"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "55be1855890ad2fb02b97c5d864c9fc8438d895b06bf663cee1a71412ede01d2"
+          }
+        },
+        {
+          "expected_native_patches": 12,
+          "realized_native_patches": 24,
+          "amplitude": 0.9375,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 22.5,
+          "matched": false,
+          "canonical_pcm_sha256": "7d7242d6b25b3f3689caf7a049f2dcf27530932de5304ebf83c101174d5ccd53",
+          "native_receipt": {
+            "bytes": 1968,
+            "sha256": "5fd6f2a46c8b0648c8bd6f9d33a94bf53c8a82c66cdd4c7ef36ccc17ec3ad856"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "aa54a226182f460c320ab98afdcce42e12accd5424ce431eca248f1c02c6eab9"
+          }
+        },
+        {
+          "expected_native_patches": 30,
+          "realized_native_patches": 23,
+          "amplitude": 0.375,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.625,
+          "matched": false,
+          "canonical_pcm_sha256": "9ed86f1fc06c0a6c9c2338afc6f4d7b06ad39b9b86cb3f3c9dac18660aa528f9",
+          "native_receipt": {
+            "bytes": 1932,
+            "sha256": "cae1524429db272752eb83234bf93c77fc4353c26f7513d96394b46e49f13ffb"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "b3bba2e2e02b7cd013e8876c28946cd3f108956af9e2a918de8d68373a50851d"
+          }
+        },
+        {
+          "expected_native_patches": 31,
+          "realized_native_patches": 21,
+          "amplitude": 0.3629032258064516,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 7.620967741935484,
+          "matched": false,
+          "canonical_pcm_sha256": "3d6ee04cbd2cb920e3052b1ee79eb7c56e08b864fdb10c8cd39c4e3513c75200",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "77866b2ae98368b9cba726a1d9139260cb0280b4bdc44f9b56b5ba4ab5ca9812"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "2b4d6cecb6e6e3a4c8590caf62b9aa2d2df4f72db3aa8b64a3c859850051dd85"
+          }
+        },
+        {
+          "expected_native_patches": 32,
+          "realized_native_patches": 23,
+          "amplitude": 0.3515625,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.0859375,
+          "matched": false,
+          "canonical_pcm_sha256": "28b737ea64e78e61da07277a3c086d87e1c626fcfb4b67f7f93a9981b959dae0",
+          "native_receipt": {
+            "bytes": 2028,
+            "sha256": "f21173dfedfe8f11b65d4a3f2e2a8e641624d04da057708d710f9da4babb4b1b"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "aaa602b4927512e2ca1fd6bb1bd16c5184fbc11693b53f1a6a342e9c03f5110f"
+          }
+        },
+        {
+          "expected_native_patches": 33,
+          "realized_native_patches": 24,
+          "amplitude": 0.3409090909090909,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.181818181818182,
+          "matched": false,
+          "canonical_pcm_sha256": "fbd9e60817ae54ee6a82f2aecde4bab56ea9573f3ec5baf5ee7ce5fe97d3dd46",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "a2f90a5019bcbebcfeb38d6c52639c0b886ce1ea1abfb0ab380009cc08b01dbc"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "b66e14944eb0fcc5b4d0525cfb0be1f13d85fe2e906d9b43ef92fb7fb0b65fa9"
+          }
+        },
+        {
+          "expected_native_patches": 34,
+          "realized_native_patches": 22,
+          "amplitude": 0.33088235294117646,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 7.279411764705882,
+          "matched": false,
+          "canonical_pcm_sha256": "f32478b0b7dd2c12baf2db50f1c4e5c4621e98217cf4e9e2cdbc49d3e8310cf8",
+          "native_receipt": {
+            "bytes": 2243,
+            "sha256": "8864a6e0636288ad432b9b5084be05109e3fd54c0778dc951883f3af1ca24853"
+          },
+          "wav": {
+            "bytes": 675920,
+            "sha256": "7a3b1a02e2f2bb277726ef4454a0327cbe4ca82fc01084496ea868c28d44a107"
+          }
+        },
+        {
+          "expected_native_patches": 35,
+          "realized_native_patches": 21,
+          "amplitude": 0.32142857142857145,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.750000000000001,
+          "matched": false,
+          "canonical_pcm_sha256": "1d32d34e83170318506d1d293a8e0663da3470bc6920bdab395fa8a883350ba9",
+          "native_receipt": {
+            "bytes": 2218,
+            "sha256": "082abd8f0775ae1d019c4ed2f29abe8b1478795ccb393c33e9a1f2167c43626b"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "0f13ce377b00ae96472e3cb8335aba95f9490cbc9f1a618df5b35ea43e719feb"
+          }
+        },
+        {
+          "expected_native_patches": 36,
+          "realized_native_patches": 21,
+          "amplitude": 0.3125,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.5625,
+          "matched": false,
+          "canonical_pcm_sha256": "ff1b08e00ba739df2d7bbb57fb6aaa54cbc61c8828dd17d504d27087f6f29a4b",
+          "native_receipt": {
+            "bytes": 1932,
+            "sha256": "23b0605b97b919d87d125f9678b9af036f0165dd058d87ea841f7b905620d531"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "39f9c42f8c65eaea48a8f2ef046fa7e09807f5e761be3ed226d107447606e309"
+          }
+        },
+        {
+          "expected_native_patches": 37,
+          "realized_native_patches": 21,
+          "amplitude": 0.30405405405405406,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.385135135135135,
+          "matched": false,
+          "canonical_pcm_sha256": "e6abbd45ff092ea672ad59d5c1e2ff68f826deb529a7eecbcecf50fcab843a12",
+          "native_receipt": {
+            "bytes": 2218,
+            "sha256": "5b5607b770cc4baee986cbc637a9a62b190d32e1dbdfc50b072bd80da3a24178"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "69bf2a65984378de7c3f11ced5eb2276f6f0215a7cb6846b8e385eda379072ba"
+          }
+        },
+        {
+          "expected_native_patches": 38,
+          "realized_native_patches": 22,
+          "amplitude": 0.29605263157894735,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.513157894736842,
+          "matched": false,
+          "canonical_pcm_sha256": "8466a0e842ee98afe4fe19e655d87f712adf71bbebff2785556b3f93f496fd8f",
+          "native_receipt": {
+            "bytes": 2243,
+            "sha256": "c4c667115dd555752b3e0d61e52b6e7bfd6c88b3753ab4aeeba13739535f2df1"
+          },
+          "wav": {
+            "bytes": 675920,
+            "sha256": "7a1ac3968ca3f2e803e248d765edff5b146d4aa1cbfb9c9437a8a90f15f5dc16"
+          }
+        },
+        {
+          "expected_native_patches": 39,
+          "realized_native_patches": 21,
+          "amplitude": 0.28846153846153844,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.0576923076923075,
+          "matched": false,
+          "canonical_pcm_sha256": "14bc6b424288b6f97e0e5f91391f25f297ae77876bbeebd80803a9acee0d1c48",
+          "native_receipt": {
+            "bytes": 2218,
+            "sha256": "145cc703665f9b65a896bc6ef0adc51b0eb48489e0c661b57a172cda1bb10dcc"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "d0efdfe564bdc215750ec4ca80b406163d0a38272e1f1e8cbe3597bb2b626c7d"
+          }
+        },
+        {
+          "expected_native_patches": 40,
+          "realized_native_patches": 21,
+          "amplitude": 0.28125,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.90625,
+          "matched": false,
+          "canonical_pcm_sha256": "f3d601c890d6bda603df6b0e017f6285e1eebee67575fa6fa5734fe0e7fb0dbe",
+          "native_receipt": {
+            "bytes": 1954,
+            "sha256": "2722f4b093161eb9a83888a21710b158b2ead2bf023143a5faa762d22e5d46d2"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "cb3672a0b3498919cbf74587f158fca92cbd1123c4ce2238a980026a8315fc76"
+          }
+        },
+        {
+          "expected_native_patches": 41,
+          "realized_native_patches": 23,
+          "amplitude": 0.27439024390243905,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.310975609756098,
+          "matched": false,
+          "canonical_pcm_sha256": "d3feea0eb99dd49fdec12e532c2ee7534dd4539284289c239d68edecf3dffd80",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "94b71d6f174da93795e72ec1795db6e10c46ed54039ce38271b11e11da90c96a"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "c35002b17353a4d946ddc96058ec5c95bdaab25019eb95947ff5937e271c1e5e"
+          }
+        },
+        {
+          "expected_native_patches": 42,
+          "realized_native_patches": 21,
+          "amplitude": 0.26785714285714285,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.625,
+          "matched": false,
+          "canonical_pcm_sha256": "56c93e4c66fbecb34b68f4ce45267f0b709a207adaa92f017ae9f9a4e50a9947",
+          "native_receipt": {
+            "bytes": 2218,
+            "sha256": "16ef677828f79e18c69853b5c3596254518f558886d9499fe2e5b72d402f3264"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "6b4b68777f0ea06fea58218b50ab7bd3d1ee658cb443c309e1c883f998c0760f"
+          }
+        },
+        {
+          "expected_native_patches": 43,
+          "realized_native_patches": 23,
+          "amplitude": 0.2616279069767442,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.017441860465117,
+          "matched": false,
+          "canonical_pcm_sha256": "8ad4826f51ebdfe97a5f1b4033a83da94d6e46f842489a80e924964d143cec7b",
+          "native_receipt": {
+            "bytes": 2244,
+            "sha256": "4f8dc94af6971d4b435fb16349693d0b1bd99507dcf36c2eabf0ecc076b5f086"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "da46769aca5d861c17d7a7d220375eb9436e7604a73a34abc8fa5e32bb06da0d"
+          }
+        },
+        {
+          "expected_native_patches": 44,
+          "realized_native_patches": 23,
+          "amplitude": 0.2556818181818182,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.880681818181818,
+          "matched": false,
+          "canonical_pcm_sha256": "dfc79516ae844f0736d7a4b41d539199626b2880b49b8d4f58a099daa1ae82c2",
+          "native_receipt": {
+            "bytes": 2244,
+            "sha256": "d49a039be0f3ceac36a0e66b50616c389f028fbe36a188f0d06528e3e9c96de6"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "5cbb7f13beafb796abc558243e69724969d612bef9632375b2ffa11d2a84cd5a"
+          }
+        },
+        {
+          "expected_native_patches": 45,
+          "realized_native_patches": 21,
+          "amplitude": 0.25,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.25,
+          "matched": false,
+          "canonical_pcm_sha256": "32152a3499826af3a982faee47793e592a09e3805202f8ee0fca14c7f04bb0e7",
+          "native_receipt": {
+            "bytes": 1888,
+            "sha256": "c9bab5074ac313ff681437828c0aa60cf6bd2927eb0ee1aa6d77f432871a265f"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "4308cdf780b5d694420f7cc0d15e763333f1e32337afa167ca7552654b5799b3"
+          }
+        },
+        {
+          "expected_native_patches": 46,
+          "realized_native_patches": 24,
+          "amplitude": 0.24456521739130435,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.869565217391305,
+          "matched": false,
+          "canonical_pcm_sha256": "ebe5a647696f8eb4eb7390cbd2bb1cc07c091159558653af31133ecafd991275",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "6925e31b5c636b9ff01a494f05071363afbd643a5db6338c0f2198637b5c8bc0"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "18da5d6b67aecf2e3e3ea94bc5c922eba91c3a435ee50fe45fd8d49c454b0a08"
+          }
+        },
+        {
+          "expected_native_patches": 47,
+          "realized_native_patches": 21,
+          "amplitude": 0.2393617021276596,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.026595744680852,
+          "matched": false,
+          "canonical_pcm_sha256": "4a2ba007a44279164b15fe83242bc65a73457837399450f09139e0e7ff14af89",
+          "native_receipt": {
+            "bytes": 2196,
+            "sha256": "4c0f69e560750982dabe9aa422698f2f7edac9b324af4b6eb07cfa1654522cd1"
+          },
+          "wav": {
+            "bytes": 645200,
+            "sha256": "7220ca25c126df9363c6fd2b3c0f050c39afe8b57877c42cd1587ae059c85ce1"
+          }
+        },
+        {
+          "expected_native_patches": 48,
+          "realized_native_patches": 24,
+          "amplitude": 0.234375,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.625,
+          "matched": false,
+          "canonical_pcm_sha256": "9a579089873ac1df5066e913e612178856d2b553aa62cd0d0ed349724f55d4c5",
+          "native_receipt": {
+            "bytes": 2018,
+            "sha256": "97bac3a4e902d57ffd6bb47b88e91300f64a143e1c1bd68c2a7371eafed52168"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "7821b307eddb1187c93046ac66439cedacb9c88036e29bae9468cb60b9e860ab"
+          }
+        },
+        {
+          "expected_native_patches": 49,
+          "realized_native_patches": 24,
+          "amplitude": 0.22959183673469388,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.510204081632653,
+          "matched": false,
+          "canonical_pcm_sha256": "824725a3ad735662de84baf54fba9f55816b11e265ffeb9bdce6a4c5fe414833",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "42434a8c3313c3c1671f909753479347ea296814bbdaad9bee7f31e90c2e4ff7"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "8daa76c0757a07f6f5f5fa71dc7c3ac3f22597ddb23720e17aaf75b14dc84add"
+          }
+        },
+        {
+          "expected_native_patches": 50,
+          "realized_native_patches": 24,
+          "amplitude": 0.225,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.4,
+          "matched": false,
+          "canonical_pcm_sha256": "fecf6e7f6b9dcd557c27da18f688c64ec35524a899e7744f88eece8a56384d41",
+          "native_receipt": {
+            "bytes": 1943,
+            "sha256": "fb244ac7b42dc10be229bafcc926f1e33111ca0e941f5778d06a095600548b9a"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "152a02a5ca9d4e5bbfa8cc08c8b7377850fc733a5b66a3748b33f6215c33643d"
+          }
+        }
+      ],
+      "search_terminal": {
+        "bytes": 138479,
+        "sha256": "cad1c515f09a56326e7227ada496e42145b24046a7e859132fd74baad602e90d"
+      },
+      "result": "no_exact_match_within_qualified_speech_domain"
+    },
+    "sleepy-porch-random": {
+      "case": "sleepy-porch",
+      "method": "random",
+      "seed": 611191,
+      "frozen_patch_cap": 94,
+      "frozen_gate_native_EOS_patches": 25,
+      "frozen_gate_fired": 11,
+      "frozen_gate_nominal_strength": 0.75,
+      "frozen_gate_dose": "33/4",
+      "frozen_gate_wav": {
+        "bytes": 768080,
+        "sha256": "8d9f683ae4b126499a4632d1871f4523b5fe6909d837168a70e2dad3ed6a5970"
+      },
+      "shared_OFF": {
+        "bytes": 829520,
+        "sha256": "bbcaa11f08a3dd1855e3af567882ab1f68c579764c5e24ee7c8d2e0d56149954"
+      },
+      "prior_native_candidate_counts": [
+        25,
+        24,
+        11
+      ],
+      "bounded_candidates_available": 39,
+      "candidate_results": [
+        {
+          "expected_native_patches": 26,
+          "realized_native_patches": 25,
+          "amplitude": 0.3173076923076923,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 7.9326923076923075,
+          "matched": false,
+          "canonical_pcm_sha256": "db6299981805f45094fe7a6e64fcf95158c940c799d1bd105feb0d5f92f69d05",
+          "native_receipt": {
+            "bytes": 2291,
+            "sha256": "b9c335cf7a853a2426cf3eb7348aff1e2b51d7b7c7ae3e5abe5a0b7f127eac9d"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "3264159c8c32e4e2537734f90f20b980dac03203be53e78d3b631071d2abff6b"
+          }
+        },
+        {
+          "expected_native_patches": 23,
+          "realized_native_patches": 24,
+          "amplitude": 0.358695652173913,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 8.608695652173912,
+          "matched": false,
+          "canonical_pcm_sha256": "0fadd1f1d567b9fb5be1690eb7ee549fac8638629d6cce33b238c0aab6312d4c",
+          "native_receipt": {
+            "bytes": 2243,
+            "sha256": "42ba20b9a19a6327f4c7cf34bac0718bc1b753f477fb146f2ce6360fbb011b48"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "c04662dce12d4d1358863a8745e71615423aab7eb2fa0e6402225f66a9a01312"
+          }
+        },
+        {
+          "expected_native_patches": 27,
+          "realized_native_patches": 26,
+          "amplitude": 0.3055555555555556,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 7.944444444444445,
+          "matched": false,
+          "canonical_pcm_sha256": "688ce3dee9516195f12da008964019d0c7d2f42283f5d87bdde3d87b80d42165",
+          "native_receipt": {
+            "bytes": 2316,
+            "sha256": "a74ca08b286f091e1a9c898b16ed15773f95584042e029864d5b5731ab6b0262"
+          },
+          "wav": {
+            "bytes": 798800,
+            "sha256": "bd1adb8a3c434a586b4c5d8167d946a3a45fe876cf3ac6db4e9d1f502f51869f"
+          }
+        },
+        {
+          "expected_native_patches": 22,
+          "realized_native_patches": 28,
+          "amplitude": 0.375,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 10.5,
+          "matched": false,
+          "canonical_pcm_sha256": "2f4efa13852d80cefc459e75ec50505e531d87b71365f3bac73a31b78f2165da",
+          "native_receipt": {
+            "bytes": 1987,
+            "sha256": "4ae4ddcec69cb2717bedec8a888bb94d1d04bf2ca2071342bf6297f3bd753240"
+          },
+          "wav": {
+            "bytes": 860240,
+            "sha256": "23b8a01290bbeb7a01c784b2f2924b15319adb0ff46a247419d3675269ff34e0"
+          }
+        },
+        {
+          "expected_native_patches": 28,
+          "realized_native_patches": 24,
+          "amplitude": 0.29464285714285715,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 7.071428571428571,
+          "matched": false,
+          "canonical_pcm_sha256": "1473f52fb2c7a060efb7f1bc525f8cd0173915121bf1f07de181a41091ad0f61",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "999a4a841442b5bf0f6978d419fbed1bb032171f285d7b21fd1b3a8830c7e8d8"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "bcb80e708a700615ec8316e25295ba074ad80454b8512a392f23be2c35de1980"
+          }
+        },
+        {
+          "expected_native_patches": 21,
+          "realized_native_patches": 24,
+          "amplitude": 0.39285714285714285,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 9.428571428571429,
+          "matched": false,
+          "canonical_pcm_sha256": "bd7cad85a126369a56e240e012e9d021264a287912196b092d3be9b237158cc3",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "041b421bc612c210e8f8488b26a2385d27c96322b842b81fbe6a297e667b1889"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "27e040c05ebd08c55acb1a32a57e0168e43027789933b25df70987f054138cdd"
+          }
+        },
+        {
+          "expected_native_patches": 29,
+          "realized_native_patches": 24,
+          "amplitude": 0.28448275862068967,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.827586206896552,
+          "matched": false,
+          "canonical_pcm_sha256": "e8e77aca1033918dcab762747d49dc417fe0df20fed9f4f53988856648e694e7",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "0d9658eb07370aaf6e6e15f21a61972c727c6c69a0311e2a59043f6ae9780e82"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "71fc2df6aaa7199856a1c66ed90435b2c3aa39835e8a455683eb36ec5a92fe62"
+          }
+        },
+        {
+          "expected_native_patches": 20,
+          "realized_native_patches": 23,
+          "amplitude": 0.4125,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 9.487499999999999,
+          "matched": false,
+          "canonical_pcm_sha256": "a63ee710aed7b29aeb511fd0c3984d732452a45a3692aecfbdac1c4c42dd06c2",
+          "native_receipt": {
+            "bytes": 1956,
+            "sha256": "0fa1a70796b368de7acecc0984cbf9f5448d9191337f0ab145af3aae29276643"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "bc3699d3668e652a243b5bf192eca69be18438d6a35c9a9fe27461d4cb274c28"
+          }
+        },
+        {
+          "expected_native_patches": 30,
+          "realized_native_patches": 24,
+          "amplitude": 0.275,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.6000000000000005,
+          "matched": false,
+          "canonical_pcm_sha256": "a8fb48d2815cb9b9eca32bdc3e3d1f207184349283a7954407e9b42db072fe07",
+          "native_receipt": {
+            "bytes": 1943,
+            "sha256": "2a8512c15a7a597ecd9923af4d5d2ef3f217f2452394374f9b99e33fb4f9c817"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "f9566b28e520af57d51b614f9569e3b48e64025ed4e0c4d2045126779891150b"
+          }
+        },
+        {
+          "expected_native_patches": 19,
+          "realized_native_patches": 24,
+          "amplitude": 0.4342105263157895,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 10.421052631578949,
+          "matched": false,
+          "canonical_pcm_sha256": "2dfbf4fdc9a14b540c0b9f84e90d7fe7b1d74fdb23937c9bceeaa044244cdab4",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "222103f75052f37b24edd3b4916581848e3b06a5539e1c52a4d82dd3eae2d523"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "d32874f9a040fd8b211971d1e9dccdcf65d2229e8608873f406adc6182ed3596"
+          }
+        },
+        {
+          "expected_native_patches": 31,
+          "realized_native_patches": 25,
+          "amplitude": 0.2661290322580645,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.653225806451612,
+          "matched": false,
+          "canonical_pcm_sha256": "adf213eadeb1f9defa07dcc21b6da41f225ee26d20d06d0cb7a0232baff58cb9",
+          "native_receipt": {
+            "bytes": 2291,
+            "sha256": "4ae613c162bf089cd1ef26d58bdad6446cdb4dc3d078e74fb0182a600b410303"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "63ffa0e1fde587e79b2cf79bb19324cfdc7283347ebf9531c3cf4009ea5da03b"
+          }
+        },
+        {
+          "expected_native_patches": 18,
+          "realized_native_patches": 29,
+          "amplitude": 0.4583333333333333,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 13.291666666666666,
+          "matched": false,
+          "canonical_pcm_sha256": "02f1ca94ad39d0ababc7781a826ea7514c8020fbd93743e2b32ca2845b3c74c3",
+          "native_receipt": {
+            "bytes": 2388,
+            "sha256": "5939b40331db870b38660b5fbeb27a04519f37d56f0de84559889de1e1aead98"
+          },
+          "wav": {
+            "bytes": 890960,
+            "sha256": "d1cc262b6e7ba1219dcc8962fbe09506b851ec160abf0c773bdd30147a057484"
+          }
+        },
+        {
+          "expected_native_patches": 32,
+          "realized_native_patches": 24,
+          "amplitude": 0.2578125,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.1875,
+          "matched": false,
+          "canonical_pcm_sha256": "fae27dd1a24c7f4816507de462cede83851713f82dd12fc4d1a0c2c2e4dbb8a9",
+          "native_receipt": {
+            "bytes": 2043,
+            "sha256": "c42a5c99398a7c0967e46f93b8709a5ca31253138ce0ae978a4623bcd7220365"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "243db560cec0789fa251ea51904f749df375b1d2d953f07cdeb5edf6c22a4504"
+          }
+        },
+        {
+          "expected_native_patches": 17,
+          "realized_native_patches": 24,
+          "amplitude": 0.4852941176470588,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 11.647058823529411,
+          "matched": false,
+          "canonical_pcm_sha256": "6fd3e2877256e1fb79267775a8d430e3b6104dba39ae4bda6858afdfa4ca4c9f",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "21611b80ed2ffba81eb70682b65300c1c09b31e367ce9b7c5f79ff5314af8a11"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "89e3923e8e292f14085d5a352aa837c2827291d200676d1fb390c965e145aa32"
+          }
+        },
+        {
+          "expected_native_patches": 33,
+          "realized_native_patches": 23,
+          "amplitude": 0.25,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.75,
+          "matched": false,
+          "canonical_pcm_sha256": "cae2e6c042f4041abfff99988b561434386df1c63b6f8715d215b280f26d3775",
+          "native_receipt": {
+            "bytes": 1908,
+            "sha256": "9bdf0743bccaccccc380558b6c17d18b4b70eff2f9e822f20c0e2ea7ad001926"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "3a31e50b5d9e308ba56c9a6688173a00224e3c3ca21f8248f62a01983882f74f"
+          }
+        },
+        {
+          "expected_native_patches": 16,
+          "realized_native_patches": 23,
+          "amplitude": 0.515625,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 11.859375,
+          "matched": false,
+          "canonical_pcm_sha256": "ff253456c82c6bb56af5c6e0037f13fa51433b35adf6ef105bbe6e9147e8593e",
+          "native_receipt": {
+            "bytes": 2004,
+            "sha256": "0ca2e4cec6c9daa694eb54918dbdeec0d57d95c7f08395f5ffe866ff9d6d8499"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "2dba2285491658cc5338c76d6dcd6a9f2cb410330bd742daf56bca73019a2139"
+          }
+        },
+        {
+          "expected_native_patches": 34,
+          "realized_native_patches": 25,
+          "amplitude": 0.2426470588235294,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 6.0661764705882355,
+          "matched": false,
+          "canonical_pcm_sha256": "ef27f2f69754d703a6c338739ae8e52cbc1dceb034374f5748ad81eaa13d3695",
+          "native_receipt": {
+            "bytes": 2291,
+            "sha256": "5bfdc1abf8aea009f92f90699dcfd8bb93b91a8d2cba85c22b2e2d8077c1d2d1"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "9aaf31a2c2a8df6658c517799c9b68e2414de25e053b3c9716aa36a6ee87e40e"
+          }
+        },
+        {
+          "expected_native_patches": 15,
+          "realized_native_patches": 26,
+          "amplitude": 0.55,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 14.3,
+          "matched": false,
+          "canonical_pcm_sha256": "d1b2c9b096ceb2599aac8500e4cb304bcbdbc1de892797e0c840bc252a623e8c",
+          "native_receipt": {
+            "bytes": 1938,
+            "sha256": "c6f6a0f98278abdefbcbb273c1ba64d1db9945a8ee3bac98154141864cd0dc5a"
+          },
+          "wav": {
+            "bytes": 798800,
+            "sha256": "ee317b07ca60e3ee90f945c50dd77cb1463b8f8ff74bde2cfb518b8be74d778e"
+          }
+        },
+        {
+          "expected_native_patches": 35,
+          "realized_native_patches": 25,
+          "amplitude": 0.2357142857142857,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.892857142857142,
+          "matched": false,
+          "canonical_pcm_sha256": "b9d59a2fc0fe7dbbb8a9c2e0f01795fbe700ed5732e950fe2b4083da841a721d",
+          "native_receipt": {
+            "bytes": 2291,
+            "sha256": "88627562f80c21bb1d7749e9ed322bd263326d6330d1389747476f30eae59be2"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "6eeaea13788df09ca45b2119457560e5c96d0f6595384546c8744438e1b765c9"
+          }
+        },
+        {
+          "expected_native_patches": 14,
+          "realized_native_patches": 26,
+          "amplitude": 0.5892857142857143,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 15.321428571428571,
+          "matched": false,
+          "canonical_pcm_sha256": "f99d6a13d0aff3b582c681dc08d5dc375df66f7de32364a913235b01953c702d",
+          "native_receipt": {
+            "bytes": 2316,
+            "sha256": "1dbe44b15c2492fd9e4e7ddcfcf430e68c0cdf35096e96ff7ebce408ea019775"
+          },
+          "wav": {
+            "bytes": 798800,
+            "sha256": "9878b69333bcd99eee138eb7148f906cb0860b5d85b2d74c67fd0fab39dab8cf"
+          }
+        },
+        {
+          "expected_native_patches": 36,
+          "realized_native_patches": 24,
+          "amplitude": 0.22916666666666666,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.5,
+          "matched": false,
+          "canonical_pcm_sha256": "da8edb822ca8135d491a9d86938611ecb29cc99be64f66aeba4ced69ad56cf8d",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "be072e0a53a88c604dacbda3f3021bfa25c785c1618af84e497b7557a72aeb8f"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "50a87707b0b17538e0d4e9bdb3acf49045f803fae8ad3ec7971562a5c4ed0309"
+          }
+        },
+        {
+          "expected_native_patches": 13,
+          "realized_native_patches": 25,
+          "amplitude": 0.6346153846153846,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 15.865384615384615,
+          "matched": false,
+          "canonical_pcm_sha256": "7a56494acecc370705f03e95fbcab44084bc5c3b05d6a93cfc35108f70ac659b",
+          "native_receipt": {
+            "bytes": 2291,
+            "sha256": "abcdc553557c609a5dd805112e471f9479dfbc04e0412024f588099fb9bd6528"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "f05b89df7251bd3d75eeede69c8a69f612f986c29ece2da0ac8107de29da3e9f"
+          }
+        },
+        {
+          "expected_native_patches": 37,
+          "realized_native_patches": 24,
+          "amplitude": 0.22297297297297297,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.351351351351351,
+          "matched": false,
+          "canonical_pcm_sha256": "6d2b3feaa8d8d320ff9bcbe1a486487176096dfef58729db0ac569edbcd38329",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "1cb5f8f04278a0c0b7635a3b4c44d799f4848140eb0142da397fd1eb797c3ae4"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "8bb7784644376468b835d7b9aa9c8e64b4e910f901ff133525b2af119f8fadf4"
+          }
+        },
+        {
+          "expected_native_patches": 12,
+          "realized_native_patches": 26,
+          "amplitude": 0.6875,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 17.875,
+          "matched": false,
+          "canonical_pcm_sha256": "a3547ed59320c3448c8e2056919894e5f65a152afbba126558e5f75db4c71f42",
+          "native_receipt": {
+            "bytes": 1992,
+            "sha256": "b69a919ba1d9c1d266ef9ea8dd791e79816b5342be6ddf4a6d77d537dd773a9a"
+          },
+          "wav": {
+            "bytes": 798800,
+            "sha256": "5c8ca36b01b70ebe4ac240dc5fe09cb5461cae88f3aee25f8b95e1ee67b38ddc"
+          }
+        },
+        {
+          "expected_native_patches": 38,
+          "realized_native_patches": 25,
+          "amplitude": 0.21710526315789475,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.427631578947369,
+          "matched": false,
+          "canonical_pcm_sha256": "73635baedd97158e6c7eccf58f1bcf6b03115a6a84661f242ba979f4ac3c6425",
+          "native_receipt": {
+            "bytes": 2317,
+            "sha256": "769a2fba975fa3e2a7e88e5ae524a6b84f689043a415d6bb1fbaae77a5917897"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "596bc0f9417fcf44e89ca7a25c903388fb304babe23f85e1e9ddf14ced07f263"
+          }
+        },
+        {
+          "expected_native_patches": 39,
+          "realized_native_patches": 24,
+          "amplitude": 0.21153846153846154,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.076923076923077,
+          "matched": false,
+          "canonical_pcm_sha256": "e80dc2a6cc37aab78cc1beaa85baa7bfeb58cbdf4e2e75e03d19261ccd9f2b58",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "8d48c686407d08625d303ef9e193e2b5c19321053b83f156a1bf907aabd7f5e7"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "ae8e99240d65cceb317a6b56eb577b2659b349cd1d383a826eaa1952bcdd2242"
+          }
+        },
+        {
+          "expected_native_patches": 10,
+          "realized_native_patches": 23,
+          "amplitude": 0.825,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 18.974999999999998,
+          "matched": false,
+          "canonical_pcm_sha256": "e84c8659f9e611eee08eff191220fa6419c945252f1bc8150feafdf5a2cbf498",
+          "native_receipt": {
+            "bytes": 1932,
+            "sha256": "e09017af6b542106eb27483058264220959bd62cc29ef1e46c93e836f61dcff3"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "e4419f8b335d6bc2310489b115ce00a30a07ff31366b6c866ae23f93f75e2393"
+          }
+        },
+        {
+          "expected_native_patches": 40,
+          "realized_native_patches": 25,
+          "amplitude": 0.20625,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 5.15625,
+          "matched": false,
+          "canonical_pcm_sha256": "08859d8041e90d86a0aca76399f4b149b656207b8ed46f4cdd8dc291d5f581be",
+          "native_receipt": {
+            "bytes": 2005,
+            "sha256": "0a2fca9e69c28f270e5def264852870be370693389ae7553da469bb4981a4fac"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "51b446bc3d7ac4aa26cf4001a0cca9ba5640d80527be3cdebe9e6eb643d61b01"
+          }
+        },
+        {
+          "expected_native_patches": 9,
+          "realized_native_patches": 26,
+          "amplitude": 0.9166666666666666,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 23.833333333333332,
+          "matched": false,
+          "canonical_pcm_sha256": "1370c776843a9506c2d22cc36d2f34fbe805729202324402e126a1d464f5b2f2",
+          "native_receipt": {
+            "bytes": 2316,
+            "sha256": "502ca7c66a82eb3cc76b9c7b69fe46757ba7aa84dd7712dd5010f0905cc1adc6"
+          },
+          "wav": {
+            "bytes": 798800,
+            "sha256": "38294360b1c46722bd27bda8f158151f5ae98f4f415970f1e72648ec20d5911e"
+          }
+        },
+        {
+          "expected_native_patches": 41,
+          "realized_native_patches": 23,
+          "amplitude": 0.20121951219512196,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.628048780487805,
+          "matched": false,
+          "canonical_pcm_sha256": "3fa36a559302dd2afbd52511b7748293ac6272181e27bfdd640f9ed250e1956e",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "cb2e2d36c559e42f34338187bac6c3bc401bd9473c92573971c8819f33b95edc"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "682fd6f9ab1f58e3badbb42ff6060fee5db6f1a4a0350590fec325e56f38fda5"
+          }
+        },
+        {
+          "expected_native_patches": 42,
+          "realized_native_patches": 24,
+          "amplitude": 0.19642857142857142,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.714285714285714,
+          "matched": false,
+          "canonical_pcm_sha256": "de6e66c31745a4d149ee6c8f046d3656405f0a9a313159b8be52e28da8d83e18",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "9dfd588da72d961732f8767c58d1b3dfb7ad98fe73c050ea8a9b5563e9333a23"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "30a7bc6045439bf1b577acf3beb649773009280a52899d34c895aae244db2b49"
+          }
+        },
+        {
+          "expected_native_patches": 43,
+          "realized_native_patches": 23,
+          "amplitude": 0.19186046511627908,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.412790697674419,
+          "matched": false,
+          "canonical_pcm_sha256": "e34bf2ad2a8433ab03f3ce08a981556b5ba5988c89d1ec468f5f439b51bab421",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "b8a340f8e2fc86a029633e2fee44f94dcd63e969302ba6ea214959c8ac2a50b3"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "83c02c806f127b448939965b2914b131511f71d6d8ac31fdc824c3b1695535f2"
+          }
+        },
+        {
+          "expected_native_patches": 44,
+          "realized_native_patches": 24,
+          "amplitude": 0.1875,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.5,
+          "matched": false,
+          "canonical_pcm_sha256": "2a5df65f13044d87e7a9225d0c529f2da1a7b6a92967ab252a24dce4865635c4",
+          "native_receipt": {
+            "bytes": 1968,
+            "sha256": "779022854b7ccceb872f9c4b6f460464d95acd32baaac1dbbddbc9932d99ec33"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "64b83c55ee7a1c754bfc4ba2e411feb41f0cb3ac96b58baf4ccf783c4567c2ab"
+          }
+        },
+        {
+          "expected_native_patches": 45,
+          "realized_native_patches": 24,
+          "amplitude": 0.18333333333333332,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.3999999999999995,
+          "matched": false,
+          "canonical_pcm_sha256": "de2f792a598b8da05b5f63e56f958ee175de8ebec4febb952c8ab255c2755f37",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "a122c6b570fbf6efa969684cb256559fa275c175a30465e615466f6c462afc60"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "343b7b1c73eb84a1c2d463a8f42b4b9b3c32262a3b25ff06bedde0416c9e5362"
+          }
+        },
+        {
+          "expected_native_patches": 46,
+          "realized_native_patches": 24,
+          "amplitude": 0.1793478260869565,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.304347826086956,
+          "matched": false,
+          "canonical_pcm_sha256": "e61b665ad9863567ad3ef164bfa7c77440ffbea219d17c14e53ddcd37e9d2c63",
+          "native_receipt": {
+            "bytes": 2268,
+            "sha256": "5c0cf3017181291a26fde87e0709012e66db862657a2944b0f9369b20f56f75d"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "1326fe973074494e608932b5d87f332a190fc51c0f6d6bfaedf90084f77da4af"
+          }
+        },
+        {
+          "expected_native_patches": 47,
+          "realized_native_patches": 24,
+          "amplitude": 0.17553191489361702,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.212765957446809,
+          "matched": false,
+          "canonical_pcm_sha256": "9d6568f26c51438fc81392a96481bd4dd6d325817e7328af875951bcfc8a2364",
+          "native_receipt": {
+            "bytes": 2293,
+            "sha256": "edc97344f10e9fb821d944caf45c1c59b3e9ad03c01cf39a960de67772da8070"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "06773c1db0a1e06faec4906db7b1d2bca061b9751d5cddb43fc98412fb2b082c"
+          }
+        },
+        {
+          "expected_native_patches": 48,
+          "realized_native_patches": 24,
+          "amplitude": 0.171875,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.125,
+          "matched": false,
+          "canonical_pcm_sha256": "8af626c3051d6cc4c6b4677c41e282eaec717243aa55397b607f763319620fd7",
+          "native_receipt": {
+            "bytes": 2018,
+            "sha256": "4ce3bc8ac67963eef1edcad7b75d963f193e19d3a3adb6a76daea9c2a868728f"
+          },
+          "wav": {
+            "bytes": 737360,
+            "sha256": "8672b3d51dd50601628775f6d0f6db315e147f0c9a3fa93457cabafad4d595d5"
+          }
+        },
+        {
+          "expected_native_patches": 49,
+          "realized_native_patches": 25,
+          "amplitude": 0.1683673469387755,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 4.209183673469387,
+          "matched": false,
+          "canonical_pcm_sha256": "6c986ea3930cfc37a1e57da19e06ac8029845456d60895032f94b98040b86183",
+          "native_receipt": {
+            "bytes": 2291,
+            "sha256": "095fe9bd3ef7fde38eee1e6be4666d20e80dbaee406d40a712831ed21ee4f9c0"
+          },
+          "wav": {
+            "bytes": 768080,
+            "sha256": "bf9d28886f144474822d7d1dd99546e17457f5a4d24ca71f3a22d053bfe4c899"
+          }
+        },
+        {
+          "expected_native_patches": 50,
+          "realized_native_patches": 23,
+          "amplitude": 0.165,
+          "native_EOS": true,
+          "within_speech_domain": true,
+          "control_dose": 3.7950000000000004,
+          "matched": false,
+          "canonical_pcm_sha256": "7c5305b2b0695b7e71c1db66a19b51a1a4c52a3e8f17f811e7f2ff7045b1699c",
+          "native_receipt": {
+            "bytes": 1932,
+            "sha256": "db7867727c3c7114954abb99d15490c19be55984157cbd1e5eb265a358a1088d"
+          },
+          "wav": {
+            "bytes": 706640,
+            "sha256": "4c9377c5191c92542608ecf5676e5862dfbf4f762a080d8bac8897ddfdbb3531"
+          }
+        }
+      ],
+      "search_terminal": {
+        "bytes": 152835,
+        "sha256": "ee1bdd23baa26e13037a9725fe7a28862014c6698a7e369c4acb80b87f9b62c1"
+      },
+      "result": "no_exact_match_within_qualified_speech_domain"
+    }
+  }
+}

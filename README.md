@@ -87,3 +87,10 @@ its reverse. Shifted early emphasis improved two cases over constant, tied
 one and lost one. Use the shifted early profile for the tested Sleepy RAW64
 setup.
 [Follow-up evidence](docs/sleepy-raw64-shifted-six-native-eos.json)
+
+On four held-out utterances, mean log active speech seconds versus OFF changed
+by −0.00935 for CFP, −0.01120 for CLABS and +0.02508 for random. CFP averaged
+−0.01325 against its equal-dose constant. The full-panel CLABS and random
+timing contrasts remain unmeasured after the bounded searches.
+[Activation-gate evidence](docs/sleepy-raw64-activation-gate-evidence.json) ·
+[Exact-control searches](docs/sleepy-raw64-bounded-exact-controls.json)

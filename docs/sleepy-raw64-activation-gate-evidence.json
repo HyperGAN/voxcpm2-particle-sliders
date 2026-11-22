@@ -120,7 +120,22 @@
         "method": "random",
         "dose": null,
         "equal_dose_status": "unmeasured",
-        "reason": "observed patch counts cycle among tried constant strengths"
+        "reason": "observed patch counts cycle among tried constant strengths",
+        "gate_versus_off": {
+          "gate_minus_off": -0.07061756721395329,
+          "gate_absolute_intensity": 1.1878434223960523,
+          "off_absolute_intensity": 1.2584609896100056,
+          "gate_speech_verdict": "pass",
+          "off_speech_verdict": "pass",
+          "source_sha256": {
+            "gate_WAV": "8d9f683ae4b126499a4632d1871f4523b5fe6909d837168a70e2dad3ed6a5970",
+            "frozen_OFF_WAV": "bbcaa11f08a3dd1855e3af567882ab1f68c579764c5e24ee7c8d2e0d56149954",
+            "gate_speech_first": "f053b4852cc2be3abbbe23307ff1dbe1177b1a255d17930aa73f8a198d60a542",
+            "OFF_speech_first": "ea042a1a23289fd8577e72785071a7da1b192e65a8710d23d10357d233298741",
+            "gate_pacing_first": "24d49617a5a58e7f25b5efc33e3f518ffa271aea007f7aed2dbd34c78f2e8c68",
+            "OFF_archive_first": "3230a72ab8bdf443a540ca9ad08240a2e5a6bb71592d2bf4371c9a0ae1d1e535"
+          }
+        }
       }
     ],
     "sleepy-dinner": [
@@ -169,7 +184,22 @@
         "method": "clabs",
         "dose": null,
         "equal_dose_status": "unmeasured",
-        "reason": "observed patch counts cycle among tried constant strengths"
+        "reason": "observed patch counts cycle among tried constant strengths",
+        "gate_versus_off": {
+          "gate_minus_off": 0.0,
+          "gate_absolute_intensity": 1.0508216248317612,
+          "off_absolute_intensity": 1.0508216248317612,
+          "gate_speech_verdict": "pass",
+          "off_speech_verdict": "pass",
+          "source_sha256": {
+            "gate_WAV": "bdb6f17eae5a4c4de7878311e2f644d086a5a5b7eac9d6b9b44c331a12f45437",
+            "frozen_OFF_WAV": "db18a9a9cee74bd5a2e2888bbf31a9222b1bdc868a69d2d23ac1a3d4cb80fea1",
+            "gate_speech_first": "31f62234a10fadabfb5cadbde32123918d12a57916e4d58b920477261960ca72",
+            "OFF_speech_first": "baf32433c7b130132b2fc330ab4cbec6981cc6ef2a5c055eccfb6ed53bebfcc8",
+            "gate_pacing_first": "673eac78a6445adae80f69ed14f8731511e1c5fd18a8519d098a756361594405",
+            "OFF_archive_first": "3230a72ab8bdf443a540ca9ad08240a2e5a6bb71592d2bf4371c9a0ae1d1e535"
+          }
+        }
       },
       {
         "method": "random",
@@ -471,12 +501,12 @@
       "gate_minus_control": -0.01325306005959459
     },
     "clabs": {
-      "gate_minus_off": null,
+      "gate_minus_off": -0.01119637240298385,
       "control_minus_off": null,
       "gate_minus_control": null
     },
     "random": {
-      "gate_minus_off": null,
+      "gate_minus_off": 0.025076445506504785,
       "control_minus_off": null,
       "gate_minus_control": null
     }
@@ -487,5 +517,16 @@
     "archived_OFF_speech_verdict_reused": true,
     "new_model_calls": 0
   },
-  "interpretation": "CFP had lower mean effect than its matched constant across the four held-out utterances. CLABS and random stay unmeasured over the full panel. For each, the attempted constant strengths cycled between native patch counts and no exact match was observed in one case."
+  "interpretation": "The four-case gate-versus-OFF means measure the absolute pacing effect. CFP had lower mean effect than its matched constant. The two bounded native searches found no exact constants for dinner CLABS and porch random. Therefore the full-panel equal-dose timing contrasts for CLABS and random remain unmeasured.",
+  "gate_versus_off_completion": {
+    "scope": "All four frozen gate and OFF utterances per method passed independent speech integrity. The two newly measured gate scores use the original qualified PCM pacing method and saved OFF firsts.",
+    "same_dose_control_followup": "sleepy-raw64-bounded-exact-controls.json",
+    "bounded_control_evidence_sha256": "6c5708591b36ffc5241c6bcfa87d7768bcf183e5d9c85570a7c85f10ffa2ce7b",
+    "pacing_qualification_sha256": "42dc9b613d97eda366a1f8f56b660d327ea089a903854aa21fb7b006998267ca",
+    "verification_sha256": "c36710fc6882ac80bbd3526fe1aff90096b7aa9a1fa5980d0b46edcb46d1ccb0",
+    "new_deterministic_pcm_scores": 2,
+    "new_native_calls": 0,
+    "new_observer_model_calls": 0,
+    "default_change": false
+  }
 }

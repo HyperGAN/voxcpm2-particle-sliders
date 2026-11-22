@@ -158,3 +158,116 @@ def test_gate_restores_strength_and_hooks_if_patch_fails():
     with pytest.raises(ValueError, match="fresh ActivationGate"):
         with eos_patch_gate(native, strength=0.75, gate=gate, direction=torch.tensor([1.0])):
             pytest.fail("reused gate")
+
+
+def test_native_eos_spsr_matches_the_shared_edit_on_each_emitted_patch(model):
+    import torch
+    from particle_sliders.prompt_steering import PromptSteering
+    from voxcpm2_native.adapter import ParticleAdapter
+    from voxcpm2_native.frame_strength import eos_patch_spsr
+    from voxcpm2_native.waveform import VoxCPM2WaveBackend
+
+    class StopAtNativeMinimum(nn.Module):
+        def forward(self, hidden):
+            return hidden.new_tensor([[0, 1]])
+
+    model.stop_head = StopAtNativeMinimum()
+    slider = ParticleAdapter(model, seed=7)
+    native = VoxCPM2WaveBackend(model, slider, model_identity={"fixture": "tiny official VoxCPM2"})
+    width = model.lm_to_dit_proj.out_features + model.res_to_dit_proj.out_features
+    steering = PromptSteering(width).eval().requires_grad_(False)
+    with torch.no_grad():
+        steering.probe.bias.fill_(2.0)
+        for branch in slider.branches:
+            branch.lora_up.weight.normal_(std=0.05)
+
+    def render():
+        with torch.random.fork_rng(devices=[]):
+            torch.default_generator.manual_seed(219)
+            return model.generate(target_text="test test", min_len=1, max_len=7,
+                                  inference_timesteps=2, retry_badcase=False)
+
+    try:
+        with native.network.scaled(0.0):
+            off = render()
+        replayed = []
+
+        def shared_edit(_decoder, args, kwargs):
+            edited, coefficient = steering(kwargs["mu"].unsqueeze(1), 1.0)
+            replayed.append(coefficient.item())
+            return args, {**kwargs, "mu": edited.squeeze(1)}
+
+        with native.network.scaled(0.0):
+            hook = model.feat_decoder.register_forward_pre_hook(shared_edit, with_kwargs=True)
+            try:
+                expected = render()
+            finally:
+                hook.remove()
+
+        with native.network.scaled(0.75):
+            with eos_patch_spsr(native, steering=steering, alpha=0.0) as zeros:
+                assert torch.equal(render(), off)
+            assert zeros == [0.0, 0.0, 0.0]
+            with eos_patch_spsr(native, steering=steering, alpha=1.0) as trace:
+                actual = render()
+            assert native.network.scale == 0.75
+            assert all(branch.multiplier == 0.75 for branch in slider.branches)
+        samples_per_patch = model.patch_size * model._decode_chunk_size
+        assert actual.shape == (1, 3 * samples_per_patch)
+        assert torch.equal(actual, expected) and not torch.equal(actual, off)
+        assert trace == replayed and len(trace) == 3 and len(set(trace)) > 1
+        assert len(model.feat_decoder._forward_pre_hooks) == 0
+    finally:
+        slider.close()
+
+
+def test_spsr_uses_fp32_dose_and_restores_scope_on_decoder_failure():
+    import pytest
+    import torch
+    from particle_sliders.prompt_steering import PromptSteering
+    from voxcpm2_native.frame_strength import eos_patch_spsr
+
+    active = 0.25
+
+    @contextmanager
+    def scaled(value):
+        nonlocal active
+        previous, active = active, value
+        try:
+            yield
+        finally:
+            active = previous
+
+    class Decoder(nn.Module):
+        def forward(self, *, mu):
+            assert active == 0.0
+            assert mu.dtype == torch.bfloat16
+            assert mu.item() == torch.tensor(2.1, dtype=torch.bfloat16).item()
+            raise RuntimeError("test decoder failure")
+
+    decoder = Decoder()
+    native = SimpleNamespace(model=SimpleNamespace(feat_decoder=decoder),
+                             slider=SimpleNamespace(hosts=("dit",), names=("feat_decoder.estimator.q_proj",)),
+                             network=SimpleNamespace(scaled=scaled))
+    steering = PromptSteering(1).eval().requires_grad_(False)
+    with torch.no_grad():
+        steering.probe.weight.zero_()
+        steering.probe.bias.fill_(1.1)
+        steering.direction.weight.fill_(10.0)
+
+    with pytest.raises(RuntimeError, match="test decoder failure"):
+        with eos_patch_spsr(native, steering=steering, alpha=0.1) as trace:
+            with torch.autocast(device_type="cpu", dtype=torch.bfloat16):
+                decoder(mu=torch.ones((1, 1), dtype=torch.bfloat16))
+    assert trace == [(torch.tensor(1.1) * torch.tensor(0.1)).item()]
+    assert active == 0.25 and len(decoder._forward_pre_hooks) == 0
+
+    with pytest.raises(ValueError, match="one fused mu row"):
+        with eos_patch_spsr(native, steering=steering, alpha=1.0):
+            decoder(mu=torch.ones((1, 2), dtype=torch.bfloat16))
+    assert active == 0.25 and len(decoder._forward_pre_hooks) == 0
+
+    native.slider.hosts = ("dit", "lm")
+    with pytest.raises(ValueError, match="DiT-only RAW adapter"):
+        with eos_patch_spsr(native, steering=steering, alpha=1.0):
+            pytest.fail("accepted mixed DiT and LM hosts")

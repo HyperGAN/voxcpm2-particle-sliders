@@ -77,10 +77,78 @@ qualified output pairs. Record the speech verdict separately and leave
 incomplete or uncertain pairs unmeasured.
 [Qualified RAW64 comparison and frozen checks](../../docs/sleepy-raw64-shifted-six-native-eos.json)
 
-The saved audio cases contain the fixed-schedule results. They provide no
-qualified fused-row SAE/direction or active-rollout threshold or bias for the
-new gate. The adaptive scope is opt-in pending that calibration and a native
-finished-output comparison.
+The published Sleepy RAW64 study records the probe, active calibration and
+held-out waveform comparisons for these opt-in gates.
+[Native gate study](../../docs/sleepy-raw64-activation-gate-evidence.json)
+
+## Replay the fitted S-PSR intervention
+
+`eos_patch_spsr` reads the fused `mu` row at each official EOS decoder call.
+It applies the shared `PromptSteering` edit `mu + alpha * ReLU(mu @ w + b) * d`
+in FP32, then passes the result to the decoder in its native dtype. The fitted
+weights are `w`, `b` and `d`. The scope holds the DiT-only RAW adapter at
+zero for this standalone study. Each trace entry is the applied FP32
+coefficient `alpha * ReLU(mu @ w + b)`, including the final emitted patch.
+[Steer Like the LLM, equations 7–8](https://arxiv.org/html/2605.03907v1#S3.SS4)
+
+The English Sleepy study used BF16 `mu` at width 2048, VoxCPM2 model revision
+`7936080b41163874f38610f46f438e2c0757f9fd`, and `alpha=1.0` from the study's
+frozen evaluation configuration. The trained `FULL-00045.pt` checkpoint
+contains the fit under `probe`. Its SHA-256 is the `fitted_module_sha256` in
+the study. The fit used 115 native patches from three prompt-paired utterances
+and kept the base model frozen. [Fit and calibration evidence](../../docs/text-only-spsr-heldout-evidence.json)
+
+Use the existing guarded RAW loader to obtain `native` with its original
+owner. Supply the trained checkpoint and the native request from the recorded
+case. Keep the same case seed and disable sampling retries. In the owner's
+open inference session:
+
+```python
+from hashlib import sha256
+from pathlib import Path
+
+import torch
+from particle_sliders.prompt_steering import PromptSteering
+from voxcpm2_native.frame_strength import eos_patch_spsr
+
+native = session.binding.response.__self__.runtime
+checkpoint = Path(fitted_checkpoint)
+if sha256(checkpoint.read_bytes()).hexdigest() != study["fit"]["fitted_module_sha256"]:
+    raise ValueError("unexpected fitted S-PSR checkpoint")
+fit = torch.load(checkpoint, map_location="cpu", weights_only=True)
+steering = PromptSteering(2048).eval().requires_grad_(False)
+steering.load_state_dict(fit["probe"], strict=True)
+steering.to(native.owner.device)
+request = {**native_request, "retry_badcase": False, "trim_silence_vad": False}
+
+with session._observation(seed, {"native_profile": "official-EOS", "request": request}):
+    with torch.inference_mode(), eos_patch_spsr(
+        native, steering=steering, alpha=study["calibration"]["frozen_alpha"]
+    ) as applied_coefficients:
+        waveform = native.model.generate(**request)
+```
+
+Exact replay of the measured WAVs requires the archived `voxcpm2_native95`
+runtime and its original runner, native request, owner and RAW64 checkpoint.
+The original RAW64 SHA-256 is
+`2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e`.
+The current loader validates the current RAW cohort. The trained checkpoint
+and WAVs are archived with the original run.
+
+CPU replay reproduced the original edited BF16 values and FP32 coefficients
+on all 115 saved fit rows. The held-out receipts retain 91 applied
+coefficients and their EOS lengths, which were verified against the control
+dose calculations. Recomputing the held-out coefficients would require the
+pre-edit held-out `mu` rows.
+
+Across four held-out utterances, S-PSR increased mean pacing by `+0.02823`
+versus OFF on the study's log active-duration scale. The two cases with a
+constant matched to the observed EOS dose at FP32 precision averaged
+`+0.00124` versus that constant. The other two timing contrasts are
+unmeasured after the available control search. Store the coefficient trace,
+count and total alongside the WAV, source and checkpoint hashes. Match each
+constant to the adaptive total at the constant's realized native EOS length.
+[Per-case outcomes and control search](../../docs/text-only-spsr-heldout-evidence.json)
 
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:

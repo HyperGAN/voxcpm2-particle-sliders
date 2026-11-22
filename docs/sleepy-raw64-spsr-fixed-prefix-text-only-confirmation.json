@@ -1,0 +1,135 @@
+{
+  "schema": "vox-sleepy-raw64-spsr-fixed-prefix-text-only-confirmation-v1",
+  "raw_sha256": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e",
+  "ema_decay": null,
+  "text_only_fitted_spsr_sha256": "1a35c267a169d76e60e39108f51871aea06b36c395f74a386ba68e2dcecd0c1c",
+  "fit_updates": 45,
+  "source_alpha": 1.0,
+  "scope": "Four fresh stock native text-only inputs",
+  "protocol": {
+    "reference_audio_used": false,
+    "reference_cache_used": false,
+    "prefix_patches": 4,
+    "tail_coefficient": 0,
+    "constant_method": "Nearest FP32 mean of applied S-PSR coefficients over the same prefix",
+    "termination": "Native EOS",
+    "pacing_metric": "Log active speech duration",
+    "pacing_eligibility": "All three transcripts match the original word-count rule"
+  },
+  "native_returned_arms": 12,
+  "speech_integrity_passed_arms": 12,
+  "qualified_pacing_cases": 4,
+  "per_case": [
+    {
+      "case": "sleepy-spsr-text-only-confirm-damp-towel-on-rail",
+      "applied_fp32_constant": 4.4569573402404785,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 12,
+        "spsr": 12,
+        "constant": 12
+      },
+      "log_active_speech_duration": {
+        "OFF": 1.2864740258376797,
+        "spsr": 1.3029127521808397,
+        "constant": 1.252762968495368
+      },
+      "spsr_minus_off": 0.016438726343160015,
+      "constant_minus_off": -0.03371105734231161,
+      "spsr_minus_constant": 0.05014978368547163
+    },
+    {
+      "case": "sleepy-spsr-text-only-confirm-silver-ring-in-drawer",
+      "applied_fp32_constant": 3.347071647644043,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 12,
+        "spsr": 12,
+        "constant": 12
+      },
+      "log_active_speech_duration": {
+        "OFF": 1.0152306797290584,
+        "spsr": 1.0152306797290584,
+        "constant": 1.0224509277025455
+      },
+      "spsr_minus_off": 0.0,
+      "constant_minus_off": 0.007220247973487082,
+      "spsr_minus_constant": -0.007220247973487082
+    },
+    {
+      "case": "sleepy-spsr-text-only-confirm-open-map-on-bench",
+      "applied_fp32_constant": 2.4637362957000732,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 11,
+        "spsr": 11,
+        "constant": 11
+      },
+      "log_active_speech_duration": {
+        "OFF": 0.9400072584914712,
+        "spsr": 1.0715836162801904,
+        "constant": 0.9162907318741551
+      },
+      "spsr_minus_off": 0.13157635778871923,
+      "constant_minus_off": -0.023716526617316047,
+      "spsr_minus_constant": 0.15529288440603528
+    },
+    {
+      "case": "sleepy-spsr-text-only-confirm-mail-truck-at-stone-steps",
+      "applied_fp32_constant": 3.1396803855895996,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 11,
+        "spsr": 11,
+        "constant": 11
+      },
+      "log_active_speech_duration": {
+        "OFF": 0.7608058290337602,
+        "spsr": 0.7514160886839212,
+        "constant": 0.7514160886839212
+      },
+      "spsr_minus_off": -0.009389740349838971,
+      "constant_minus_off": -0.009389740349838971,
+      "spsr_minus_constant": 0.0
+    }
+  ],
+  "full_panel_mean": {
+    "spsr_minus_off": 0.03465633594551007,
+    "constant_minus_off": -0.014899269083994887,
+    "spsr_minus_constant": 0.04955560502950496
+  },
+  "spsr_vs_off": {
+    "wins": 2,
+    "losses": 1,
+    "ties": 1
+  },
+  "spsr_vs_constant": {
+    "wins": 2,
+    "losses": 1,
+    "ties": 1
+  },
+  "qualifies_as_gain_over_off_and_constant": true,
+  "archive_sha256": {
+    "preregistered_panel": "d6aa0f40a17965f0daef30ed68a2c8bbefd4b46b60e597a07cb39682a296f75d",
+    "native_firsts": "781a4378f8e9556ce4b118f42d4e3c891b86e982b1c4a21d1613cb615b096d4d",
+    "original_word_count_source": "7f82a77abd26057e6f740f5cf61be087b6fa1e12fe7f6d6a9bc0fc8e2c1b0726",
+    "independent_observations": "cff9ec61ed4f10621d80bbe57688f0a292d2fbd885fdf680c760c5f49793af33",
+    "verified_native_and_observer_closure": "08d4c1c747f5b743f384ebe3ff746f34d246c9e58671f046f19f5e9bd3d50932"
+  }
+}

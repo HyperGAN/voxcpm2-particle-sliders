@@ -99,3 +99,16 @@ The experimental S-PSR scope can use a fitted coefficient and direction to
 edit the native acoustic patch conditioning directly. The standalone study
 used zero RAW strength and measured the resulting pacing on four held-out
 utterances. [Native S-PSR replay](backends/voxcpm2-native/README.md#replay-the-fitted-s-psr-intervention)
+
+## Cached-prefix Sleepy RAW64 comparison
+
+The shared live calibration reached 3/8 firings for CFP and 5/8 for CLABS,
+both within one patch of the four-of-eight target. Four separate held-out
+utterances used the same native reference cache within each case, the same
+total steering strength on the first four patches, and zero strength in
+the remaining patches through native EOS. All eight comparisons passed
+independent speech integrity.
+
+CFP averaged −0.01023 in intended pacing versus OFF and +0.02130 versus
+its dose-matched constant. CLABS averaged −0.03426 versus OFF and −0.00204
+versus its constant. [Per-case native and pacing evidence](docs/sleepy-raw64-cached-prefix-heldout.json)

@@ -1,0 +1,191 @@
+{
+  "schema": "vox-sleepy-raw64-cached-prefix-heldout-v1",
+  "weights": "raw",
+  "ema_decay": null,
+  "raw_sha256": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e",
+  "calibration": {
+    "shared_live_trials": 16,
+    "cfp_fired": 3,
+    "clabs_fired": 5,
+    "eligible_per_method": 8,
+    "source_sha256": "c5fb12f530043080b0deddb53df0d7f7a324b25376f486789cc3e913fb55b6fd"
+  },
+  "timing": {
+    "eligible_native_patches": 4,
+    "same_reference_cache_per_case": true,
+    "matched_applied_prefix_dose": true,
+    "tail_strength": 0,
+    "termination": "native EOS"
+  },
+  "observer": {
+    "independent_pacing": "original qualified active-duration instrument",
+    "distinct_speech_fixtures": 13,
+    "equal_case_weights": true,
+    "independent_integrity_passed": true
+  },
+  "heldout": {
+    "cases": 4,
+    "complete_logical_native_arms": 20,
+    "original_off_clips_reused": 1
+  },
+  "per_pair": [
+    {
+      "case": "sleepy-heldout-quilt",
+      "method": "cfp",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.75,
+        "exact_dose": 3.0
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": -0.03802739558923929,
+      "control_minus_off": -0.03802739558923929,
+      "gate_minus_control": 0.0
+    },
+    {
+      "case": "sleepy-heldout-quilt",
+      "method": "clabs",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.5625,
+        "exact_dose": 2.25
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": -0.03802739558923929,
+      "control_minus_off": -0.022642476749759832,
+      "gate_minus_control": -0.015384918839479456
+    },
+    {
+      "case": "sleepy-heldout-compass",
+      "method": "cfp",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.5625,
+        "exact_dose": 2.25
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": -0.024692612590371588,
+      "control_minus_off": -0.10265415406008327,
+      "gate_minus_control": 0.07796154146971168
+    },
+    {
+      "case": "sleepy-heldout-compass",
+      "method": "clabs",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.75,
+        "exact_dose": 3.0
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": -0.12083647314327373,
+      "control_minus_off": -0.12083647314327373,
+      "gate_minus_control": 0.0
+    },
+    {
+      "case": "sleepy-heldout-violin",
+      "method": "cfp",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.5625,
+        "exact_dose": 2.25
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": 0.02181904739463958,
+      "control_minus_off": 0.014598799421152497,
+      "gate_minus_control": 0.007220247973487082
+    },
+    {
+      "case": "sleepy-heldout-violin",
+      "method": "clabs",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.5625,
+        "exact_dose": 2.25
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": 0.02181904739463958,
+      "control_minus_off": 0.014598799421152497,
+      "gate_minus_control": 0.007220247973487082
+    },
+    {
+      "case": "sleepy-heldout-paperweight",
+      "method": "cfp",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.0,
+        "exact_dose": 0.0
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": 0.0,
+      "control_minus_off": 0.0,
+      "gate_minus_control": 0.0
+    },
+    {
+      "case": "sleepy-heldout-paperweight",
+      "method": "clabs",
+      "native_dose": {
+        "matched_dose_comparison": true,
+        "prefix": 4,
+        "constant": 0.0,
+        "exact_dose": 0.0
+      },
+      "independent_speech_integrity": {
+        "OFF": "pass",
+        "gate": "pass",
+        "control": "pass"
+      },
+      "gate_minus_off": 0.0,
+      "control_minus_off": 0.0,
+      "gate_minus_control": 0.0
+    }
+  ],
+  "means": {
+    "cfp": {
+      "gate_minus_off": -0.010225240196242824,
+      "control_minus_off": -0.031520687557042515,
+      "gate_minus_control": 0.02129544736079969
+    },
+    "clabs": {
+      "gate_minus_off": -0.03426120533446836,
+      "control_minus_off": -0.032220037617970265,
+      "gate_minus_control": -0.0020411677164980935
+    }
+  },
+  "source_observations_sha256": "72e94ec3f2e3adb38b1c00c7cb1a0062feec7b42fbf17479d6199ed280b33aa4",
+  "native_receipt_sha256": "5ee5bcf5da182fd93b81918fb73d6f22a7715e39b4f74d28f9d5283153843d83"
+}

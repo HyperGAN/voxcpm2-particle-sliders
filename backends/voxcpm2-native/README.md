@@ -168,6 +168,16 @@ count and total alongside the WAV, source and checkpoint hashes. Match each
 constant to the adaptive total at the constant's realized native EOS length.
 [Per-case outcomes and control search](../../docs/text-only-spsr-heldout-evidence.json)
 
+For a separate fixed-prefix study, pass `eligible_patches` to
+`eos_patch_spsr`. Use the same guaranteed native prefix in the adaptive and
+dose-matched runs. The hook passes through all later decoder inputs and
+records a zero coefficient on each. With the fitted direction held fixed,
+the constant control uses the nearest representable FP32 mean of the
+applied adaptive coefficients across the prefix. A shared
+`PromptSteering` module with zero probe weights and that mean as its probe
+bias applies this coefficient at `alpha=1`.
+
+
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:
 

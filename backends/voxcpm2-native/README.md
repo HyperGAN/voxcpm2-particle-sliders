@@ -177,6 +177,14 @@ applied adaptive coefficients across the prefix. A shared
 `PromptSteering` module with zero probe weights and that mean as its probe
 bias applies this coefficient at `alpha=1`.
 
+The reference-conditioned fixed-prefix study used the fitted text-only
+module at alpha 1 for four native patches. All 12 clips passed independent
+speech integrity. Two of four cases had matching transcript word counts and
+qualified for pacing. Across those two, S-PSR averaged `+0.00257` versus OFF
+and `+0.01433` versus the dose-matched constant on the log active-duration
+scale. The full-panel effect remains unmeasured.
+[Fixed-prefix per-case evidence](../../docs/sleepy-raw64-spsr-fixed-prefix-heldout.json)
+
 
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:

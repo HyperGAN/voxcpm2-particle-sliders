@@ -252,6 +252,14 @@ def test_native_eos_spsr_matches_the_shared_edit_on_each_emitted_patch(model):
         assert actual.shape == (1, 3 * samples_per_patch)
         assert torch.equal(actual, expected) and not torch.equal(actual, off)
         assert trace == replayed and len(trace) == 3 and len(set(trace)) > 1
+
+        with native.network.scaled(0.75):
+            with eos_patch_spsr(native, steering=steering, alpha=1.0, eligible_patches=2) as prefix_trace:
+                prefix_audio = render()
+            assert native.network.scale == 0.75
+        assert prefix_trace == trace[:2] + [0.0]
+        assert prefix_audio.shape == actual.shape
+        assert not torch.equal(prefix_audio, actual)
         assert len(model.feat_decoder._forward_pre_hooks) == 0
     finally:
         slider.close()
@@ -301,6 +309,14 @@ def test_spsr_uses_fp32_dose_and_restores_scope_on_decoder_failure():
     with pytest.raises(ValueError, match="one fused mu row"):
         with eos_patch_spsr(native, steering=steering, alpha=1.0):
             decoder(mu=torch.ones((1, 2), dtype=torch.bfloat16))
+    assert active == 0.25 and len(decoder._forward_pre_hooks) == 0
+
+    with pytest.raises(ValueError, match="eligible_patches must be a positive integer"):
+        with eos_patch_spsr(native, steering=steering, alpha=1.0, eligible_patches=True):
+            pytest.fail("accepted an invalid prefix")
+    with pytest.raises(RuntimeError, match="finished before emitting the eligible prefix"):
+        with eos_patch_spsr(native, steering=steering, alpha=1.0, eligible_patches=2):
+            pass
     assert active == 0.25 and len(decoder._forward_pre_hooks) == 0
 
     native.slider.hosts = ("dit", "lm")

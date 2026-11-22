@@ -131,11 +131,13 @@ def eos_patch_gate(native, *, strength, gate, direction, eligible_patches=None):
 
 
 @contextmanager
-def eos_patch_spsr(native, *, steering, alpha):
+def eos_patch_spsr(native, *, steering, alpha, eligible_patches=None):
     """Apply fitted S-PSR to each native EOS decoder conditioning row.
 
     The RAW adapter is disabled for this standalone intervention. The trace
     records the applied FP32 coefficient of the fitted direction per patch.
+    An eligible prefix limits the edit to that many initial patches. The
+    remaining decoder inputs pass through with a zero coefficient in the trace.
     """
     import torch
     from particle_sliders.prompt_steering import PromptSteering
@@ -144,6 +146,8 @@ def eos_patch_spsr(native, *, steering, alpha):
 
     if type(alpha) not in (int, float) or not 0 <= alpha <= torch.finfo(torch.float32).max:
         raise ValueError("VoxCPM2 S-PSR alpha must be finite and nonnegative in FP32")
+    if eligible_patches is not None and (type(eligible_patches) is not int or eligible_patches <= 0):
+        raise ValueError("eligible_patches must be a positive integer")
     if not isinstance(steering, PromptSteering):
         raise TypeError("VoxCPM2 S-PSR requires the fitted shared PromptSteering module")
     adapter = native.slider
@@ -168,6 +172,9 @@ def eos_patch_spsr(native, *, steering, alpha):
             raise ValueError("native EOS requires one fused mu row matching the S-PSR fit")
         if require_owner(mu.device) is not owner:
             raise ValueError("the native EOS sampler must retain its original CUDA owner")
+        if eligible_patches is not None and len(trace) >= eligible_patches:
+            trace.append(0.0)
+            return None
         with torch.autocast(device_type=device.type, enabled=False):
             edited, coefficient = steering(mu.unsqueeze(1), alpha)
             applied = float((coefficient * coefficient.new_tensor(alpha)).item())
@@ -181,3 +188,5 @@ def eos_patch_spsr(native, *, steering, alpha):
         hook = native.model.feat_decoder.register_forward_pre_hook(before_patch, with_kwargs=True)
         scope.callback(hook.remove)
         yield trace
+    if eligible_patches is not None and len(trace) < eligible_patches:
+        raise RuntimeError("VoxCPM2 finished before emitting the eligible prefix")

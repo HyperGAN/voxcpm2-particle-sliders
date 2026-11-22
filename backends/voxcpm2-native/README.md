@@ -81,6 +81,24 @@ The published Sleepy RAW64 study records the probe, active calibration and
 held-out waveform comparisons for these opt-in gates.
 [Native gate study](../../docs/sleepy-raw64-activation-gate-evidence.json)
 
+### Compare timing over a shared native prefix
+
+Set `eligible_patches` to compare timing within a prefix every arm emits.
+In the pinned cached sampler, use `min_len + 2` when `max_len` permits it.
+The native stop check runs after emission and requires the zero-based
+patch index to exceed `min_len`. All arms continue to native EOS. The
+gate counts only the prefix, and the trace records zero strength for all
+later patches. A run that ends before the requested prefix raises an error.
+
+Calibrate the gate separately on that prefix. For a held-out run whose
+gate fired `k` times over `n` eligible patches at strength `a`, pass
+`[a * k / n] * n + [0.0]` to `eos_patch_schedule` for its constant control.
+Record the applied strength traces and verify their summed strength at
+native precision. Score the entire finished waveforms and check speech
+integrity independently. This comparison controls the applied strength
+when the adaptive and constant utterances end after different numbers of
+patches.
+
 ## Replay the fitted S-PSR intervention
 
 `eos_patch_spsr` reads the fused `mu` row at each official EOS decoder call.

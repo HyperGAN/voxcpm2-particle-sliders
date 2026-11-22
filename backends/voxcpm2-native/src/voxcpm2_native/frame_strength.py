@@ -69,18 +69,24 @@ def eos_patch_schedule(native, strengths):
 
 
 @contextmanager
-def eos_patch_gate(native, *, strength, gate, direction):
+def eos_patch_gate(native, *, strength, gate, direction, eligible_patches=None):
     """Gate the DiT-only RAW adapter on each eager native-EOS acoustic patch.
 
     The official cached loop passes the current fused LM conditioning as
     ``mu`` before DiT generation. Its projections are outside this adapter's
     hosts. Hold the gate decision for the full native DiT patch call.
+
+    When eligible_patches is set, apply the gate to exactly that many initial
+    patches and continue to native EOS at zero strength. Tail trace entries
+    have no score or probability.
     """
     import torch
     from particle_sliders.adaptive_steering import ActivationGate, activation_projection
 
     if type(strength) not in (int, float) or not 0 < strength <= 1:
         raise ValueError("VoxCPM2 gated RAW strength must be in (0, 1]")
+    if eligible_patches is not None and (type(eligible_patches) is not int or eligible_patches <= 0):
+        raise ValueError("eligible_patches must be a positive integer")
     adapter = getattr(native, "slider", native.network)
     if tuple(adapter.hosts) != ("dit",):
         raise ValueError("native acoustic patch gating requires a DiT-only RAW adapter")
@@ -97,6 +103,10 @@ def eos_patch_gate(native, *, strength, gate, direction):
     scope = ExitStack()
 
     def before_patch(_decoder, _args, kwargs):
+        if eligible_patches is not None and len(trace) >= eligible_patches:
+            scope.enter_context(native.network.scaled(0.0))
+            trace.append(dict(score=None, probability=None, fired=False, strength=0.0))
+            return
         mu = kwargs.get("mu")
         if not isinstance(mu, torch.Tensor) or mu.ndim != 2 or mu.shape[0] != 1:
             raise RuntimeError("native EOS patch must supply one fused LM conditioning row as mu")
@@ -116,6 +126,8 @@ def eos_patch_gate(native, *, strength, gate, direction):
         handles.callback(decoder.register_forward_hook(after_patch, always_call=True).remove)
         handles.callback(scope.close)
         yield trace
+    if eligible_patches is not None and len(trace) < eligible_patches:
+        raise RuntimeError("VoxCPM2 finished before emitting the eligible prefix")
 
 
 @contextmanager

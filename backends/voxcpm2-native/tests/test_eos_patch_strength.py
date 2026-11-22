@@ -95,6 +95,18 @@ def test_native_eos_gate_matches_off_and_replays_strengths(model):
         assert len(replayed) == 3
         assert torch.equal(adaptive, fixed_replay)
         assert not torch.equal(adaptive, off)
+
+        prefix = ActivationGate("cfp", off_trace[0]["score"])
+        with native.network.scaled(strength):
+            with eos_patch_gate(native, strength=strength, gate=prefix,
+                                direction=direction, eligible_patches=2) as prefix_trace:
+                prefix_audio = render()
+            assert all(branch.multiplier == strength for branch in slider.branches)
+        assert prefix.usage.eligible == 2 and prefix_trace[:2] == trace[:2]
+        assert prefix_trace[2] == dict(score=None, probability=None, fired=False, strength=0.0)
+        assert prefix_audio.shape == off.shape
+        with eos_patch_schedule(native, [entry["strength"] for entry in prefix_trace]):
+            assert torch.equal(render(), prefix_audio)
         assert len(model.feat_decoder._forward_pre_hooks) == len(model.feat_decoder._forward_hooks) == 0
     finally:
         slider.close()
@@ -158,6 +170,30 @@ def test_gate_restores_strength_and_hooks_if_patch_fails():
     with pytest.raises(ValueError, match="fresh ActivationGate"):
         with eos_patch_gate(native, strength=0.75, gate=gate, direction=torch.tensor([1.0])):
             pytest.fail("reused gate")
+
+
+def test_eos_gate_refuses_missing_eligible_prefix():
+    from contextlib import nullcontext
+
+    import pytest
+    import torch
+    from particle_sliders.adaptive_steering import ActivationGate
+    from voxcpm2_native.frame_strength import eos_patch_gate
+
+    decoder = nn.Identity()
+    adapter = SimpleNamespace(hosts=("dit",), scaled=lambda _value: nullcontext())
+    native = SimpleNamespace(model=SimpleNamespace(feat_decoder=decoder), network=adapter)
+    gate = ActivationGate("cfp", 2)
+    with pytest.raises(ValueError, match="positive integer"):
+        with eos_patch_gate(native, strength=0.75, gate=gate, direction=torch.tensor([1.0]),
+                            eligible_patches=0):
+            pytest.fail("accepted an empty prefix")
+    with pytest.raises(RuntimeError, match="before emitting the eligible prefix"):
+        with eos_patch_gate(native, strength=0.75, gate=gate, direction=torch.tensor([1.0]),
+                            eligible_patches=2):
+            pass
+    assert gate.usage.eligible == 0
+    assert len(decoder._forward_pre_hooks) == len(decoder._forward_hooks) == 0
 
 
 def test_native_eos_spsr_matches_the_shared_edit_on_each_emitted_patch(model):

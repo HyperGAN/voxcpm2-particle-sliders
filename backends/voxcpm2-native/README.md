@@ -185,6 +185,14 @@ and `+0.01433` versus the dose-matched constant on the log active-duration
 scale. The full-panel effect remains unmeasured.
 [Fixed-prefix per-case evidence](../../docs/sleepy-raw64-spsr-fixed-prefix-heldout.json)
 
+A fresh four-utterance confirmation used the same text-only fit, stock
+reference conditioning, and four-patch comparison. All 12 clips passed
+independent speech integrity, and each case met the matched word-count
+rule. S-PSR averaged `−0.01698` versus OFF and `+0.00359` versus the
+dose-matched constant on the log active-duration scale. The test failed
+the positive-effect criterion versus OFF for this profile.
+[Four-case confirmation](../../docs/sleepy-raw64-spsr-fixed-prefix-cached-confirmation.json)
+
 
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:

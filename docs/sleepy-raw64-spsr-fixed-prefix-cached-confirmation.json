@@ -1,0 +1,129 @@
+{
+  "schema": "vox-sleepy-raw64-spsr-fixed-prefix-reference-conditioned-confirmation-v1",
+  "raw_sha256": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e",
+  "ema_decay": null,
+  "text_only_fitted_spsr_sha256": "1a35c267a169d76e60e39108f51871aea06b36c395f74a386ba68e2dcecd0c1c",
+  "fit_updates": 45,
+  "source_alpha": 1.0,
+  "protocol": {
+    "conditioning": "Locked stock features; two cases per existing feature, fixed within each case",
+    "prefix_patches": 4,
+    "constant_method": "Nearest FP32 mean of applied S-PSR coefficients over the same prefix",
+    "tail_coefficient": 0,
+    "termination": "Native EOS",
+    "pacing_metric": "Log active speech duration",
+    "pacing_eligibility": "All three transcripts match the original word-count rule"
+  },
+  "native_returned_arms": 12,
+  "speech_integrity_passed_arms": 12,
+  "qualified_pacing_cases": 4,
+  "per_case": [
+    {
+      "case": "sleepy-spsr-plain-confirm-red-cup-blue-bowl",
+      "applied_fp32_constant": 3.772462844848633,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 13,
+        "spsr": 13,
+        "constant": 13
+      },
+      "log_active_speech_duration": {
+        "OFF": 1.2809338454620642,
+        "spsr": 1.2296405510745139,
+        "constant": 1.247032293786383
+      },
+      "spsr_minus_off": -0.05129329438755037,
+      "constant_minus_off": -0.03390155167568132,
+      "spsr_minus_constant": -0.01739174271186905
+    },
+    {
+      "case": "sleepy-spsr-plain-confirm-black-cat-green-chair",
+      "applied_fp32_constant": 3.574159622192383,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 12,
+        "spsr": 12,
+        "constant": 12
+      },
+      "log_active_speech_duration": {
+        "OFF": 0.9858167945227654,
+        "spsr": 0.9707789171582248,
+        "constant": 0.9082585601768908
+      },
+      "spsr_minus_off": -0.015037877364540542,
+      "constant_minus_off": -0.07755823434587461,
+      "spsr_minus_constant": 0.06252035698133407
+    },
+    {
+      "case": "sleepy-spsr-plain-confirm-bird-branch-quiet-pond",
+      "applied_fp32_constant": 3.301722288131714,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 11,
+        "spsr": 11,
+        "constant": 11
+      },
+      "log_active_speech_duration": {
+        "OFF": 0.9477893989335261,
+        "spsr": 0.9400072584914712,
+        "constant": 0.9707789171582248
+      },
+      "spsr_minus_off": -0.007782140442054941,
+      "constant_minus_off": 0.022989518224698746,
+      "spsr_minus_constant": -0.030771658666753687
+    },
+    {
+      "case": "sleepy-spsr-plain-confirm-yellow-bus-by-gate",
+      "applied_fp32_constant": 3.7330055236816406,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 12,
+        "spsr": 12,
+        "constant": 12
+      },
+      "log_active_speech_duration": {
+        "OFF": 1.169381359556317,
+        "spsr": 1.1755733298042381,
+        "constant": 1.1755733298042381
+      },
+      "spsr_minus_off": 0.006191970247921175,
+      "constant_minus_off": 0.006191970247921175,
+      "spsr_minus_constant": 0.0
+    }
+  ],
+  "full_panel_mean": {
+    "spsr_minus_off": -0.01698033548655617,
+    "constant_minus_off": -0.020569574387234002,
+    "spsr_minus_constant": 0.0035892389006778325
+  },
+  "spsr_vs_constant": {
+    "wins": 1,
+    "losses": 2,
+    "ties": 1
+  },
+  "qualifies_as_gain_over_off_and_constant": false,
+  "scope": "Reference-conditioned transfer of the preserved text-only fit on four prospective cases.",
+  "archive_sha256": {
+    "preregistered_panel": "50f4c2d0f0a31fda72cab116909fc3028a95627d1a053e740deecfc2475e1751",
+    "native_firsts": "a5f99a8a62b591cbb1ed90fa5d6b6054ac1fc22bdbc5eaf54c6a70e66a1b2ae6",
+    "original_word_count_source": "7f82a77abd26057e6f740f5cf61be087b6fa1e12fe7f6d6a9bc0fc8e2c1b0726",
+    "independent_observations": "a78a028698b26d7d3a4c08dec319cb2a4bdc607f004424b897347332bf5069f7",
+    "verified_native_and_observer_closure": "3f5484a76fc2e4aebba55e283b4594189757d7372f41f4db029d6b8bc3f96ab1"
+  }
+}

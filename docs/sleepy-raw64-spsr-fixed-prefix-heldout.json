@@ -1,0 +1,112 @@
+{
+  "schema": "vox-sleepy-raw64-spsr-fixed-prefix-heldout-v1",
+  "ema_decay": null,
+  "raw_sha256": "2f43ce750c03503a90a01423aa850d9b3c97edd6ca5e8ae515170546d655903e",
+  "raw_strength_all_arms": 0.0,
+  "text_only_fitted_spsr_sha256": "1a35c267a169d76e60e39108f51871aea06b36c395f74a386ba68e2dcecd0c1c",
+  "fit_updates": 45,
+  "source_alpha": 1.0,
+  "protocol": {
+    "conditioning": "Matched stock reference cache and initial DiT input per case",
+    "prefix_patches": 4,
+    "constant_method": "Nearest FP32 mean of applied S-PSR coefficients over the same prefix",
+    "tail_coefficient": 0.0,
+    "termination": "Native EOS",
+    "pacing_metric": "Log active speech duration",
+    "pacing_eligibility": "All three transcripts have the same word count under the original observer"
+  },
+  "native_returned_arms": 12,
+  "speech_integrity_passed_arms": 12,
+  "qualified_pacing_cases": 2,
+  "per_case": [
+    {
+      "case": "sleepy-spsr-heldout-doormat",
+      "applied_fp32_constant": 4.309380054473877,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 14,
+        "spsr": 14,
+        "constant": 14
+      },
+      "qualified_pacing": true,
+      "spsr_minus_off": -0.01562531790308086,
+      "constant_minus_off": -0.023530497410194195,
+      "spsr_minus_constant": 0.007905179507113336
+    },
+    {
+      "case": "sleepy-spsr-heldout-barometer",
+      "applied_fp32_constant": 4.938950061798096,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 13,
+        "spsr": 12,
+        "constant": 12
+      },
+      "qualified_pacing": false,
+      "spsr_minus_off": null,
+      "constant_minus_off": null,
+      "spsr_minus_constant": null
+    },
+    {
+      "case": "sleepy-spsr-heldout-windsock",
+      "applied_fp32_constant": 4.002148628234863,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 15,
+        "spsr": 14,
+        "constant": 14
+      },
+      "qualified_pacing": false,
+      "spsr_minus_off": null,
+      "constant_minus_off": null,
+      "spsr_minus_constant": null
+    },
+    {
+      "case": "sleepy-spsr-heldout-wheelbarrow",
+      "applied_fp32_constant": 3.9419593811035156,
+      "speech_integrity": {
+        "OFF": "pass",
+        "spsr": "pass",
+        "constant": "pass"
+      },
+      "matched_transcript_word_counts": {
+        "OFF": 12,
+        "spsr": 12,
+        "constant": 12
+      },
+      "qualified_pacing": true,
+      "spsr_minus_off": 0.020761991448429162,
+      "constant_minus_off": 0.0,
+      "spsr_minus_constant": 0.020761991448429162
+    }
+  ],
+  "full_panel_mean": {
+    "spsr_minus_off": null,
+    "constant_minus_off": null,
+    "spsr_minus_constant": null
+  },
+  "measured_subset_mean": {
+    "spsr_minus_off": 0.0025683367726741513,
+    "constant_minus_off": -0.011765248705097098,
+    "spsr_minus_constant": 0.014333585477771249
+  },
+  "archive_sha256": {
+    "preregistered_native_panel": "b82b11ecd3b8875b6d7632f46e2810201f9625b52e8be48f73b15883adc4dcb5",
+    "native_firsts": "88fc33b4404ef5b9854e3b81890d1a6095d7c73a41b0b9532530531ac2f04b2c",
+    "pacing_and_integrity_observations": "1e4c1b6a36c87687d209aeba17d1dea1dfdb72c2f8b02d94d69ffbe95fd7601b",
+    "verified_word_count_disposition": "8baff416bc50fe87dfcd0a7e93c4bcbad0e8ed87ec23ce57bda9c27b0df21c89",
+    "original_pacing_instrument": "7f82a77abd26057e6f740f5cf61be087b6fa1e12fe7f6d6a9bc0fc8e2c1b0726"
+  }
+}

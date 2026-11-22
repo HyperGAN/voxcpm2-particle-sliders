@@ -94,3 +94,8 @@ by −0.00935 for CFP, −0.01120 for CLABS and +0.02508 for random. CFP average
 timing contrasts remain unmeasured after the bounded searches.
 [Activation-gate evidence](docs/sleepy-raw64-activation-gate-evidence.json) ·
 [Exact-control searches](docs/sleepy-raw64-bounded-exact-controls.json)
+
+The experimental S-PSR scope can use a fitted coefficient and direction to
+edit the native acoustic patch conditioning directly. The standalone study
+used zero RAW strength and measured the resulting pacing on four held-out
+utterances. [Native S-PSR replay](backends/voxcpm2-native/README.md#replay-the-fitted-s-psr-intervention)

@@ -1,6 +1,7 @@
 """Schedule one gain per native autoregressive acoustic patch."""
 
 from contextlib import ExitStack, contextmanager
+from math import isfinite
 from sys import float_info
 
 
@@ -114,4 +115,57 @@ def eos_patch_gate(native, *, strength, gate, direction):
         handles.callback(decoder.register_forward_pre_hook(before_patch, with_kwargs=True).remove)
         handles.callback(decoder.register_forward_hook(after_patch, always_call=True).remove)
         handles.callback(scope.close)
+        yield trace
+
+
+@contextmanager
+def eos_patch_spsr(native, *, steering, alpha):
+    """Apply fitted S-PSR to each native EOS decoder conditioning row.
+
+    The RAW adapter is disabled for this standalone intervention. The trace
+    records the applied FP32 coefficient of the fitted direction per patch.
+    """
+    import torch
+    from particle_sliders.prompt_steering import PromptSteering
+
+    from .runtime import require_owner
+
+    if type(alpha) not in (int, float) or not 0 <= alpha <= torch.finfo(torch.float32).max:
+        raise ValueError("VoxCPM2 S-PSR alpha must be finite and nonnegative in FP32")
+    if not isinstance(steering, PromptSteering):
+        raise TypeError("VoxCPM2 S-PSR requires the fitted shared PromptSteering module")
+    adapter = native.slider
+    if (tuple(adapter.hosts) != ("dit",) or not adapter.names
+            or any(not name.startswith("feat_decoder.estimator.") for name in adapter.names)):
+        raise ValueError("native acoustic patch S-PSR requires a DiT-only RAW adapter")
+    device = steering.probe.weight.device
+    owner = require_owner(device)
+    if owner is not None and owner is not native.owner:
+        raise ValueError("the native EOS sampler must retain its original CUDA owner")
+    if any(value.dtype != torch.float32 or value.device != device
+           or not torch.isfinite(value).all() for value in steering.parameters()):
+        raise ValueError("VoxCPM2 S-PSR requires finite, co-located FP32 parameters")
+    width = steering.probe.in_features
+    trace = []
+
+    @torch.no_grad()
+    def before_patch(_decoder, args, kwargs):
+        mu = kwargs.get("mu")
+        if (args or not isinstance(mu, torch.Tensor) or mu.shape != (1, width)
+                or mu.dtype not in (torch.bfloat16, torch.float32) or mu.device != device):
+            raise ValueError("native EOS requires one fused mu row matching the S-PSR fit")
+        if require_owner(mu.device) is not owner:
+            raise ValueError("the native EOS sampler must retain its original CUDA owner")
+        with torch.autocast(device_type=device.type, enabled=False):
+            edited, coefficient = steering(mu.unsqueeze(1), alpha)
+            applied = float((coefficient * coefficient.new_tensor(alpha)).item())
+        if not isfinite(applied) or not torch.isfinite(edited).all():
+            raise ValueError("nonfinite native S-PSR edit")
+        trace.append(applied)
+        return args, {**kwargs, "mu": edited.squeeze(1)}
+
+    with ExitStack() as scope:
+        scope.enter_context(native.network.scaled(0.0))
+        hook = native.model.feat_decoder.register_forward_pre_hook(before_patch, with_kwargs=True)
+        scope.callback(hook.remove)
         yield trace

@@ -15,7 +15,8 @@
     "inference.py": "5ba3cfa3df3a3afce0b7b4d9b011ffa2b8585b48b531c36c3122d7983231ddbe",
     "routed_projection.py": "d71e032c1a578e7fdc0494b3d43b982b3b4afdbc4ba859f21f75e2118c347e04",
     "reference.py": "2c5809edd3818fab9efdd0c5234ea6b5027de5fc0130155e537950471018a371",
-    "adaptive_steering.py": "5fc2a5256a935eca9cecc365d9ac62e5e94cdc375d2ab33c5dc26eb344241814"
+    "adaptive_steering.py": "5fc2a5256a935eca9cecc365d9ac62e5e94cdc375d2ab33c5dc26eb344241814",
+    "prompt_steering.py": "67ee03066e255fe105735820b0edba53757d943b93239b1279de707d23dbae59"
   },
   "checked_product_files": {
     "fibo_hndl.py": "4d75dc42bb3ca415b5bc36e787b547b8387d1fe7ec4c6383e07017b3c23fc9f0",

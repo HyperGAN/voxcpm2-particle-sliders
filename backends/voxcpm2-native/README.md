@@ -193,6 +193,22 @@ dose-matched constant on the log active-duration scale. The test failed
 the positive-effect criterion versus OFF for this profile.
 [Four-case confirmation](../../docs/sleepy-raw64-spsr-fixed-prefix-cached-confirmation.json)
 
+#### Qualified text-only fixed-prefix replay
+
+The original text-only stock path passed a separate four-case confirmation
+without reference audio or a reference cache. Use the pinned 45-update
+fit at its original alpha of 1 and pass `eligible_patches=4` to
+`eos_patch_spsr`. The original minimum length guarantees those four patch
+calls. After the prefix, the native decoder continues through EOS with zero
+added coefficients. The companion constant uses the observed FP32 mean over
+the same prefix for that case.
+
+All 12 clips passed independent speech integrity and all four comparisons
+qualified for pacing. S-PSR averaged `+0.03466` versus OFF and `+0.04956`
+versus the dose-matched constant on the log active-duration scale. The
+measured result applies to this text-only fit and native sampler.
+[Text-only confirmation](../../docs/sleepy-raw64-spsr-fixed-prefix-text-only-confirmation.json)
+
 
 For the CPU fixtures, install matching CPU PyTorch and torchaudio wheels before
 installing this subproject. For example, from this directory:

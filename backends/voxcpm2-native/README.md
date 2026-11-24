@@ -200,12 +200,15 @@ without reference audio or a reference cache. Use the pinned 45-update
 fit at its original alpha of 1 and pass `eligible_patches=4` to
 `eos_patch_spsr`. The original minimum length guarantees those four patch
 calls. After the prefix, the native decoder continues through EOS with zero
-added coefficients. The companion constant uses the observed FP32 mean over
-the same prefix for that case.
+added coefficients. The companion constant uses the closest FP32 value
+to the mean of the observed coefficients over the same prefix. Two of the
+four means lie exactly between adjacent FP32 values. The comparison uses the
+archived choice in each case. The largest absolute difference in summed
+coefficient over the four patches was 4.77 × 10⁻⁷.
 
 All 12 clips passed independent speech integrity and all four comparisons
 qualified for pacing. S-PSR averaged `+0.03466` versus OFF and `+0.04956`
-versus the dose-matched constant on the log active-duration scale. The
+versus the archived constants on the log active-duration scale. The
 measured result applies to this text-only fit and native sampler.
 [Text-only confirmation](../../docs/sleepy-raw64-spsr-fixed-prefix-text-only-confirmation.json)
 
